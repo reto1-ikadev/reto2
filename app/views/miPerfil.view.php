@@ -13,61 +13,84 @@
 </head>
 <body>
     <!-- AQUI SE IMPORTA EL ENCABEZADO -->
+   
     <div id = "contenedor">
+    <header></header>  
         <div id = "main">
-        <h4>Mis datos:</h4>
+            <h4>Mis datos:</h4>
             <div class = "division">
                 
                 <div class = "lineaF">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre">
                 </div>
+
                 <div class = "lineaF">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" name="apellido">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido">
                 </div>
+
                 <div class = "lineaF">
                     <label for="correo">eMail</label>
                     <input type="text" id="correo" name="correo">
                 </div>
+                
+                <!--
                 <div class = "lineaF">
-                    <label for="num">Numero de empleado</label>
+                    <label for="num">Nº empleado</label>
                     <input type="text" id="num" name="num">
-                </div>
+                </div> -->
+
                 <div class = "lineaF">
                     <label for="pass">Contrase&ntilde;a</label>
                     <input type="text" id="pass" name="pass">
                 </div>
+
                 <div class = "lineaF">
                     <label for="dept">Departamento</label>
                     <input type="text" id="dept" name="dept">
                 </div>
+
                 <div id="botones"> 
-                <button class = "boton">Aceptar</button> <button class = "boton">Borrar</button>
-                
+                <button class = "boton">Actualizar</button>
                 </div>
                 
-            
             </div>
-            <div class = "division"></div>
-            <div class = "division"></div>
+            <h4>Mis preguntas:</h4>
+            <div class = "division">
+                <div class = "pregunta">
+                    <h4>Aquí se genera el titulo de la pregunta </h4>
+                    <div><span class="material-symbols-outlined">delete</span><span class="material-symbols-outlined">edit</span></div>
+                </div>
+            </div>
+
+            <h4>Mis favoritos:</h4>
+            <div class = "division">
+                <div class = "favorito">
+                        <h4>Aquí se genera el titulo de la pregunta favorita</h4>
+                        <div><span class="material-symbols-outlined">star_rate</span></div>
+                </div>
+            </div>
         </div>
 
         <div id = "aside">
-            <p>aside</p>
             <!-- FOTO DE PERFIL Y NOTIFICACIONES -->
             <div id="fotoPerfil">
                 <!-- FOTO DE PERFIL -->
+                <img src="avatar.png" alt="avatar">
             </div>
 
-            <div id="notificaciones">
                 <!--NOTIFICACIONES -->
+            <div class = "division">
+                <div class = "notificaciones">
+                    <h4>Aquí se generan las notificaciones</h4>
+                </div>
+                
             </div>
+            
         </div>
+
+        <footer></footer>
     </div>
-
-
-    
-    <!-- AQUI SE IMPORTA EL PIE DE PAGINA -->
 </body>
 </html>
