@@ -13,29 +13,47 @@
 </head>
 <body>
     <!-- AQUI SE IMPORTA EL ENCABEZADO -->
-    <div id="contenedor">
+    <div id = "contenedor">
         <div id = "main">
-            <div id="misDatos">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre">
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido">
-                <label for="correo">eMail</label>
-                <input type="text" id="correo" name="correo">
-                <label for="num">Numero de empleado</label>
-                <input type="text" id="num" name="num">
-                <label for="pass">Contrase&ntilde;a</label>
-                <input type="text" id="pass" name="pass">
-                <label for="dept">Departamento</label>
-                <input type="text" id="dept" name="dept">
-                <button>Aceptar</button> <button>Borrar</button>
-                <a href="login.view.php">Volver</a>
+            <div class = "division">
+                <div class="supDiv"><h4>Mis datos:</h4></div>
+                
+                <div class = "lineaF">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+                <div class = "lineaF">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido">
+                </div>
+                <div class = "lineaF">
+                    <label for="correo">eMail</label>
+                    <input type="text" id="correo" name="correo">
+                </div>
+                <div class = "lineaF">
+                    <label for="num">Numero de empleado</label>
+                    <input type="text" id="num" name="num">
+                </div>
+                <div class = "lineaF">
+                    <label for="pass">Contrase&ntilde;a</label>
+                    <input type="text" id="pass" name="pass">
+                </div>
+                <div class = "lineaF">
+                    <label for="dept">Departamento</label>
+                    <input type="text" id="dept" name="dept">
+                </div>
+                <div id="botones"> 
+                <button class = "boton">Aceptar</button> <button class = "boton">Borrar</button>
+                
+                </div>
+                <a class="volver" href="login.view.php">Volver</a>
             </div>
-            <div id="misPreguntas"></div>
-            <div id="misFavoritos"></div>
+            <div class = "division"></div>
+            <div class = "division"></div>
         </div>
 
         <div id = "aside">
+            <p>aside</p>
             <!-- FOTO DE PERFIL Y NOTIFICACIONES -->
             <div id="fotoPerfil">
                 <!-- FOTO DE PERFIL -->
