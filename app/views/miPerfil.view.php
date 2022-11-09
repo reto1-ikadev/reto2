@@ -15,8 +15,8 @@
     <!-- AQUI SE IMPORTA EL ENCABEZADO -->
     <div id = "contenedor">
         <div id = "main">
+        <h4>Mis datos:</h4>
             <div class = "division">
-                <div class="supDiv"><h4>Mis datos:</h4></div>
                 
                 <div class = "lineaF">
                     <label for="nombre">Nombre</label>
@@ -46,7 +46,8 @@
                 <button class = "boton">Aceptar</button> <button class = "boton">Borrar</button>
                 
                 </div>
-                <a class="volver" href="login.view.php">Volver</a>
+                
+            
             </div>
             <div class = "division"></div>
             <div class = "division"></div>
