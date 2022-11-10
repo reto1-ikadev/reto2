@@ -67,7 +67,31 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
     }   
 }
 
-function closeConnection(&$dbConnection) {
+function registerUser($dbh, $name, $surname, $email, $numEmp, $pass, $depar) {
+        try{
+            if(!is_numeric($numEmp)) {
+                return "El numero de empleado solo puede contener numeros.";
+            }
+            $find = $dbh->prepare("SELECT Num_Empl FROM empleado");
+            $find->execute();
+            $data = $find->fetchAll(PDO::FETCH_ASSOC);
+            foreach($data as $row) {
+                if($row['Num_Empl'] == $numEmp) {
+                    return "Ya existe el empleado.";
+                }
+            }
+            $stmt = $dbh->prepare("INSERT into empleado (Num_Empl, Nombre, Apellidos, Correo, Departamento) values (:numEmp, :name, :surname, :email, :depar)");
+            $stmt->execute(['numEmp' => $numEmp, 'name' => $name, 'surname' => $surname, 'email' => $email, 'depar' => $depar]);
+            $stmt = $dbh->prepare("INSERT INTO sesion (Contrasenia, Empleado_Num_Empl) VALUES (:pass, :num_empl)");
+            $stmt->execute(['pass' => $pass, 'num_empl' => $numEmp]);
+            return "Registrado correctamente.";
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }   
+}
+
+function closeConnection(&$dbConnection) { // Cerramos conexion
     $dbConnection = null;
 }
 

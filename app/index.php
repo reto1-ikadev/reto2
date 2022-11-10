@@ -7,6 +7,8 @@ ini_set('display_errors', 1);
 include 'Db/db.php';
 
 // Conexion con la base de datos
-$dbh = connect($host,$db,$user,$pass);
+$dbh = connect();
+
+registerUser($dbh, "Carlos", "Roz", "correo@gmail.com", 90, "Departa");
 
 //include 'views/pprincipal.php';

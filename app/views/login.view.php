@@ -49,10 +49,10 @@
             </form>
                 <div id="cont">
                     <a href="contrasena.php" id="cont">He olvidado la CONTRASEÑA</a>
-                    <button class="boton" id="registro">REGISTRARME <span class="material-symbols-outlined"></span> </button>
+                    <button class="boton" id="registro">REGISTRARME <span class="material-symbols-outlined"> how_to_reg </span> </button>
                 </div>
         </div>
 
     </body>
-    <script src="login.js"></script>
+    <script src="../js/login.js"></script>
 </html>
