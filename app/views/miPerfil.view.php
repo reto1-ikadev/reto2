@@ -48,7 +48,13 @@
 
                 <div class = "lineaF">
                     <label for="dept">Departamento</label>
-                    <input type="text" id="dept" name="dept">
+                    <select name="dept" id="dept">
+                        <option value="uno">Uno</option>
+                        <option value="dos">Dos</option>
+                        <option value="tres">Tres</option>
+                        <option value="cuatro">Cuatro</option>
+                        <option value="cinco">Cinco</option>
+                    </select>
                 </div>
 
                 <div id="botones"> 
@@ -93,4 +99,5 @@
         <footer></footer>
     </div>
 </body>
+<script src="miPerfil.js"></script>
 </html>
