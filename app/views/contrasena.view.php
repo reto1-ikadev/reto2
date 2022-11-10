@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Gruppo&family=Roboto:wght@100;300;400;500;700;900&display=swap');
         </style>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <link rel="stylesheet" href="../css/pass.css">
+        <link rel="stylesheet" href="../styles/pass.css">
     </head>
     <body>
 
