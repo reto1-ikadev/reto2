@@ -22,4 +22,4 @@ function nombre_Empleado($dbh){
 }
 
 
-include 'Views/header.php';
+include 'views/pprincipal.php';

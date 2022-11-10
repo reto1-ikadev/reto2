@@ -5,24 +5,106 @@
 }
 body{
     height: 100vh;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 12% 4% 73% 10%;
+    grid-template-areas:
+    "header header header"
+    "nav nav nav"
+    "main main main"
+    "footer footer footer";
 }
 
 .header{
+    grid-area: header;
     margin: 0 auto;
-    width: 65%;
+    width: 92%;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border: 1px solid #000;
     border-top: 0px;
-    background-image: url(/img/header.jpeg);
+    background-image: url(Img/header.jpeg);
+    background-color: rgb(198, 241, 128);
     background-size: cover;
     display: grid;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 5em;
     grid-template-areas: "logo bien nav";
+}
+.header div{
+    margin-top: 6%;
+}
+.nav{
+    grid-area: nav;
+    width: 65%;
+    margin: 0.5em auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.nav a{
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: lightyellow;
+    border: 1px solid gray;
+    padding: 0.4em;
+    margin-top: 0.5em;
+}
+.cont-prin{
+    grid-area: main;
+    margin: 0.5em auto;
+    width: 100%;
+    
+    border-top: 0px;
+    display: grid;
+    grid-template-columns: 17.5% 65% 17.5%;
+    grid-template-rows: 100%;
+    grid-template-areas: "slide prin pop";
+}
+.slide{
+    grid-area: slide;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.slide div.filtros{
+    margin: 2em;
+}
+.slide, .popular h4{
+    text-align: center;
+    
+}
+.anadir h4{
+    margin-bottom: 0.5em;
+}
+.filtros h4{
+    margin-bottom: 0.5em;
+}
+.filtro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
 }
-
+.main{
+    grid-area: prin;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.popular{
+    grid-area: pop;
+    z-index: -1;
+}
 .despl{
    grid-area: nav;
    margin-left: auto;
@@ -42,19 +124,21 @@ body{
 }
 
 .imglogo{
-    width: 80%;
-    height: 90%;
+    width:50%;
+    height:100%;
 }
 
 .boton{
     margin: 1em 2em 0.5em 5em;
 }
 
+
 .boton:focus + .menu{
     display: block;
-    z-index: 1;
     visibility: visible;
+ 
 }
+
 
 .menu{
     display: block;
@@ -62,7 +146,6 @@ body{
     border-radius: 5%;
     background-color: beige;
     visibility: hidden;
-    
 }
 .menu a{
   float: none;
@@ -77,4 +160,29 @@ body{
  border-radius: 10%;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+    
+}
 
+.preguntas{
+    width: 100%;
+    height: 5.5em;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    border: 1px solid grey;
+    z-index: -1;
+}
+
+.preguntas h3,h5{
+    margin-left: 1em;
+}
+
+.preguntas img{
+    float: right;
+    width: 25;
+    height: 25;
+    margin-bottom: 0.2em;
+    margin-right: 0.2em;
+}
