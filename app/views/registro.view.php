@@ -19,7 +19,7 @@
                    <h3> REGISTRO </h3> <span class="material-symbols-outlined"> how_to_reg </span> 
             </div>
 
-            <form action="login.php" method="post">
+            <form action="registro.php" method="post">
 
                 <div id="nombre">
                     <label for="nombre">Nombre</label>
@@ -49,7 +49,7 @@
                 <div id="dept">
                     <label for="dept">Departamento</label>
 
-                    <select id="select">
+                    <select id="select" name="depar">
                         <option name="1" value="1">1</option>
                         <option name="2" value="2">2</option>
                         <option name="3" value="3">3</option>
@@ -60,8 +60,16 @@
                 </div>
 
                 <div id="bot">
-                    <input type="submit" id="aceptar" class="boton" value="Aceptar">
+                    <input type="submit" name="aceptar" id="aceptar" class="boton" value="Aceptar">
                     <input type="button" id="borrar" class="boton" value="Borrar">
+                </div>
+
+                <div id="mensaje">
+                    <label><?php
+                        if($response != "nothing") {
+                            echo $response;
+                        }
+                    ?></label>
                 </div>
                 
             </form>
