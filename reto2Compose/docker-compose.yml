@@ -1,0 +1,33 @@
+version: "3.1"
+services:
+    www:
+        build: ./apache
+        ports: 
+            - "80:80"
+        volumes:
+            - ./paginas:/var/www/html
+        links:
+            - db
+    db:
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: 1q2w3e4r 
+            MYSQL_DATABASE: reto2
+            #MYSQL_USER: ikasdev
+            #MYSQL_PASSWORD: AIac7925
+        volumes:
+            - ./scripts/mysql:/docker-entrypoint-initdb.d
+            - dbdata:/var/lib/mysql
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links: 
+            - db:db
+        ports:
+            - "8000:80"
+        environment:
+            MYSQL_USER: ikasdev
+            MYSQL_PASSWORD: AIac7925
+            MYSQL_ROOT_PASSWORD: 1q2w3e4r 
+volumes:
+    dbdata:
