@@ -1,25 +1,12 @@
 <?php 
+// Para indicar los posibles errores habilitmaos la presencia
+// de ser imprimidos en pantalla
 ini_set('display_errors', 1);
+
+//Libreria que contiene las funciones para conectarse a la base de datos.
 include 'Db/db.php';
 
-$host="db-1";
-$user="ikasdev";
-$pass="AIac7925";
-$db="db_aergibide";
-
+// Conexion con la base de datos
 $dbh = connect($host,$db,$user,$pass);
 
-//funcion nombre_Empleado
-function nombre_Empleado($dbh){
-    $sql = "SELECT * FROM empleados";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($result as $row){
-       $nombre= $row['nombre_Empleado'];
-    }
-    echo "Bienvenido " .$nombre;
-}
-
-
-include 'views/pprincipal.php';
+//include 'views/pprincipal.php';
