@@ -45,4 +45,5 @@
         </div>
 
     </body>
+    <script src="pass.js"></script>
 </html>

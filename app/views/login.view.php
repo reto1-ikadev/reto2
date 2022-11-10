@@ -44,4 +44,5 @@
         </div>
 
     </body>
+    <script src="login.js"></script>
 </html>
