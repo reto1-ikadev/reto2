@@ -7,7 +7,7 @@ function connect(){
     $host = "localhost";
     $user = "root";
     $pass = "";
-    $dbname = "reto2";
+    $dbname = "db_aergibide";
 
 
     try {
@@ -48,7 +48,7 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
         }
         $userFind = $data['LOWER(Nombre)'];
 
-        $find = $dbConnection->prepare("SELECT Contrasenia FROM sesion WHERE Empleado_Num_Empl = ?");
+        $find = $dbConnection->prepare("SELECT Contrasenia FROM empleado WHERE Empleado_Num_Empl = ?");
         $find->execute([$data['Num_Empl']]);
         $data = $find->fetch(PDO::FETCH_ASSOC);
         if($data == false) {
