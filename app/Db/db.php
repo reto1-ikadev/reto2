@@ -50,6 +50,7 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
 
         $find = $dbConnection->prepare("SELECT Contrasenia FROM empleado WHERE Empleado_Num_Empl = ?");
         $find->execute([$data['Num_Empl']]);
+        $numEmpl = $data['Num_Empl'];
         $data = $find->fetch(PDO::FETCH_ASSOC);
         /*if($data == false) {
             return "Contraseña incorrecta.";
@@ -59,11 +60,17 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
         
         if($userFind == strtolower($user)) {
             if(password_verify($pass, $passFind)) {
+                // -----------------------------------------------------------------
+                // AQUI TENGO QUE PROGRAMAR LA OPCION DE GUARDAR COOKIES Y SESIONES.
+                // -----------------------------------------------------------------
+                session_start();
+                $_SESSION['user'] = $numEmpl;
                 return "Exito en el inicio de sesion";
             } else {
                 return "Contraseña incorrecta.";
             }
         } 
+        
     } catch(PDOException $e) {
         echo $e->getMessage();
     }   

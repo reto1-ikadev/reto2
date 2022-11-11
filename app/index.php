@@ -3,12 +3,10 @@
 // de ser imprimidos en pantalla
 ini_set('display_errors', 1);
 
-//Libreria que contiene las funciones para conectarse a la base de datos.
-include 'Db/db.php';
+if(!isset($_SESSION['user'])) {
+    header("Location: /login.php");
+}
 
-// Conexion con la base de datos
-$dbh = connect();
+include 'views/pagprincipal.view.php';
 
-registerUser($dbh, "Carlos", "Roz", "correo@gmail.com", 90, "Departa");
-
-//include 'views/pprincipal.php';
+?>

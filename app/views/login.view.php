@@ -41,6 +41,9 @@
 
                         if($response != "nothing") {
                             echo $response;
+                            if($access) {
+                                header("Location: /index.php");
+                            }
                         }
                     
                     ?></label>

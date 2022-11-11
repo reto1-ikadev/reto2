@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
         <header class="header">
             <div class="logo">
-                <img src="Img/aernnova.png" class="imglogo">
+                <img src="img/aernnova.png" class="imglogo">
             </div>
             <div class="bin">
-                <b><?php nombre_Empleado($dbh); ?></b>
+                <b><?php 
+                    //require_once "Db/db.php";
+                    //nombre_Empleado(connect()); 
+                ?></b>
             </div>
             <div class="despl">
-                <input type="image" src="Img/icon1.png" class="boton">
+                <input type="image" src="img/icon1.png" class="boton">
                 <div class="menu">
                     <a href="index.php">Inicio</a>
                     <a href="">Mi Perfil</a>

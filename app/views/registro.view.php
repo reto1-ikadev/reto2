@@ -74,10 +74,10 @@
                 
             </form>
                 <div id="volv">
-                    <button class="boton" id="vovler">Volver <span class="material-symbols-outlined"> keyboard_return </span> </button>
+                    <button class="boton" id="volver">Volver <span class="material-symbols-outlined"> keyboard_return </span> </button>
                 </div>
         </div>
 
     </body>
-    <script src="registro.js"></script>
+    <script src="js/registro.js"></script>
 </html>
