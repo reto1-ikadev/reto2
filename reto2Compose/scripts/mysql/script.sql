@@ -25,131 +25,131 @@ CREATE SCHEMA IF NOT EXISTS `db_aergibide` ;
 USE `db_aergibide` ;
 
 -- -----------------------------------------------------
--- Table `db_aergibide`.`Empleado`
+-- Table `db_aergibide`.`empleado`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_aergibide`.`Empleado` (
-  `Num_Empl` INT NOT NULL,
-  `Nombre` VARCHAR(45) NULL,
-  `Apellidos` VARCHAR(45) NULL,
-  `Contrasenia` VARCHAR(45) NOT NULL,
-  `Correo` VARCHAR(45) NULL,
-  `Departamento` VARCHAR(45) NULL,
-  PRIMARY KEY (`Num_Empl`),
-  UNIQUE INDEX `Correo_UNIQUE` (`Correo` ASC) VISIBLE)
+CREATE TABLE IF NOT EXISTS `db_aergibide`.`empleado` (
+  `numEmple` INT NOT NULL,
+  `nombre` VARCHAR(45) NULL,
+  `apellidos` VARCHAR(45) NULL,
+  `pass` VARCHAR(45) NOT NULL,
+  `correo` VARCHAR(45) NULL,
+  `departamento` VARCHAR(45) NULL,
+  PRIMARY KEY (`numEmple`),
+  UNIQUE INDEX `correo_UNIQUE` (`correo` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_aergibide`.`Pregunta`
+-- Table `db_aergibide`.`pregunta`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_aergibide`.`Pregunta` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `Titulo` VARCHAR(45) NULL,
-  `Contenido` VARCHAR(45) NULL,
-  `Fecha` VARCHAR(45) NULL,
-  `Tags` VARCHAR(45) NULL,
-  `Empleado_Num_Empl` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_Pregunta_Empleado1_idx` (`Empleado_Num_Empl` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `db_aergibide`.`pregunta` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(45) NULL,
+  `contenido` VARCHAR(45) NULL,
+  `fecha` VARCHAR(45) NULL,
+  `tags` VARCHAR(45) NULL,
+  `empleado_numEmple` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Pregunta_Empleado1_idx` (`empleado_numEmple` ASC) VISIBLE,
   CONSTRAINT `fk_Pregunta_Empleado1`
-    FOREIGN KEY (`Empleado_Num_Empl`)
-    REFERENCES `db_aergibide`.`Empleado` (`Num_Empl`)
+    FOREIGN KEY (`empleado_numEmple`)
+    REFERENCES `db_aergibide`.`empleado` (`numEmple`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_aergibide`.`Respuesta`
+-- Table `db_aergibide`.`respuesta`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_aergibide`.`Respuesta` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `Contenido` VARCHAR(45) NULL,
-  `Empleado_Num_Empl` INT NOT NULL,
-  `Pregunta_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`, `Pregunta_ID`),
-  INDEX `fk_Respuesta_Empleado_idx` (`Empleado_Num_Empl` ASC) VISIBLE,
-  INDEX `fk_Respuesta_Pregunta1_idx` (`Pregunta_ID` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `db_aergibide`.`respuesta` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `contenido` VARCHAR(45) NULL,
+  `empleado_numEmple` INT NOT NULL,
+  `pregunta_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `pregunta_id`),
+  INDEX `fk_Respuesta_Empleado_idx` (`empleado_numEmple` ASC) VISIBLE,
+  INDEX `fk_Respuesta_Pregunta1_idx` (`pregunta_id` ASC) VISIBLE,
   CONSTRAINT `fk_Respuesta_Empleado`
-    FOREIGN KEY (`Empleado_Num_Empl`)
-    REFERENCES `db_aergibide`.`Empleado` (`Num_Empl`)
+    FOREIGN KEY (`empleado_numEmple`)
+    REFERENCES `db_aergibide`.`empleado` (`numEmple`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Respuesta_Pregunta1`
-    FOREIGN KEY (`Pregunta_ID`)
-    REFERENCES `db_aergibide`.`Pregunta` (`ID`)
+    FOREIGN KEY (`pregunta_id`)
+    REFERENCES `db_aergibide`.`pregunta` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_aergibide`.`Guia`
+-- Table `db_aergibide`.`guia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_aergibide`.`Guia` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `Contenido` VARCHAR(45) NULL,
-  `Empleado_Num_Empl` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_Guia_Empleado1_idx` (`Empleado_Num_Empl` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `db_aergibide`.`guia` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `contenido` VARCHAR(45) NULL,
+  `empleado_numEmple` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Guia_Empleado1_idx` (`empleado_numEmple` ASC) VISIBLE,
   CONSTRAINT `fk_Guia_Empleado1`
-    FOREIGN KEY (`Empleado_Num_Empl`)
-    REFERENCES `db_aergibide`.`Empleado` (`Num_Empl`)
+    FOREIGN KEY (`empleado_numEmple`)
+    REFERENCES `db_aergibide`.`empleado` (`numEmple`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_aergibide`.`Tutorial`
+-- Table `db_aergibide`.`tutorial`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_aergibide`.`Tutorial` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `Contenido` VARCHAR(45) NULL,
-  `Empleado_Num_Empl` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_Tutorial_Empleado1_idx` (`Empleado_Num_Empl` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `db_aergibide`.`tutorial` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `contenido` VARCHAR(45) NULL,
+  `empleado_numEmple` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Tutorial_Empleado1_idx` (`empleado_numEmple` ASC) VISIBLE,
   CONSTRAINT `fk_Tutorial_Empleado1`
-    FOREIGN KEY (`Empleado_Num_Empl`)
-    REFERENCES `db_aergibide`.`Empleado` (`Num_Empl`)
+    FOREIGN KEY (`empleado_numEmple`)
+    REFERENCES `db_aergibide`.`empleado` (`numEmple`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_aergibide`.`Notificacion`
+-- Table `db_aergibide`.`notificacion`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_aergibide`.`Notificacion` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `Empleado_Num_Empl` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_Notificacion_Empleado1_idx` (`Empleado_Num_Empl` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `db_aergibide`.`notificacion` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `empleado_numEmple` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Notificacion_Empleado1_idx` (`empleado_numEmple` ASC) VISIBLE,
   CONSTRAINT `fk_Notificacion_Empleado1`
-    FOREIGN KEY (`Empleado_Num_Empl`)
-    REFERENCES `db_aergibide`.`Empleado` (`Num_Empl`)
+    FOREIGN KEY (`empleado_numEmple`)
+    REFERENCES `db_aergibide`.`empleado` (`numEmple`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_aergibide`.`Favorito`
+-- Table `db_aergibide`.`favorito`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_aergibide`.`Favorito` (
-  `Empleado_Num_Empl` INT NOT NULL,
-  `Pregunta_ID` INT NOT NULL,
-  PRIMARY KEY (`Empleado_Num_Empl`, `Pregunta_ID`),
-  INDEX `fk_Empleado_has_Pregunta_Pregunta1_idx` (`Pregunta_ID` ASC) VISIBLE,
-  INDEX `fk_Empleado_has_Pregunta_Empleado1_idx` (`Empleado_Num_Empl` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `db_aergibide`.`favorito` (
+  `empleado_numEmple` INT NOT NULL,
+  `pregunta_id` INT NOT NULL,
+  PRIMARY KEY (`empleado_numEmple`, `pregunta_id`),
+  INDEX `fk_Empleado_has_Pregunta_Pregunta1_idx` (`pregunta_id` ASC) VISIBLE,
+  INDEX `fk_Empleado_has_Pregunta_Empleado1_idx` (`empleado_numEmple` ASC) VISIBLE,
   CONSTRAINT `fk_Empleado_has_Pregunta_Empleado1`
-    FOREIGN KEY (`Empleado_Num_Empl`)
-    REFERENCES `db_aergibide`.`Empleado` (`Num_Empl`)
+    FOREIGN KEY (`empleado_numEmple`)
+    REFERENCES `db_aergibide`.`empleado` (`numEmple`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Empleado_has_Pregunta_Pregunta1`
-    FOREIGN KEY (`Pregunta_ID`)
-    REFERENCES `db_aergibide`.`Pregunta` (`ID`)
+    FOREIGN KEY (`pregunta_id`)
+    REFERENCES `db_aergibide`.`pregunta` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
