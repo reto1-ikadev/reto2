@@ -1,4 +1,11 @@
-<?php include_once('header.php'); ?>
+<?php 
+    $css = [
+        '/styles/pprincipal.css'
+    ];
+    require_once 'parcial/header.php';
+?>
+<body>
+    
 <div class="nav">
     <a href="aaa">Guias</a>
     <a href="#">Tutoriales</a>
@@ -62,7 +69,7 @@
     </div>
 
 </div>
-
+<?php require_once 'parcial/footer.php';?>
 
 
 

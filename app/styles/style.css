@@ -1,188 +1,101 @@
-*{
+* {
     margin: 0;
-    padding: 0; 
+    padding: 0;
     box-sizing: border-box;
 }
-body{
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 12% 4% 73% 10%;
-    grid-template-areas:
-    "header header header"
-    "nav nav nav"
-    "main main main"
-    "footer footer footer";
-}
 
-.header{
+header {
     grid-area: header;
     margin: 0 auto;
-    width: 92%;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    width: 100%;
+    height: 7em;
     border: 1px solid #000;
     border-top: 0px;
-    background-image: url(Img/header.jpeg);
-    background-color: rgb(198, 241, 128);
+    background-image: url(/img/header.jpeg);
     background-size: cover;
-    display: grid;
-    grid-template-columns: 30% 40% 30%;
-    grid-template-rows: 5em;
-    grid-template-areas: "logo bien nav";
-}
-.header div{
-    margin-top: 6%;
-}
-.nav{
-    grid-area: nav;
-    width: 65%;
-    margin: 0.5em auto;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.nav a{
-    text-decoration: none;
-    color: #000;
-    font-size: 1.2em;
-    font-weight: bold;
-    border-radius: 5px;
-    background-color: lightyellow;
-    border: 1px solid gray;
-    padding: 0.4em;
-    margin-top: 0.5em;
-}
-.cont-prin{
-    grid-area: main;
-    margin: 0.5em auto;
-    width: 100%;
-    
-    border-top: 0px;
-    display: grid;
-    grid-template-columns: 17.5% 65% 17.5%;
-    grid-template-rows: 100%;
-    grid-template-areas: "slide prin pop";
-}
-.slide{
-    grid-area: slide;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.slide div.filtros{
-    margin: 2em;
-}
-.slide, .popular h4{
-    text-align: center;
-    
-}
-.anadir h4{
-    margin-bottom: 0.5em;
-}
-.filtros h4{
-    margin-bottom: 0.5em;
-}
-.filtro{
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
-
-}
-.main{
-    grid-area: prin;
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
 }
-.popular{
-    grid-area: pop;
-    z-index: -1;
-}
-.despl{
-   grid-area: nav;
-   margin-left: auto;
-}
-.bin{
-    display: flex;
-    grid-area: bien;
+
+
+
+.bin {
     margin: auto;
     color: white;
-    
 }
-.logo{
-    grid-area: logo;
+
+.logo {
     margin-left: 0.5em;
     margin-top: 1em;
     margin-bottom: 0.5em;
 }
 
-.imglogo{
-    width:50%;
-    height:100%;
+.imglogo {
+    width: 50%;
+    height: 100%;
 }
 
-.boton{
-    margin: 1em 2em 0.5em 5em;
+.imagenPerfil {
+    background: url(/img/icon1.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: none;
+}
+.despleglabe{
+    margin-right: 5em;
+    align-items: center;
+}
+.dropdown {
+    width: 50%;
+    display: inline-block;
+    position: relative;
+    margin-right: 1em;
 }
 
-
-.boton:focus + .menu{
-    display: block;
-    visibility: visible;
- 
-}
-
-
-.menu{
-    display: block;
-    border: 1px solid #000;
-    border-radius: 5%;
-    background-color: beige;
-    visibility: hidden;
-}
-.menu a{
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-.menu a:hover{
- background-color:azure;
- border-radius: 10%;
-}
-
-a{
-    text-decoration: none;
-    color: black;
-    
-}
-
-.preguntas{
-    width: 100%;
-    height: 5.5em;
-    background-color: antiquewhite;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin-right: 5em;
+    width: 7em;
+    overflow: auto;
+    background-color: #54cfe2e1;
     border-radius: 5px;
-    border: 1px solid grey;
-    z-index: -1;
+
 }
 
-.preguntas h3,h5{
-    margin-left: 1em;
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
-.preguntas img{
-    float: right;
-    width: 25;
-    height: 25;
-    margin-bottom: 0.2em;
-    margin-right: 0.2em;
+.dropdown-content a {
+    display: block;
+    color: #000000;
+    padding: 0.5em;
+    text-decoration: none;
+    font-size: bold;
+}
+
+.dropdown-content a:hover {
+    color: #FFFFFF;
+    background-color: #00A4BD;
+}
+
+body footer{
+    grid-area: footer;
+    display:  flex;
+    min-height: 3em;
+    flex-direction: column;
+    background-color: #54cfe2c2;
+    justify-content: center;
+
+}
+
+footer div.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
