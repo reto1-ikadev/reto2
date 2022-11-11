@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,23 +23,33 @@
 
                 <div id="usuario">
                     <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario"name="usuario">
+                    <input type="text" id="usuario" name="usuario">
                 </div>
 
                 <div id="pass">
                     <label for="pass">Contraseña</label>
-                    <input type="password" id="pass"name="pass">
+                    <input type="password" id="pass" name="pass">
                 </div>
 
                 <div id="bot">
-                    <input type="submit" id="aceptar" class="boton" value="ACEPTAR">
+                    <input type="submit" name="aceptar" id="aceptar" class="boton" value="ACEPTAR">
                     <input type="button" id="borrar" class="boton" value="BORRAR">
+                </div>
+
+                <div id="respuesta">
+                    <label><?php
+
+                        if($response != "nothing") {
+                            echo $response;
+                        }
+                    
+                    ?></label>
                 </div>
                 
             </form>
                 <div id="cont">
                     <a href="contrasena.php" id="cont">He olvidado la CONTRASEÑA</a>
-                    <button class="boton" id="registro">REGISTRARME <span class="material-symbols-outlined"> how_to_reg </span> </button>
+                    <button class="boton" id="registro">REGISTRARME <span class="material-symbols-outlined"></span> </button>
                 </div>
         </div>
 
