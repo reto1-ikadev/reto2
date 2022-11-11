@@ -13,7 +13,7 @@ services:
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: 1q2w3e4r 
-            MYSQL_DATABASE: reto2
+            MYSQL_DATABASE: db_aergibide
             #MYSQL_USER: ikasdev
             #MYSQL_PASSWORD: AIac7925
         volumes:
