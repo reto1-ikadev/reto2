@@ -22,22 +22,6 @@ function nombre_Empleado($dbh){
 }
 */
 
-//function para saber en que pagina php estoy
-function paginaActual(){
-    $url = $_SERVER["REQUEST_URI"];
-    return $url;
-}
-//Si la pagina php coincide con la que estoy return vacio, si no return pagina php
-function paginaActual2(){
-    $url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
-    if($url == "http://localhost:8080/index.php"){
-        return "";
-    }else{
-        return $url;
-    }
-}
-
-
 
 
 include 'views/pprincipal.php';

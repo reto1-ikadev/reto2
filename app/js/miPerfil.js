@@ -119,7 +119,10 @@ async function enviarDatos(datos){
     body: datos
     });
     let result = await response.json();
-    console.log(result);
+    if(result.success){
+        Swal.fire(result.success);
+    }
+
 }
 
 
