@@ -51,16 +51,18 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
         $find = $dbConnection->prepare("SELECT Contrasenia FROM empleado WHERE Empleado_Num_Empl = ?");
         $find->execute([$data['Num_Empl']]);
         $data = $find->fetch(PDO::FETCH_ASSOC);
-        if($data == false) {
+        /*if($data == false) {
             return "Contraseña incorrecta.";
-        }
+        }*/
         $passFind = $data["Contrasenia"];
         
         
         if($userFind == strtolower($user)) {
-            if($passFind == $pass) {
+            if(password_verify($pass, $passFind)) {
                 return "Exito en el inicio de sesion";
-            } 
+            } else {
+                return "Contraseña incorrecta.";
+            }
         } 
     } catch(PDOException $e) {
         echo $e->getMessage();
@@ -81,7 +83,7 @@ function registerUser($dbh, $name, $surname, $email, $numEmp, $pass, $depar) {
                 }
             }
             $stmt = $dbh->prepare("INSERT into empleado (Num_Empl, Nombre, Apellidos, Contrasenia, Correo, Departamento) values (:numEmp, :name, :surname, :pass, :email, :depar)");
-            $stmt->execute(['numEmp' => $numEmp, 'name' => $name, 'surname' => $surname, 'pass' => $pass, 'email' => $email, 'depar' => $depar]);
+            $stmt->execute(['numEmp' => $numEmp, 'name' => $name, 'surname' => $surname, 'pass' => password_hash($pass, PASSWORD_DEFAULT), 'email' => $email, 'depar' => $depar]);
             return "Registrado correctamente.";
         }
         catch(PDOException $e){
