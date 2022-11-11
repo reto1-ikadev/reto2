@@ -7,7 +7,7 @@ function connect(){
     $host = "localhost";
     $user = "root";
     $pass = "";
-    $dbname = "reto2";
+    $dbname = "db_aergibide";
 
 
     try {
@@ -48,7 +48,7 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
         }
         $userFind = $data['LOWER(Nombre)'];
 
-        $find = $dbConnection->prepare("SELECT Contrasenia FROM sesion WHERE Empleado_Num_Empl = ?");
+        $find = $dbConnection->prepare("SELECT Contrasenia FROM empleado WHERE Empleado_Num_Empl = ?");
         $find->execute([$data['Num_Empl']]);
         $data = $find->fetch(PDO::FETCH_ASSOC);
         if($data == false) {
@@ -80,10 +80,8 @@ function registerUser($dbh, $name, $surname, $email, $numEmp, $pass, $depar) {
                     return "Ya existe el empleado.";
                 }
             }
-            $stmt = $dbh->prepare("INSERT into empleado (Num_Empl, Nombre, Apellidos, Correo, Departamento) values (:numEmp, :name, :surname, :email, :depar)");
-            $stmt->execute(['numEmp' => $numEmp, 'name' => $name, 'surname' => $surname, 'email' => $email, 'depar' => $depar]);
-            $stmt = $dbh->prepare("INSERT INTO sesion (Contrasenia, Empleado_Num_Empl) VALUES (:pass, :num_empl)");
-            $stmt->execute(['pass' => $pass, 'num_empl' => $numEmp]);
+            $stmt = $dbh->prepare("INSERT into empleado (Num_Empl, Nombre, Apellidos, Contrasenia, Correo, Departamento) values (:numEmp, :name, :surname, :pass, :email, :depar)");
+            $stmt->execute(['numEmp' => $numEmp, 'name' => $name, 'surname' => $surname, 'pass' => $pass, 'email' => $email, 'depar' => $depar]);
             return "Registrado correctamente.";
         }
         catch(PDOException $e){
