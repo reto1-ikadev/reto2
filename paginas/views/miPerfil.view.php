@@ -78,7 +78,7 @@ $css = [
         <!-- FOTO DE PERFIL Y NOTIFICACIONES -->
         <div id="fotoPerfil">
             <!-- FOTO DE PERFIL -->
-            <img src="avatar.png" alt="avatar">
+            <img src="/img/avatar.png" alt="avatar" class="avatar">
         </div>
 
             <!--NOTIFICACIONES -->
