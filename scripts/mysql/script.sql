@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS `db_aergibide`.`empleado` (
   `numEmple` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
   `apellidos` VARCHAR(45) NULL,
-  `pass` VARCHAR(45) NOT NULL,
-  `correo` VARCHAR(45) NULL,
+  `pass` VARCHAR(350) NOT NULL,
+  `correo` VARCHAR(60) NULL,
   `departamento` VARCHAR(45) NULL,
   PRIMARY KEY (`numEmple`),
   UNIQUE INDEX `correo_UNIQUE` (`correo` ASC) VISIBLE)
