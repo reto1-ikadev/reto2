@@ -16,7 +16,8 @@
     <div class="slide">
         <div class="anadir">
             <h4>Añadir Pregunta</h4>
-            <input type="submit" id="accion" value="Añadir">
+            <!--<input type="submit" id="accion" value="Añadir"> -->
+            <button id='nPregunta'>Añadir</button>
         </div>
         <div class="filtros">
             <h4>Filtros</h4>
@@ -69,15 +70,8 @@
     </div>
 
 </div>
+<script src="../js/pprincipal.js"></script>
 <?php require_once 'parcial/footer.php';?>
-
-
-
-
-
-
-
-
 
 
 <?php # include_once('footer.php'); 
