@@ -23,13 +23,13 @@
 
             <div class= 'lineaF'>
             <label for="tags">Tags:</label>
-            <select name="tags" id="tag">
-                <option value="uno">Uno</option>
-                <option value="dos">Dos</option>
-                <option value="tres">Tres</option>
-            </select>
+            <div id="tags">
+            <input type="checkbox" name="tag1" value="uno"> Uno <input type="checkbox" name="tag2" value="dos"> Dos
+            <input type="checkbox" name="tag3" value="tres"> Tres <input type="checkbox" name="tag4" value="cuatro">Cuatro
             </div>
-            <input type="hidden" name="empleado" value = 'Coger el numEmple de $sesion'>
+            
+            </div>
+            <input type="hidden" name="empleado" value = '12346'><!-- El numero hay que cogerlo de $_sesion -->
             <input type="submit" value="Enviar" class ="boton" >
         </form>
 

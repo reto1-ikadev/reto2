@@ -12,7 +12,6 @@ function nuevaVentana(event){
     
         default:
             break;
-    }
-    
+    }  
 }
 

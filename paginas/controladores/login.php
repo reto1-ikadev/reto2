@@ -1,6 +1,6 @@
 <?php
     require "Db/db.php";
-
+    
     $response = "nothing";
 
     if(isset($_POST['aceptar'])) {

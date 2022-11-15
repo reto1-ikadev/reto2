@@ -1,6 +1,9 @@
 <?php
 //Para hacer pruebas en el navegador hay que pasarle ?accion=cargar
     include_once "../Db/db.php";
+    if(!isset($_SESSION['usuario'])){
+        $_SESSION['usuario']= array();
+    }
     
     if(isset($_GET["accion"]) && $_GET["accion"] != ''){
         //Necesito el num de empleado con el que ha iniciado sesion. Como no tengo la parte del código, voy a establecer una variable
@@ -29,4 +32,5 @@
 
     require_once "../views/miPerfil.view.php";
 ?>
+
 
