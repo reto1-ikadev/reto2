@@ -2,6 +2,20 @@
 
 console.log("fichero miPerfil.js"); 
 
+var estrellita = document.getElementById("f1").getElementsByClassName("material-symbols-outlined")[0];
+
+   estrellita.addEventListener('click', function() {
+    if(estrellita.style["color"] == "yellow") {
+        estrellita.style["color"] = "green";
+        deleteFav(document.getElementById("f1"));
+    } else {
+        estrellita.style["color"] = "yellow";
+        datos = (numEmple => $numEmp, idPregunta => $idP);
+        addFav(datos);
+    }
+    
+   });
+
 //Guardo el elemento formulario en una variable
 var formulario = document.getElementById('formulario');
 formulario.addEventListener('submit', function(e){
@@ -46,6 +60,25 @@ function validar(datos){
     }
 
 }
+/* Esta funcion borra las preguntas favoritas del usuario*/
+function deleteFav() {
+
+}
+
+/* Esta funcion añade preguntas favoritas de un usuario*/
+async function addFav(datos) {
+    let response = await fetch('../Db/favoritoF.php',
+    {
+    method: 'POST', 
+
+    body: datos
+    });
+    let result = await response.json();
+    if(result.success){
+        Swal.fire(result.success);
+    }    
+}
+
 
 //Esta funcion envia los datos a main.php y recibe una respuesta
 async function enviarDatos(datos){

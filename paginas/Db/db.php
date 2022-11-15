@@ -1,6 +1,5 @@
 <?php
 
-
 function connect(){
     try {
         $host="db";
@@ -62,28 +61,6 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
     } catch(PDOException $e) {
         echo $e->getMessage();
     }   
-}
-
-function registerUser($dbh, $name, $surname, $email, $numEmp, $pass, $depar) {
-        try{
-            if(!is_numeric($numEmp)) {
-                return "El numero de empleado solo puede contener numeros.";
-            }
-            $find = $dbh->prepare("SELECT numEmple FROM empleado");
-            $find->execute();
-            $data = $find->fetchAll(PDO::FETCH_ASSOC);
-            foreach($data as $row) {
-                if($row['numEmple'] == $numEmp) {
-                    return "Ya existe el empleado.";
-                }
-            }
-            $stmt = $dbh->prepare("INSERT into empleado (numEmple, nombre, apellidos, pass, correo, departamento) values (:numEmp, :name, :surname, :pass, :email, :depar)");
-            $stmt->execute(['numEmp' => $numEmp, 'name' => $name, 'surname' => $surname, 'pass' => password_hash($pass, PASSWORD_DEFAULT), 'email' => $email, 'depar' => $depar]);
-            return "Registrado correctamente.";
-        }
-        catch(PDOException $e){
-            echo $e->getMessage();
-        }   
 }
 
 function closeConnection(&$dbConnection) { // Cerramos conexion

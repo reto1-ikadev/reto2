@@ -21,12 +21,12 @@
 
             <form action="contrasena.php" method="post">
 
-                <div id="nPass">
+                <div class="nPass">
                     <label for="pass">Nueva contraseña</label>
                     <input type="password" id="pass" name="pass">
                 </div>
 
-                <div id="nPass">
+                <div class="nPass">
                     <label for="pass2">Escribe de nuevo</label>
                     <input type="password" id="pass2" name="pass2">
                 </div>
@@ -38,7 +38,7 @@
 
             </form>
 
-            <a id="volver" href="login.php">Volver <span class="material-symbols-outlined"> keyboard_return </span> </a> 
+            <a id="volver" href="../controladores/login.php">Volver <span class="material-symbols-outlined"> keyboard_return </span> </a> 
             
 
 
