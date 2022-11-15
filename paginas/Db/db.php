@@ -35,16 +35,20 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
         // LOWER nos permite obtener dicho posible usuario en minusculas, 
         // para que así tanto como haya sido escrito por el usuario en la base de 
         // datos como este lo haya escrito en el login sean iguales.
-        $find = $dbConnection->prepare("SELECT numEmple, LOWER(Nombre) FROM empleado WHERE nombre = ?");
-        $find->execute([strtolower($user)]);
+        //$find = $dbConnection->prepare("SELECT numEmple, LOWER(Nombre) FROM empleado WHERE nombre = ?");
+        
+        // Al final decidimos usar como inicio de sesion el numEmple
+
+        $find = $dbConnection->prepare("SELECT numEmple FROM empleado WHERE numEmple = ?");
+        $find->execute([$user]);
         $data = $find->fetch(PDO::FETCH_ASSOC);
         if($data == false) {
             return "Usuario no encontrado.";
         }
-        $userFind = $data['LOWER(Nombre)'];
+        $userFind = $data['numEmple'];
 
         $find = $dbConnection->prepare("SELECT pass FROM empleado WHERE numEmple = ?");
-        $find->execute([$data['numEmple']]);
+        $find->execute([$user]);
         $data = $find->fetch(PDO::FETCH_ASSOC);
         /*if($data == false) {
             return "Contraseña incorrecta.";
@@ -52,7 +56,8 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
         $passFind = $data["pass"];
         
         
-        if($userFind == strtolower($user)) {
+        //if($userFind == strtolower($user)) {
+        if($userFind == $user) {
             if(password_verify($pass, $passFind)) {
                 return true;
             } else {
