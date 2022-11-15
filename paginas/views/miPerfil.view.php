@@ -24,12 +24,7 @@ $css = [
                     <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" value="<?= $_SESSION['nombre'] ?>"readonly >
                 </div>
-                <?php
-                if(isset($usuarioDevuelto)){
-                    print_r($usuarioDevuelto);
-                }
-                    
-                ?>
+               
                 <div class = "lineaF">
                 <label for="apellido">Apellido</label>
                 <input type="text" name="apellido" value="<?= $_SESSION['apellidos'] ?>" readonly >
@@ -55,10 +50,17 @@ $css = [
 
         <h4>Mis preguntas:</h4>
         <div class = "division">
-            <div class = "pregunta">
-                <h4>Aquí se genera el titulo de la pregunta </h4>
-                <div><span class="material-symbols-outlined">delete</span><span class="material-symbols-outlined">edit</span></div>
+            <?php
+                if(isset($misPreguntas)){
+                    foreach ($misPreguntas as $pregunta => $value) {?>
+                    <div class = "pregunta">
+                    <h4><?= $value['titulo']; ?></h4>
+                    <div><span class="material-symbols-outlined">delete</span><span class="material-symbols-outlined">edit</span></div>
             </div>
+                <?php
+                }
+                }
+            ?>
         </div>
 
         <h4>Mis favoritos:</h4>
