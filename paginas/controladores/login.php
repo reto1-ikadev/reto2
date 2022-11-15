@@ -12,14 +12,13 @@
             if($response) {
                 $_SESSION["usuario"] = array();
                 $_SESSION["usuario"]["numEmple"] = trim($_POST['usuario']);
+                require "views/pprincipal.view.php";
+                die();
             }
         } else {
             $response = "Hay que completar todos los campos por favor.";
         }
-        if($response == true){
-            require "views/pprincipal.view.php";
-            die();
-        }
+        
         
     }
 
