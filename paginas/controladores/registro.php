@@ -9,6 +9,7 @@
 
     if(isset($_POST['nombre'], $_POST['apellido'], $_POST['correo'], $_POST['num'], $_POST['pass'], $_POST['dept'])) {
          addEmpleado();
+    }
 
     function addEmpleado(){
 
@@ -23,22 +24,22 @@
 
        if(buscarEmpleado($num)) {
 
-        try {
-            $dbh = connect();
-        
-            $sql = $dbh->prepare("INSERT INTO empleado (numEmple, nombre, apellidos, pass, correo, departamento) values (:numEmple, :nombre, :apellidos, :pass, :correo, :departamento)");
-            $datos = ['numEmple' => $num,'nombre' => $nombre, 'apellidos' => $apellido, 'correo' => $correo, 'pass' => $pass, 'departamento' => $departamento];
-            $sql->execute($datos);
-            echo json_encode(['success' => 'Datos guardados correctamente']);
-        } catch(Exception $err) {
-            echo $err->getMessage();
-        }
+            try {
+                $dbh = connect();
+            
+                $sql = $dbh->prepare("INSERT INTO empleado (numEmple, nombre, apellidos, pass, correo, departamento) values (:numEmple, :nombre, :apellidos, :pass, :correo, :departamento)");
+                $datos = ['numEmple' => $num,'nombre' => $nombre, 'apellidos' => $apellido, 'correo' => $correo, 'pass' => $pass, 'departamento' => $departamento];
+                $sql->execute($datos);
+                echo json_encode(['success' => 'Datos guardados correctamente']);
+            } catch(Exception $err) {
+                echo $err->getMessage();
+            }
     
         }
         else{
             echo json_encode(['error' => 'El numero de empleado ya existe']);
         }
-        }
+    }
     
         function buscarEmpleado($num){
 

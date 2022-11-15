@@ -19,7 +19,7 @@
                    <h3> INICIO SESION </h3> <span class="material-symbols-outlined"> login </span> 
             </div>
 
-            <form action="login.php" method="post">
+            <form action="#" method="post">
 
                 <div id="usuarioDiv">
                     <label for="usuario">Usuario</label>
@@ -32,8 +32,8 @@
                 </div>
 
                 <div id="bot">
-                    <input type="submit" id="aceptar" class="boton" value="ACEPTAR">
-                    <input type="button" id="borrar" class="boton" value="BORRAR">
+                    <input type="submit" name="aceptar" id="aceptar" class="boton" value="ACEPTAR">
+                    <input type="button" name="borrar" id="borrar" class="boton" value="BORRAR">               
                 </div>
                 
             </form>
@@ -47,5 +47,5 @@
         </div>
 
     </body>
-    <script src="login.js"></script>
+    <script src="js/login.js"></script>
 </html>
