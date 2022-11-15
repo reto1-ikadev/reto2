@@ -44,14 +44,6 @@
         </div>
     </div>
     <div class="main">
-
-        <div id="1" class="preguntas">
-            <h3>Titulo:</h3><span>JAJAJAJJA</span>
-            <p>
-            <h5>TAGS:</h5>
-            </p>
-            <img src="img/flecha.png" alt="flecha">
-        </div>
         <br>
         <div id="3" class="preguntas">
             <h3>Titulo2:</h3><span>JAJAJAJJA</span>

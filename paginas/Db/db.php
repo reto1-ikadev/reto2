@@ -3,7 +3,7 @@
 
 function connect(){
     try {
-        $host="db";
+        $host="db-1";
         $user="ikasdev";
         $pass="ACai7925";
         $dbname="db_aergibide";
@@ -53,11 +53,7 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
         
         
         if($userFind == strtolower($user)) {
-            if(password_verify($pass, $passFind)) {
-                return true;
-            } else {
-                return false;
-            }
+            return password_verify($pass, $passFind); 
         } 
     } catch(PDOException $e) {
         echo $e->getMessage();
@@ -84,6 +80,13 @@ function registerUser($dbh, $name, $surname, $email, $numEmp, $pass, $depar) {
         catch(PDOException $e){
             echo $e->getMessage();
         }   
+}
+function selectPregunta(){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT * FROM pregunta");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
 
 function closeConnection(&$dbConnection) { // Cerramos conexion

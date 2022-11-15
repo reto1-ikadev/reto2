@@ -1,6 +1,6 @@
 <?php
-    require "Db/db.php";
-
+    require_once "Db/db.php";
+    
     $response = "nothing";
 
     if(isset($_POST['aceptar'])) {
@@ -10,8 +10,8 @@
         } else {
             $response = "Hay que completar todos los campos por favor.";
         }
-        if($response ==true){
-            require "views/pprincipal.view.php";
+        if($response){
+            require_once "controladores/pprincipal.php";
             die();
         }
         
