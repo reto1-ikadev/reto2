@@ -1,22 +1,20 @@
 <?php
-    require "Db/db.php";
+require "Db/db.php";
 
-    $response = "nothing";
+$response = false;
 
-    if(isset($_POST['aceptar'])) {
-        $dbh = connect();
-        if(!trim($_POST['usuario']) == "" && !trim($_POST['pass']) == "") {
-            $response = validateLogin($dbh, trim($_POST['usuario']), trim($_POST['pass']));
-        } else {
-            $response = "Hay que completar todos los campos por favor.";
-        }
-        if($response ==true){
-            require "views/pprincipal.view.php";
+if (isset($_POST['aceptar'])) {
+    $dbh = connect();
+    if (!trim($_POST['usuario']) == "" && !trim($_POST['pass']) == "") {
+        $response = validateLogin($dbh, trim($_POST['usuario']), trim($_POST['pass']));
+        if ($response == true) {
+            require "controladores/pprincipal.php";
             die();
         }
-        
+    } 
+    else {
+        $response = "Hay que completar todos los campos por favor.";
     }
+}
 
-    require "views/login.view.php";
-
-?>
+require "views/login.view.php";

@@ -53,11 +53,7 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
         
         
         if($userFind == strtolower($user)) {
-            if(password_verify($pass, $passFind)) {
-                return true;
-            } else {
-                return false;
-            }
+            return password_verify($pass, $passFind);
         } 
     } catch(PDOException $e) {
         echo $e->getMessage();
@@ -85,6 +81,24 @@ function registerUser($dbh, $name, $surname, $email, $numEmp, $pass, $depar) {
             echo $e->getMessage();
         }   
 }
+function selectPregunta(){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT * FROM pregunta");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+
+//select ultima respuesta de una pregunta
+function selectRespuesta($id){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT * FROM respuesta WHERE pregunta_id = :id ORDER BY id DESC LIMIT 1");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id]);
+    return $stmt->fetchAll();
+}
+
 
 function closeConnection(&$dbConnection) { // Cerramos conexion
     $dbConnection = null;
