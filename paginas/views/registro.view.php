@@ -19,7 +19,7 @@
                    <h3> REGISTRO </h3> <span class="material-symbols-outlined"> how_to_reg </span> 
             </div>
 
-            <form action="registro.php" method="post">
+            <form action="../controladores/registro.php" method="post" id='formulario'>
 
                 <div id="nombre">
                     <label for="nombre">Nombre</label>

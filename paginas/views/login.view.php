@@ -48,7 +48,7 @@
                 
             </form>
                 <div id="cont">
-                    <a href="contrasena.php" id="cont">He olvidado la CONTRASEÑA</a>
+                    <a href="../controladores/contrasena.view.php" id="cont">He olvidado la CONTRASEÑA</a>
                     <button class="boton" id="registro">REGISTRARME <span class="material-symbols-outlined"> how_to_reg </span> </button>
                 </div>
         </div>

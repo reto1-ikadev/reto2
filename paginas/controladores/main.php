@@ -28,9 +28,7 @@ function updateUsuario($correo,$numEmple){
     "correo"=>$correo,
     "numEmple"=>$numEmple
   );
-  return $stmt->execute($data);
-
-  
+  return $stmt->execute($data); 
 }
   
 

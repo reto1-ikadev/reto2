@@ -30,7 +30,7 @@ if(isset($_GET['titulo']) && $_GET['titulo']!='' && $_GET['contenido'] && $_GET[
     echo $tags;
     $fecha = date('d-m-Y');
     echo $fecha;
-ºººººººººººººººººººººººººº
+    
    $result = insertPregunta($titulo,$contenido,$empleado,$fecha,$tags);
    echo $result;
     

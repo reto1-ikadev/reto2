@@ -4,7 +4,9 @@ $css = [
 ];
 
 ?>
-<?php require_once 'parcial/header.php'; ?>
+<?php require_once 'parcial/header.php'; 
+    session_start();
+?>
 <!-- AQUI SE IMPORTA EL ENCABEZADO -->
 
 <div id = "contenedor">
@@ -16,11 +18,11 @@ $css = [
             <!-- Al cargar la pagina se envia el $get accion cargar. Se piden los datos a la bd y se cargan en el value del input -->
             <div class = "lineaF">
                     <label for="nombre">Nº empleado</label>
-                    <input type="text" name="numEmple" value = "<?= $datos->numEmple ?>" readonly>
+                    <input type="text" name="numEmple" value = "<?= $_SESSION['numEmple'] ?>" readonly>
                 </div>
                 <div class = "lineaF">
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" value="<?= $datos->nombre ?>"readonly >
+                    <input type="text" name="nombre" value="<?= $_SESSION['nombre'] ?>"readonly >
                 </div>
                 <?php
                 if(isset($usuarioDevuelto)){
@@ -30,17 +32,17 @@ $css = [
                 ?>
                 <div class = "lineaF">
                 <label for="apellido">Apellido</label>
-                <input type="text" name="apellido" value="<?= $datos->apellidos ?>" readonly >
+                <input type="text" name="apellido" value="<?= $_SESSION['apellidos'] ?>" readonly >
                 </div>
 
                 <div class = "lineaF">
                     <label for="correo">eMail</label>
-                    <input type="text" name="correo" value="<?= $datos->correo ?>" >
+                    <input type="text" name="correo" value="<?= $_SESSION['correo']?>" >
                 </div>
                 
                 <div class = "lineaF">
                     <label for="dept">Departamento</label>
-                    <input type="text" name="dept" value="<?= $datos->departamento ?>"readonly >
+                    <input type="text" name="dept" value="<?= $_SESSION['departamento'] ?>"readonly >
                 </div>
 
                 <div id="botones"> 
