@@ -106,6 +106,7 @@ body{
 }
 .contRespuesta{
     display: flex;
+    flex-direction: row;
     justify-content: start;
     align-items: center;
     width: 79%;
@@ -115,4 +116,12 @@ body{
 .material-symbols-outlined{
     color:rgb(144, 103, 26);
     font-size: 1.5em;
+    
+}
+.expandir{
+    margin-left: 90%;
+}
+
+.fav{
+   color: yellow;
 }

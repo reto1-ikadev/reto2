@@ -99,6 +99,17 @@ function selectRespuesta($id){
     return $stmt->fetchAll();
 }
 
+function preguntaFav($id,$numEmp){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT * FROM favorito WHERE pregunta_id = :id AND empleado_numEmple = :numEmp");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id, 'numEmp' => $numEmp]);
+    if($stmt->rowCount() > 0){
+        return true;}
+    else{
+        return false;
+    }
+}
 
 function closeConnection(&$dbConnection) { // Cerramos conexion
     $dbConnection = null;

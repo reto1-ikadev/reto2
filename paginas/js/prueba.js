@@ -9,6 +9,23 @@ for (var i = 0; i < ampliar.length; i++) {
 
 function abrirPreguntaSeleccionada(id) {
     var idPregunta = id;
-    var idPregunta = idPregunta.substring(8, idPregunta.length);
+   
     alert(id);
+}
+
+
+fav = document.getElementsByName('fav');
+for (var i = 0; i < fav.length; i++) {
+    fav[i].addEventListener('click', function () {
+        var id = this.id;
+        var datos = id;
+        enviarDatos(datos);
+     
+        });
+    };
+
+    //function to send the id of the question to the php file
+function enviarDatos(datos){
+    window.location.href = "?id"+datos+"&numEmple=12345";
+ 
 }
