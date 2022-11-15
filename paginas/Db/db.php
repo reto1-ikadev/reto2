@@ -91,6 +91,27 @@ function registerUser($dbh, $name, $surname, $email, $numEmp, $pass, $depar) {
         }   
 }
 
+//TENGO QUE PROGRAMAR LA FUNCION QUE PERMITE CAMBIAR LA CONTRASEÑA DEL USUARIO POR 
+//NUM EMPLE
+
+function recoverPass($dbh, $numEmple, $newPass) {
+    try{
+        if(!is_numeric($numEmple)) {
+            return "El numero de empleado solo puede contener numeros.";
+        }
+
+        $find = $dbh->prepare("UPDATE empleado SET pass = ? WHERE numEmple = ?");
+        $result = $find->execute([password_hash($newPass, PASSWORD_DEFAULT), $numEmple]);
+        if($result) {
+            return "Contraseña cambiada correctamente.";
+        }
+        return "Contraseña no cambiada.";
+    }
+    catch(PDOException $e){
+        echo $e->getMessage();
+    }   
+}
+
 function closeConnection(&$dbConnection) { // Cerramos conexion
     $dbConnection = null;
 }
