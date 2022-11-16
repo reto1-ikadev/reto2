@@ -12,6 +12,7 @@ session_start();//Para poder utilizar la sesion
     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
     if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
         if(!isset($_SESSION['usuario']['nombre'])){
+        
             
             $numEmple = obtenerNumEmple();
 
@@ -30,9 +31,6 @@ session_start();//Para poder utilizar la sesion
     }
 
     //AÑADIR MIS PREGUNTAS.
-
-
-
     /**
      * Funcion que añade a session los datos del usuario
      */
@@ -54,10 +52,11 @@ session_start();//Para poder utilizar la sesion
     function obtenerNumEmple(){
         if(isset($_SESSION['usuario'])){
             $session = $_SESSION['usuario'];
-            //print_r($numUsu);
+            //print_r($session);
             foreach ($session as $usuario => $value) {
                 $numEmple = $value;
             }
+         
         }
         return $numEmple;
     }

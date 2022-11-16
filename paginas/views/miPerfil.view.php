@@ -5,7 +5,6 @@ $css = [
 
 ?>
 <?php require_once 'parcial/header.php';
-session_start();
 ?>
 <!-- AQUI SE IMPORTA EL ENCABEZADO -->
 

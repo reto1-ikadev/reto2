@@ -2,9 +2,11 @@
     include "Db/empleado_db.php";
     session_start();
     $response = "nothing";
-
+ if(isset($_SESSION['usuario'])){
+            session_destroy();
+        }
     if(isset($_POST['aceptar'])) {
-        $dbh = connect();
+       
         if(!trim($_POST['usuario']) == "" && !trim($_POST['pass']) == "") {
             $response = validateLogin(trim($_POST['usuario']), trim($_POST['pass']));
             if($response){
