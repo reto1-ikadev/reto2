@@ -1,14 +1,14 @@
 <?php
 //Con estas líneas se muestran los errores de php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
 
 session_start();//Para poder utilizar la sesion
 
     include_once "../Db/db.php";
     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
-    if(isset($_GET["accion"]) && $_GET["accion"] != ''){
+    if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
         if(!isset($_SESSION['usuario']['nombre'])){
             
             $numEmple = obtenerNumEmple();
@@ -21,7 +21,10 @@ session_start();//Para poder utilizar la sesion
         }
 
         $misPreguntas = selectPreguntasUsuario($numEmple);
-        print_r($misPreguntas); 
+        
+    }
+    if(isset($_GET['accion2'])&& $_GET['accion2']!=''){
+        $id = $_GET['id'];
     }
 
     //AÑADIR MIS PREGUNTAS.
