@@ -8,6 +8,7 @@ session_start();//Para poder utilizar la sesion
 
     include_once "../Db/pregunta_db.php";
     include_once "../Db/empleado_db.php";
+    include_once "../Db/favoritos_db.php";
 
     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
     if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
@@ -62,7 +63,22 @@ session_start();//Para poder utilizar la sesion
         return $numEmple;
     }
 
-    require_once "../views/miPerfil.view.php";
-?>
-
-
+function mostrarFavoritos($numEmple){
+    $preguntas = preguntaFavEmp($numEmple);
+    $respuesta ="";
+    foreach($preguntas as $pregunta){
+        $titulos = selectPreguntaId($pregunta['pregunta_id']);   
+        foreach($titulos as $titulo){    
+            $respuesta .= "<div id={$pregunta['pregunta_id']} class=favorito>";
+            $respuesta .= "<p> <h4>{$titulo->titulo}</h4>";
+            $respuesta .= "<div><span name=fav id={$pregunta['pregunta_id']} class=material-symbols-outlined>star_rate</span></div>";
+            $respuesta .= "</p>";
+            $respuesta .= "</div>";
+            $respuesta .= "<br>";
+        }
+       
+    }
+    echo $respuesta;
+}
+ 
+require_once "../views/miPerfil.view.php";

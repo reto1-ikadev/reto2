@@ -87,10 +87,7 @@ session_start();
 
         <h4>Mis favoritos:</h4>
         <div class="division">
-            <div class="favorito">
-                <h4>Aquí se genera el titulo de la pregunta favorita</h4>
-                <div><span class="material-symbols-outlined">star_rate</span></div>
-            </div>
+           <?php mostrarFavoritos(1) ?>
         </div>
         <h4>Mis Preferencias:</h4>
         <div class="division">
