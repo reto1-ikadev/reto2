@@ -33,7 +33,12 @@
 
                 <div id="bot">
                     <input type="submit" name="aceptar" id="aceptar" class="boton" value="ACEPTAR">
-                    <input type="button" name="borrar" id="borrar" class="boton" value="BORRAR">               
+                    <input type="button" name="borrar" id="borrar" class="boton" value="BORRAR">
+                    <?php
+                        if(is_string($response)) {
+                            echo $response;
+                        }
+                    ?>               
                 </div>
                 
             </form>

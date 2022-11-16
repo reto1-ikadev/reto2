@@ -19,7 +19,7 @@
                    <h3> REGISTRO </h3> <span class="material-symbols-outlined"> how_to_reg </span>
             </div>
 
-            <form id="formulario">
+            <form id="formulario" action="#" method="POST">
 
                 <div id="nombreDiv">
                     <label for="nombre">Nombre</label>
@@ -59,8 +59,13 @@
                 </div>
 
                 <div id="bot">
-                    <input type="submit" id="aceptar" class="boton" value="Aceptar">
+                    <input type="submit" name="aceptar" id="aceptar" class="boton" value="Aceptar">
                     <input type="button" id="borrar" class="boton" value="Borrar">
+                    <?php
+                        if(is_string($response)) {
+                            echo $response;
+                        }
+                    ?>
                 </div>
                 
             </form>
@@ -72,6 +77,6 @@
         </div>
 
     </body>
-    <script src="../js/registro.js"></script>
+    <!--<script src="../js/registro.js"></script>-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
