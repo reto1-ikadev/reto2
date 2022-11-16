@@ -61,10 +61,11 @@ $css = [
 
         <h4>Mis favoritos:</h4>
         <div class = "division">
-            <div class = "favorito">
-                    <h4>Aquí se genera el titulo de la pregunta favorita</h4>
-                    <div><span class="material-symbols-outlined">star_rate</span></div>
+            <h4>Mis favoritos:</h4>
+            <div class = "division">
+                <?= mostrarFavoritos(1) ?>
             </div>
+
         </div>
         <h4>Mis Preferencias:</h4>
         <div class = "division">
@@ -95,7 +96,7 @@ $css = [
 </div>
 <?php require_once 'parcial/footer.php'; ?>
 </body>
-<script src="/js/miPerfil.js"></script>
+<script src="../js/miPerfil.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>

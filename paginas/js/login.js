@@ -4,3 +4,7 @@
 document.getElementById("registro").addEventListener('click', function() {
     window.open("controladores/registro.php");
 });
+
+function holamundo() {
+    alert("Hola Mundo");
+}

@@ -2,19 +2,20 @@
 
 console.log("fichero miPerfil.js"); 
 
-var estrellita = document.getElementById("f1").getElementsByClassName("material-symbols-outlined")[0];
+var fav = document.getElementsByName('fav');
+for (var i = 0; i < fav.length; i++) {
+    fav[i].addEventListener('click', function () {
+        var id = this.id;
+        alert(id);
+        var datos = id;
+        enviarId(datos);
+        });
+    };
 
-   estrellita.addEventListener('click', function() {
-    if(estrellita.style["color"] == "yellow") {
-        estrellita.style["color"] = "green";
-        deleteFav(document.getElementById("f1"));
-    } else {
-        estrellita.style["color"] = "yellow";
-        datos = (numEmple => $numEmp, idPregunta => $idP);
-        addFav(datos);
+    function enviarId(datos){
+        window.location.href = "/controladores/miPerfil.php?id="+datos+"&numEmple=1";
     }
     
-   });
 
 //Guardo el elemento formulario en una variable
 var formulario = document.getElementById('formulario');

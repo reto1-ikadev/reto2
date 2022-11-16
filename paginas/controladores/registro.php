@@ -9,7 +9,7 @@
 
     if(isset($_POST['nombre'], $_POST['apellido'], $_POST['correo'], $_POST['num'], $_POST['pass'], $_POST['dept'])) {
          addEmpleado();
-
+    }
     function addEmpleado(){
 
         header('Content-Type: application/json');
@@ -41,7 +41,8 @@
         }
     
         function buscarEmpleado($num){
-
+            $dbh = connect();
+                
             $find = $dbh->prepare("SELECT numEmple FROM empleado");
             $find->execute();
             $data = $find->fetchAll(PDO::FETCH_ASSOC);
