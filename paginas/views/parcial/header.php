@@ -24,6 +24,12 @@
             <b><?php //nombre_Empleado($dbh); 
                 ?></b>
         </div>
+        <a href="/index.php?notifications=show" class="notification">
+        <span class="material-symbols-outlined">
+            notifications
+        </span>
+            <span class="badge">3</span>
+        </a>
         <div class="despleglabe">
         <div class="dropdown">
             <button class="imagenPerfil"></button>
