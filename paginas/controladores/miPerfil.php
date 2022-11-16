@@ -6,9 +6,9 @@ error_reporting(E_ALL);
 
 session_start();//Para poder utilizar la sesion
 
-    include_once "../Db/pregunta_db.php";
-    include_once "../Db/empleado_db.php";
-    include_once "../Db/favoritos_db.php";
+include_once "../Db/pregunta_db.php";
+include_once "../Db/respuesta_db.php";
+include_once "../Db/favoritos_db.php";
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];

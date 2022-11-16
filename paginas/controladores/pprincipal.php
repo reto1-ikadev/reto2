@@ -1,6 +1,10 @@
 <?php
 ini_set('display_errors', 1);
 require_once $_SERVER['DOCUMENT_ROOT'].'/Db/db.php';
+include_once "../Db/pregunta_db.php";
+include_once "../Db/respuesta_db.php";
+include_once "../Db/favoritos_db.php";
+
 //mostrar pregunta
 if(isset($_GET['id'])){
     $id = $_GET['id'];

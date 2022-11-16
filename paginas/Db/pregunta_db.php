@@ -22,6 +22,13 @@ function insertPregunta($titulo,$contenido,$empleado,$fecha,$tags){
         var_dump($e->getMessage());
     }
 }
+function selectPreguntaId($id){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT titulo FROM pregunta WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    return $stmt->fetchAll();
+}
 
 
 function selectPreguntasUsuario($numEmple){
@@ -55,4 +62,12 @@ function selectPreguntasUsuario($numEmple){
     }
     
     return $misPreguntas;
+}
+
+function selectPregunta(){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT * FROM pregunta");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
