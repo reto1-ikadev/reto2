@@ -7,7 +7,7 @@ if(isset($_GET['id'])){
     $numEmple = $_GET['numEmple'];
     if(preguntaFav($id,$numEmple)){
         deleteFav($id,$numEmple);
-    }{
+    }else{
         insertFav($id,$numEmple);
     }
 }
