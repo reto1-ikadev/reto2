@@ -59,9 +59,9 @@ function validateLogin($dbConnection, $user, $pass) { // esta funcion le devolve
         //if($userFind == strtolower($user)) {
         if($userFind == $user) {
             if(password_verify($pass, $passFind)) {
-                return true;
+                return "correcto";
             } else {
-                return false;
+                return "La contraseña es incorrecta.";
             }
         } 
     } catch(PDOException $e) {

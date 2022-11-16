@@ -7,13 +7,13 @@
     
     if(!isset($_COOKIE['acceptCookies'])) {
         if(isset($_POST['aceptar'])) {
-            echo "<script src=\"js/cookies.js\"></script>";
             if(!trim($_POST['usuario']) == "" && !trim($_POST['pass']) == "") {
-                $response = validateLogin($dbh, trim($_POST['usuario']), trim($_POST['pass']));
-                if($response == true) {
+                $response = validateLogin($dbh, trim($_POST['usuario']), $_POST['pass']);
+                if($response == "correcto") {
+                    echo "<script src=\"js/cookies.js\"></script>";
                     //86400 -> 1 dia
                     setcookie("user", trim($_POST['usuario']), time() + (86400 * 60), "/");
-                    setcookie("pass", password_hash($_POST['pass'], PASSWORD_DEFAULT), time() + (86400 * 60), "/");
+                    setcookie("pass", $_POST['pass'], time() + (86400 * 60), "/");
                     $_SESSION["usuario"] = array();
                     $_SESSION["usuario"]["numEmple"] = trim($_POST['usuario']);
                     require "views/pprincipal.view.php";
@@ -25,11 +25,10 @@
         } 
     } else {
         $response = validateLogin($dbh, $_COOKIE['user'], $_COOKIE['pass']);
-        if($response == true) {
+        if($response == "correcto") {
             $_SESSION["usuario"] = array();
             $_SESSION["usuario"]["numEmple"] = trim($_POST['usuario']);
             require "views/pprincipal.view.php";
-            echo "Pag prin";
             die();
         } else { // En caso de que las cookies no coincidan con los datos
             //de inicio de sesion estas se borraran.

@@ -48,7 +48,7 @@
                 <div id="deptDiv">
                     <label for="depart">Departamento</label>
 
-                    <select id="dept">
+                    <select name="depar" id="dept">
                         <option name="1" value="1">1</option>
                         <option name="2" value="2">2</option>
                         <option name="3" value="3">3</option>
