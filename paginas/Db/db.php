@@ -111,6 +111,23 @@ function preguntaFav($id,$numEmp){
     }
 }
 
+function deleteFav($id,$numEmple){
+    $dbh = connect();
+    $stmt = $dbh->prepare("DELETE FROM `favorito` WHERE `favorito`.`empleado_numEmple` = :numEmp AND `favorito`.`pregunta_id` = :id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id, 'numEmp' => $numEmple]);
+
+
+}
+function insertFav($id,$numEmple){
+    $dbh = connect();
+    $stmt = $dbh->prepare("INSERT INTO favorito (pregunta_id, empleado_numEmple) VALUES (:id, :numEmp)");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id, 'numEmp' => $numEmple]);
+}
+
+
+
 function closeConnection(&$dbConnection) { // Cerramos conexion
     $dbConnection = null;
 }

@@ -1,7 +1,16 @@
 <?php
-require_once 'Db/db.php';
+ini_set('display_errors', 1);
+require_once $_SERVER['DOCUMENT_ROOT'].'/Db/db.php';
 //mostrar pregunta
-
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $numEmple = $_GET['numEmple'];
+    if(preguntaFav($id,$numEmple)){
+        deleteFav($id,$numEmple);
+    }{
+        insertFav($id,$numEmple);
+    }
+}
 
 //funcion mostrar pregunta
 function mostrarPreguntas(){
@@ -37,7 +46,9 @@ $respuesta ="";
 }
 
 
+require_once $_SERVER['DOCUMENT_ROOT'].'/views/pprincipal.view.php';
 
-require_once 'views/pprincipal.view.php';
+
+
 
 

@@ -26,6 +26,6 @@ for (var i = 0; i < fav.length; i++) {
 
     //function to send the id of the question to the php file
 function enviarDatos(datos){
-    window.location.href = "?id"+datos+"&numEmple=12345";
+    window.location.href = "/controladores/pprincipal.php?id="+datos+"&numEmple=12345";
  
 }
