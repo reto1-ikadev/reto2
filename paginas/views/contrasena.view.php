@@ -51,7 +51,7 @@
 
             </form>
 
-            <a id="volver" href="login.php">Volver <span class="material-symbols-outlined"> keyboard_return </span> </a> 
+            <a id="volver" href="/">Volver <span class="material-symbols-outlined"> keyboard_return </span> </a> 
             
         </div>
 

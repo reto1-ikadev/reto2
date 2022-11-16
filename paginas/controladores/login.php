@@ -30,7 +30,9 @@
             $_SESSION["usuario"]["numEmple"] = trim($_POST['usuario']);
             require "views/pprincipal.view.php";
             die();
-        } else { // En caso de que las cookies no coincidan con los datos
+        } else { 
+            $response = "";
+            // En caso de que las cookies no coincidan con los datos
             //de inicio de sesion estas se borraran.
             setcookie('acceptCookies', null, -1, '/');
             setcookie('user', null, -1, '/');
