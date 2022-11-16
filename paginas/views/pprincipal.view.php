@@ -5,7 +5,6 @@ $css = [
 require_once 'parcial/header.php';
 
 ?>
-
 <body>
 
     <div class="nav">
@@ -14,15 +13,11 @@ require_once 'parcial/header.php';
         <a href="#">Mis Preguntas</a>
     </div>
     <div class="cont-prin">
-
         <div class="slide">
-            <div class="anadir">
+           <div class="filtros"><div class="anadir">
                 <h4>Añadir Pregunta</h4>
                 <input type="submit" id="accion" value="Añadir">
             </div>
-            <div class="filtros">
-                <h4>Filtros</h4>
-
                 <div class="filtro">
                     <form action="" method="get" class="filtro">
                         <label for="fechInicio">Fecha Inicio:</label>
