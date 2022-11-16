@@ -10,6 +10,14 @@ session_start();//Para poder utilizar la sesion
     include_once "../Db/empleado_db.php";
     include_once "../Db/favoritos_db.php";
 
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+        $numEmple = $_SESSION["numEmple"];
+            deleteFav($id,$numEmple); 
+            require_once '../views/miPerfil.view.php';
+    }
+
+    
     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
     if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
         if(!isset($_SESSION['usuario']['nombre'])){
@@ -63,22 +71,26 @@ session_start();//Para poder utilizar la sesion
         return $numEmple;
     }
 
-function mostrarFavoritos($numEmple){
-    $preguntas = preguntaFavEmp($numEmple);
-    $respuesta ="";
-    foreach($preguntas as $pregunta){
-        $titulos = selectPreguntaId($pregunta['pregunta_id']);   
-        foreach($titulos as $titulo){    
-            $respuesta .= "<div id={$pregunta['pregunta_id']} class=favorito>";
-            $respuesta .= "<p> <h4>{$titulo->titulo}</h4>";
-            $respuesta .= "<div><span name=fav id={$pregunta['pregunta_id']} class=material-symbols-outlined>star_rate</span></div>";
-            $respuesta .= "</p>";
-            $respuesta .= "</div>";
-            $respuesta .= "<br>";
+    function mostrarFavoritos($numEmple){
+        $preguntas = preguntaFavEmp($numEmple);
+        $respuesta ="";
+        foreach($preguntas as $pregunta){
+            $titulos = selectPreguntaId($pregunta['pregunta_id']);   
+            foreach($titulos as $titulo){    
+                $respuesta .= "<div id={$pregunta['pregunta_id']} class=favorito>";
+                $respuesta .= "<p> <h4>{$titulo->titulo}</h4>";
+                $respuesta .= "<div><span name=fav id={$pregunta['pregunta_id']} class=material-symbols-outlined>star_rate</span></div>";
+                $respuesta .= "</p>";
+                $respuesta .= "</div>";
+                $respuesta .= "<br>";
+            }
+           
         }
-       
+        echo $respuesta;
     }
-    echo $respuesta;
-}
- 
-require_once "../views/miPerfil.view.php";
+     
+
+    require_once "../views/miPerfil.view.php";
+?>
+
+

@@ -12,38 +12,27 @@
         <link rel="stylesheet" href="../styles/pass.css">
     </head>
     <body>
-
         <div id="contenedor">
-
             <div id="titulo">
                 <h3> CONTRASEÑA OLVIDADA </h3> <span class="material-symbols-outlined">password</span>
             </div>
-
             <form action="contrasena.php" method="post">
-
-                <div id="nPass">
+                <div class="nPass">
                     <label for="pass">Nueva contraseña</label>
                     <input type="password" id="pass" name="pass">
                 </div>
-
-                <div id="nPass">
+                <div class="nPass">
                     <label for="pass2">Escribe de nuevo</label>
                     <input type="password" id="pass2" name="pass2">
                 </div>
-
                 <div id="bot">
                     <input type="submit" id="aceptar" class="boton" value="Aceptar">
                     <input type="submit" id="aceptar" class="boton" value="Borrar">
                 </div>
-
             </form>
-
             <a id="volver" href="../controladores/login.php">Volver <span class="material-symbols-outlined"> keyboard_return </span> </a> 
             
-
-
         </div>
-
     </body>
     <script src="pass.js"></script>
 </html>

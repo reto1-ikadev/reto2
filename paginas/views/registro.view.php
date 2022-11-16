@@ -12,72 +12,54 @@
         <link rel="stylesheet" href="../styles/registro.css">
     </head>
     <body>
-
         <div id="contenedor">
-
             <div id="titulo">
-                   <h3> REGISTRO </h3> <span class="material-symbols-outlined"> how_to_reg </span> 
+                   <h3> REGISTRO </h3> <span class="material-symbols-outlined"> how_to_reg </span>
             </div>
-
-            <form action="../controladores/registro.php" method="post" id='formulario'>
-
-                <div id="nombre">
+            <form id="formulario">
+                <div id="nombreDiv">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre">
                 </div>
-
-                <div id="apellido">
+                <div id="apellidoDiv">
                     <label for="apellido">Apellido</label>
                     <input type="text" id="apellido"name="apellido">
                 </div>
-
-                <div id="correo">
+                <div id="correoDiv">
                     <label for="correo">Correo</label>
                     <input type="text" id="correo"name="correo">
                 </div>
-
-                <div id="num">
+                <div id="numDiv">
                     <label for="num">Num. Empleado</label>
-                    <input type="number" id="num"name="num">
+                    <input type="number" id="num" name="num">
                 </div>
-
-                <div id="pass">
+                <div id="passDiv">
                     <label for="pass">Contraseña</label>
                     <input type="password" id="pass"name="pass">
                 </div>
-
-                <div id="dept">
-                    <label for="dept">Departamento</label>
-
-                    <select id="select" name="depar">
+                <div id="deptDiv">
+                    <label for="depart">Departamento</label>
+                    <select id="dept">
                         <option name="1" value="1">1</option>
                         <option name="2" value="2">2</option>
                         <option name="3" value="3">3</option>
                         <option name="4" value="4">4</option>
                         <option name="5" value="5">5</option>
                     </select>
-
                 </div>
-
                 <div id="bot">
-                    <input type="submit" name="aceptar" id="aceptar" class="boton" value="Aceptar">
+                    <input type="submit" id="aceptar" class="boton" value="Aceptar">
                     <input type="button" id="borrar" class="boton" value="Borrar">
-                </div>
-
-                <div id="mensaje">
-                    <label><?php
-                        if($response != "nothing") {
-                            echo $response;
-                        }
-                    ?></label>
                 </div>
                 
             </form>
                 <div id="volv">
-                    <button class="boton" id="vovler">Volver <span class="material-symbols-outlined"> keyboard_return </span> </button>
+                    <form action="../controladores/login.php">
+                        <button class="boton" id="volver">Volver <span class="material-symbols-outlined"> keyboard_return </span> </button>
+                    </form>
                 </div>
         </div>
-
     </body>
-    <script src="registro.js"></script>
+    <script src="../js/registro.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>

@@ -45,7 +45,7 @@ form {
 
 }
 
-#nPass,
+.nPass,
 #bot {
     width: 40%;
     display: flex;

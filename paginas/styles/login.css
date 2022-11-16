@@ -45,17 +45,17 @@ form {
 
 }
 
-#usuario,
-#pass {
+#usuarioDiv,
+#passDiv {
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
 }
 
 #bot,
-#usuario,
-#pass {
-    width: 40%;
+#usuarioDiv,
+#passDiv {
+    width: 50%;
     display: flex;
     justify-content: space-between;
 }

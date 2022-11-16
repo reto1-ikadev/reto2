@@ -2,6 +2,20 @@
 
 console.log("fichero miPerfil.js"); 
 
+var fav = document.getElementsByName('fav');
+for (var i = 0; i < fav.length; i++) {
+    fav[i].addEventListener('click', function () {
+        var id = this.id;
+        alert(id);
+        var datos = id;
+        enviarId(datos);
+        });
+    };
+
+    function enviarId(datos){
+        window.location.href = "/controladores/miPerfil.php?id="+datos;
+    }
+
 //Guardo el elemento formulario en una variable
 var formulario = document.getElementById('formulario');
 formulario.addEventListener('submit', function(e){

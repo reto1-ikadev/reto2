@@ -87,7 +87,7 @@ session_start();
 
         <h4>Mis favoritos:</h4>
         <div class="division">
-           <?php mostrarFavoritos(1) ?>
+        <?= mostrarFavoritos($_SESSION["numEmple"]) ?>
         </div>
         <h4>Mis Preferencias:</h4>
         <div class="division">
