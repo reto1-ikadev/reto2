@@ -1,12 +1,12 @@
 <?php
-    require "Db/db.php";
+    include "Db/empleado_db.php";
     session_start();
     $response = "nothing";
 
     if(isset($_POST['aceptar'])) {
         $dbh = connect();
         if(!trim($_POST['usuario']) == "" && !trim($_POST['pass']) == "") {
-            $response = validateLogin($dbh, trim($_POST['usuario']), trim($_POST['pass']));
+            $response = validateLogin(trim($_POST['usuario']), trim($_POST['pass']));
             if($response){
                 
                 $_SESSION['usuario'] = array();
