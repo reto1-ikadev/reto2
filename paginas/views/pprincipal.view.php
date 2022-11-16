@@ -1,8 +1,9 @@
-<?php 
-    $css = [
-        '/styles/pprincipal.css'
-    ];
-    require_once 'parcial/header.php';
+<?php
+$css = [
+    '/styles/pprincipal.css'
+];
+require_once 'parcial/header.php';
+
 ?>
 <body>
     
@@ -43,26 +44,14 @@
             </form>
             </div>
         </div>
-    </div>
-    <div class="main">
+        <div class="main">
+            <h4>Preguntas</h4>
+            <?php mostrarPreguntas(); ?>
 
-        <div id="1" class="preguntas">
-            <h3>Titulo:</h3><span>JAJAJAJJA</span>
-            <p>
-            <h5>TAGS:</h5>
-            </p>
-            <img src="img/flecha.png" alt="flecha">
         </div>
-        <br>
-        <div id="3" class="preguntas">
-            <h3>Titulo2:</h3><span>JAJAJAJJA</span>
-            <p>
-            <h5>TAGS:</h5>
-            </p>
-            <img src="img/flecha.png" alt="flecha">
+        <div class="popular">
+            <h4>Preguntas Populares</h4>
         </div>
-
-
 
     </div>
     <div class="popular">
@@ -72,7 +61,3 @@
 </div>
 <script src="../js/pprincipal.js"></script>
 <?php require_once 'parcial/footer.php';?>
-
-
-<?php # include_once('footer.php'); 
-?>
