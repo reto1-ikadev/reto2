@@ -29,7 +29,10 @@
             </div>
             
             </div>
-            <input type="hidden" name="empleado" value = '12346'><!-- El numero hay que cogerlo de $_sesion -->
+            <input type="hidden" name="empleado" value = "<?php 
+                session_start();
+                echo $_SESSION['usuario']['numEmple']; 
+            ?>"><!-- El numero hay que cogerlo de $_sesion -->
             <input type="submit" value="Enviar" class ="boton" >
         </form>
 
