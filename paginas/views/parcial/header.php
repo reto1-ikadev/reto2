@@ -24,6 +24,18 @@
             <b><?php //nombre_Empleado($dbh); 
                 ?></b>
         </div>
+        <div class="notification">
+            <span id="botonNotificaciones" class="material-symbols-outlined">
+                notifications
+            </span>
+            <span class="badge">
+                3
+            </span>
+            <div class="box">
+                <div class="heading"><p>Cantidad de mensajes</p></div>
+                <div class="msg"><p>Test test test test test</p></div>
+            </div>
+        </div>
         <div class="despleglabe">
         <div class="dropdown">
             <button class="imagenPerfil"></button>
