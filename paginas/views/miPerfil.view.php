@@ -5,7 +5,6 @@ $css = [
 
 ?>
 <?php require_once 'parcial/header.php';
-session_start();
 ?>
 <!-- AQUI SE IMPORTA EL ENCABEZADO -->
 
@@ -58,18 +57,21 @@ session_start();
                         <div><span class="material-symbols-outlined">delete</span><span class="material-symbols-outlined">edit</span></div>
                     </div>
                     <?php
-            if (isset($id)&&$id == $pregunta) {
+            if (isset($id) && $id == $pregunta) {
                 foreach ($misPreguntas as $pregunta => $value) { 
                     if($id == $pregunta){
                         ?>
-                    
-                    <div class='respuesta'>
-                        <textarea name="respuesta" id="res" cols="55" rows="10" width =100%>
-                        <?= $value['contenido'] ?>
-                        </textarea>
-                        
-                     </div>
-                     
+                    <div class ='respuesta'>
+                        <div class='contenido'>
+                            
+                            <?= $value['contenido'] ?>
+                            
+                        </div>
+                        <div class = 'botonesRespuesta'>
+                            <a class="boton" href="respuestas.php?titulo=<?= $value['titulo'] ?>&id=<?= $pregunta ?>">Ver respuestas</a>
+                            <button class='boton' id='cerrar'>Cerrar respuesta</button>
+                        </div>
+                    </div>
                     <?php    
                     }
                     ?>
@@ -80,9 +82,6 @@ session_start();
                 }
             }
             ?>
-            
-
-            
         </div>
 
         <h4>Mis favoritos:</h4>

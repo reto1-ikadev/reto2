@@ -73,6 +73,18 @@ function selectUsuarioById($numEmple){
     return $stmt->fetchObject();
 }
 
+function selectNombreEmpleadoById($empleado){
+    $dbh = connect();
+
+    $stmt = $dbh->prepare("SELECT nombre,apellidos FROM empleado WHERE numEmple = :numEmple");
+    $stmt ->setFetchMode(PDO::FETCH_OBJ);
+    $data = array(
+        "numEmple" => $empleado
+    );
+    $stmt->execute($data);
+    return $stmt->fetchObject();
+}
+
 
 function updateUsuario($correo,$numEmple){
     $dbh = connect();
