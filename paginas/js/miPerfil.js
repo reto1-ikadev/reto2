@@ -15,7 +15,16 @@ formulario.addEventListener('submit', function(e){
         enviarDatos(datos); //fetch para enviar los datos a php
     }
     
-} )
+} );
+//La respuesta se cierra al dar al boton 
+var botonCerrarRespuesta = document.getElementsByClassName('boton');
+console.log(botonCerrarRespuesta);
+botonCerrarRespuesta.addEventListener('click', borrarDivisionRespuesta);
+
+
+function borrarDivisionRespuesta(){
+    console.log('hola');
+}
 
 
 /**Esta funcion valida los datos. Retorna false si hay algun dato incorrecto*/

@@ -1,6 +1,42 @@
 <?php
 require_once "db.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+function selectPreguntaPorIdPregunta($id){
+    try{
+        $dbh = connect();
+        $stmt = $dbh->prepare("SELECT * FROM pregunta WHERE id=:id ");
+        $stmt ->setFetchMode(PDO::FETCH_OBJ);
+        $data = array(
+            "id" => $id
+        );
+        $stmt->execute($data);
+        while($row = $stmt->fetch()){
+        
+            $tags = $row->tags;
+            $contenido = $row->contenido;
+            $fecha = $row->fecha;
+
+            $p = array(
+                "contenido" => $contenido,
+                "fecha" => $fecha,
+                "tags" => $tags
+            );
+    
+            if(!isset($misPreguntas[$id])){
+                $misPreguntas[$id] = [];
+            }
+            $misPreguntas[$id] = $p;
+        }
+        return $misPreguntas;
+
+    }catch(Exception $e){
+        echo 'Exception -> ';
+        var_dump($e->getMessage());
+    }
+}
 
 function insertPregunta($titulo,$contenido,$empleado,$fecha,$tags){
     try{
@@ -34,14 +70,15 @@ function selectPreguntasUsuario($numEmple){
         "numEmple" => $numEmple
     );
     $stmt->execute($data);
-    $misPreguntas = [];
+   
 
     while($row = $stmt->fetch()){
         
-        $id = "pregunta_".strval($row->id);
+        $id = $row->id;
         $titulo = $row->titulo;
         $contenido = $row->contenido;
         $fecha = $row->fecha;
+
         $p = array(
             "titulo" => $titulo,
             "contenido" => $contenido,
