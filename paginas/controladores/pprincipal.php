@@ -1,14 +1,13 @@
 <?php
 ini_set('display_errors', 1);
-require_once $_SERVER['DOCUMENT_ROOT'].'/Db/db.php';
-include_once "../Db/pregunta_db.php";
-include_once "../Db/respuesta_db.php";
-include_once "../Db/favoritos_db.php";
-
+include_once $_SERVER['DOCUMENT_ROOT']."/Db/pregunta_db.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/Db/respuesta_db.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/Db/favoritos_db.php";
+session_start();
 //mostrar pregunta
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $numEmple = $_GET['numEmple'];
+    $numEmple = $_SESSION['usuario']['numEmple'];
     if(preguntaFav($id,$numEmple)){
         deleteFav($id,$numEmple);
     }else{
@@ -31,7 +30,7 @@ $respuesta ="";
         $respuesta .="<div class=contPregunta>";
         $respuesta .= "<p><h3>Titulo</h3> <span>{$pregunta->titulo}</span>";
         $respuesta .= "<h5>TAGS:</h5> <span>{$pregunta->tags}</span>";
-        if(preguntaFav($pregunta->id,12345)){
+        if(preguntaFav($pregunta->id,$_SESSION['usuario']['numEmple'])){
         $respuesta .= "<span name=fav  id={$pregunta->id} class='material-symbols-outlined fav'>star</span>";
         }else{
         $respuesta .= "<span name=fav  id={$pregunta->id}  class='material-symbols-outlined'>star_border</span>";

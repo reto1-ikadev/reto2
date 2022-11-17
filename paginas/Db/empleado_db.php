@@ -30,11 +30,7 @@ function validateLogin($user, $pass) { // esta funcion le devolvera a una variab
         
         //if($userFind == strtolower($user)){
         if($userFind == $user) {
-            if(password_verify($pass, $passFind)) {
-                return true;
-            } else {
-                return false;
-            }
+            return password_verify($pass, $passFind);
         } 
     } catch(PDOException $e) {
         echo $e->getMessage();

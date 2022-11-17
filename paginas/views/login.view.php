@@ -16,7 +16,7 @@
             <div id="titulo">
                    <h3> INICIO SESION </h3> <span class="material-symbols-outlined"> login </span> 
             </div>
-            <form action="../controladores/pprincipal.php" method="post">
+            <form action=" " method="post">
                 <div id="usuarioDiv">
                     <label for="usuario">Usuario</label>
                     <input type="text" id="usuario"name="usuario">
@@ -26,7 +26,7 @@
                     <input type="password" id="pass"name="pass">
                 </div>
                 <div id="bot">
-                    <input type="submit" id="aceptar" class="boton" value="ACEPTAR">
+                    <input type="submit" name="aceptar" id="aceptar" class="boton" value="ACEPTAR">
                     <input type="button" id="borrar" class="boton" value="BORRAR">
                 </div>
                 
