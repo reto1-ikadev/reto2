@@ -11,7 +11,6 @@
                 
                 $_SESSION['usuario'] = array();
                 $_SESSION['usuario']['numEmple'] = trim($_POST['usuario']);
-                print_r($_SESSION['usuario']);
                 require "pprincipal.php";
                 die();
             }

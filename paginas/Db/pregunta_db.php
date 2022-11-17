@@ -100,10 +100,19 @@ function selectPreguntasUsuario($numEmple){
     
     return $misPreguntas;
 }
-
-function selectPregunta(){
+//function count preguntas
+function countPreguntas(){
     $dbh = connect();
-    $stmt = $dbh->prepare("SELECT * FROM pregunta");
+    $stmt = $dbh->prepare("SELECT COUNT(*) FROM pregunta");
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    return $stmt->fetchAll()[0]->{'COUNT(*)'};
+}
+function selectPreguntas($page){
+    $dbh = connect();
+    $offset = 8 * ($page - 1);
+    $stmt = $dbh->prepare("SELECT * FROM pregunta ORDER BY id DESC LIMIT 8 OFFSET :offset");
+    $stmt ->bindValue(':offset', $offset, PDO::PARAM_INT);
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute();
     return $stmt->fetchAll();

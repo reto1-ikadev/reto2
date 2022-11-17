@@ -85,6 +85,7 @@ header {
 
 body footer{
     grid-area: footer;
+    
     display:  flex;
     min-height: 3em;
     flex-direction: column;
