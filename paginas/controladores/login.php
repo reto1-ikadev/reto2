@@ -1,5 +1,5 @@
 <?php    include "Db/empleado_db.php";
-    session_start();
+   
     $response = "nothing";
  if(isset($_SESSION['usuario'])){
             session_destroy();
@@ -11,6 +11,7 @@
                 
                 $_SESSION['usuario'] = array();
                 $_SESSION['usuario']['numEmple'] = trim($_POST['usuario']);
+                print_r($_SESSION['usuario']);
                 require "pprincipal.php";
                 die();
             }
