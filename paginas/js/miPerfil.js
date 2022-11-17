@@ -8,12 +8,13 @@ for (var i = 0; i < fav.length; i++) {
         var id = this.id;
         alert(id);
         var datos = id;
-        enviarId(datos);
+        var accion = "cargar";
+        enviarId(datos,accion);
         });
     };
 
-    function enviarId(datos){
-        window.location.href = "/controladores/miPerfil.php?id="+datos;
+    function enviarId(datos,accion){
+        window.location.href = "/controladores/miPerfil.php?accion="+accion+"&id="+datos;
     }
 
 //Guardo el elemento formulario en una variable

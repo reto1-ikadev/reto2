@@ -14,7 +14,7 @@ include_once "../Db/favoritos_db.php";
         $id = $_GET['id'];
         $numEmple = $_SESSION["usuario"]["numEmple"];
             deleteFav($id,$numEmple); 
-            require_once '../views/miPerfil.view.php';
+            require_once 'miPerfil.php';
     }
 
     
@@ -78,7 +78,7 @@ include_once "../Db/favoritos_db.php";
             foreach($titulos as $titulo){    
                 $respuesta .= "<div id={$pregunta['pregunta_id']} class=favorito>";
                 $respuesta .= "<p> <h4>{$titulo->titulo}</h4>";
-                $respuesta .= "<div><span name=fav id={$pregunta['pregunta_id']} class=material-symbols-outlined>star_rate</span></div>";
+                $respuesta .= "<div><span id={$pregunta['pregunta_id']} class='material-symbols-outlined fav'>star_rate</span></div>";
                 $respuesta .= "</p>";
                 $respuesta .= "</div>";
                 $respuesta .= "<br>";
