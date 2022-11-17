@@ -56,9 +56,6 @@ require_once 'parcial/header.php';
         </div>
 
     </div>
-    <div class="popular">
-        <h4>Preguntas Populares</h4>
-    </div>
 
     </div>
     <script src="../js/pprincipal.js"></script>
