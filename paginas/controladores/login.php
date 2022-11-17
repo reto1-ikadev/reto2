@@ -9,7 +9,7 @@
             if(!trim($_POST['usuario']) == "" && !trim($_POST['pass']) == "") {
                 $response = validateLogin(trim($_POST['usuario']), $_POST['pass']);
                 if($response == "correcto") {
-                    echo "<script src=\"js/cookies.js\"></script>";
+                    echo "<script src=\"/js/cookies.js\"></script>";
                     //86400 -> 1 dia
                     setcookie("user", trim($_POST['usuario']), time() + (86400 * 60), "/");
                     setcookie("pass", $_POST['pass'], time() + (86400 * 60), "/");
