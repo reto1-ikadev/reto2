@@ -16,7 +16,7 @@
             <div id="titulo">
                    <h3> INICIO SESION </h3> <span class="material-symbols-outlined"> login </span> 
             </div>
-            <form action=" " method="post">
+            <form action="#" method="post">
                 <div id="usuarioDiv">
                     <label for="usuario">Usuario</label>
                     <input type="text" id="usuario"name="usuario">
@@ -39,5 +39,5 @@
                 </div>
         </div>
     </body>
-    <script src="login.js"></script>
+    <script src="/js/login.js"></script>
 </html>
