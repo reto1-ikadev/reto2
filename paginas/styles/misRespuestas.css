@@ -78,3 +78,9 @@ body{
     border: 1px solid grey;
     
 }
+.enlaces{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}

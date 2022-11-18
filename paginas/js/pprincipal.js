@@ -83,7 +83,7 @@ function cargarPreguntas(paginaActual) {
                 "<p><h3>Titulo:</h3><span> " + data.preguntas[i].titulo + " </span>" +
                 "<h5>Tags:</h5><span> " + data.preguntas[i].tags + " </span></p>" +
                 "<span name='fav' id=" + data.preguntas[i].id + " class='material-symbols-outlined' onclick='favorito("+data.preguntas[i].id+")'>star</span>"+
-                "<span name='ampliar' id=" + data.preguntas[i].id + " class='material-symbols-outlined expandir'>unfold_more</span></div>";
+                "<a href='respuestas.php?titulo=" +data.preguntas[i].titulo +"&id="+data.preguntas[i].id+"'><span name='ampliar' id=" + data.preguntas[i].id + " class='material-symbols-outlined expandir'>unfold_more</span></a></div>";
             main.appendChild(div);
             main.appendChild(document.createElement('br'));
         }

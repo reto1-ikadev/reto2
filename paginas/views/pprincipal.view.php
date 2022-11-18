@@ -16,15 +16,12 @@ require_once 'parcial/header.php';
 
         <div class="slide">
             <div class="anadir">
-                <h4>Añadir Pregunta</h4>
-                <!--<input type="submit" id="accion" value="Añadir"> -->
-                <button id='nPregunta'>Añadir</button>
+                <button class="boton" id='nPregunta'>Añadir Pregunta</button>
             </div>
             <div class="filtros">
-                <h4>Filtros</h4>
-
                 <div class="filtro">
                     <form action="" method="get" class="filtro">
+                    <h4>Filtros</h4>
                         <label for="fechInicio">Fecha Inicio:</label>
                         <input type="date" id="fechInicio" name="fechInicio">
                         <br>
@@ -40,14 +37,14 @@ require_once 'parcial/header.php';
                             <option value="diseño">Diseño</option>
                         </select>
                         <br>
-                        <input type="submit" value="Filtar">
+                        <input class="boton" type="submit" value="Filtrar">
                     </form>
                 </div>
             </div>
         </div>
         <div id="main" class="main">
-            <h4>Preguntas</h4>
-            
+
+
 
         </div>
         <div class="popular">

@@ -43,9 +43,10 @@ $css = [
                 ?>
                 
                 
+        </div> 
+        <div class="enlaces">
+        <a class='boton' href="pprincipal.php">Inicio</a> &nbsp;<a class='boton' href="miPerfil.php?accion=cargar">Mi Perfil</a>
         </div>
-        <a class='boton' href="miPerfil.php?accion=cargar">Volver</a>
-
     </div>
 
     <?php require_once 'parcial/footer.php'; ?>
