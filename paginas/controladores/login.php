@@ -1,7 +1,5 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . "/Db/empleado_db.php";
-    
-    session_start();
     $response = false;
     
     if(!isset($_COOKIE['acceptCookies'])) {
@@ -26,7 +24,7 @@
         $response = validateLogin($_COOKIE['user'], $_COOKIE['pass']);
         if($response == "correcto") {
             $_SESSION["usuario"] = array();
-            $_SESSION["usuario"]["numEmple"] = trim($_POST['usuario']);
+            $_SESSION["usuario"]["numEmple"] = $_COOKIE['user'];
             require $_SERVER['DOCUMENT_ROOT'] . "/controladores/pprincipal.php";
             die();
         } else { 

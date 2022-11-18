@@ -3,7 +3,6 @@ $css = [
     '/styles/pprincipal.css'
 ];
 require_once 'parcial/header.php';
-
 ?>
 
 <body>

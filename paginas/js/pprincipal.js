@@ -51,7 +51,7 @@ const scrollMaxValue = () => {
 //Detect when the user scroll to the bottom of the page
 var finScroll = false;
 window.onscroll = function (ev) {
-    if (window.scrollY >= scrollMaxValue() - 2) {
+    if (window.scrollY >= scrollMaxValue() - 7) {
         // you're at the bottom of the page
         //prevent multiple calls
         if (finScroll == false) {
@@ -82,24 +82,27 @@ function cargarPreguntas(paginaActual) {
             div.innerHTML = "<div class=contPregunta> " +
                 "<p><h3>Titulo:</h3><span> " + data.preguntas[i].titulo + " </span>" +
                 "<h5>Tags:</h5><span> " + data.preguntas[i].tags + " </span></p>" +
-                "<span name='fav' id=" + data.preguntas[i].id + " class='material-symbols-outlined'>star</span>"+
+                "<span name='fav' id=" + data.preguntas[i].id + " class='material-symbols-outlined' onclick='favorito("+data.preguntas[i].id+")'>star</span>"+
                 "<span name='ampliar' id=" + data.preguntas[i].id + " class='material-symbols-outlined expandir'>unfold_more</span></div>";
             main.appendChild(div);
             main.appendChild(document.createElement('br'));
         }
-        ponerFav();
+        
         window.scrollTo(0, posicionScroll);
         setTimeout(function () {
             finScroll = false;
         }, 1000);
-        
+        ponerFav();
     });
     
 
 
 }
 
-
+function favorito(id){
+    window.location.href = "/controladores/pprincipal.php?id="+id;
+ 
+}
 async function preguntaFav(id){
     let response = await fetch('/controladores/preguntafav.php?id='+ id,
         {

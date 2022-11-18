@@ -1,5 +1,6 @@
 <?php 
 require_once "db.php";
+session_start();
 function validateLogin($user, $pass) { // esta funcion le devolvera a una variable creada anteriormente llamada 
     // response el resultado de la validación
 
