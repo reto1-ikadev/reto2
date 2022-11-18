@@ -69,7 +69,7 @@ $css = [
                         </div>
                         <div class = 'botonesRespuesta'>
                             <a class="boton" href="respuestas.php?titulo=<?= $value['titulo'] ?>&id=<?= $pregunta ?>">Ver respuestas</a>
-                            <button class='boton' id='cerrar'>Cerrar respuesta</button>
+                            
                         </div>
                     </div>
                     <?php    
@@ -88,11 +88,12 @@ $css = [
         <div class="division">
         <?= mostrarFavoritos($_SESSION["numEmple"]) ?>
         </div>
-        <h4>Mis Preferencias:</h4>
-        <div class="division">
-            <div class="preferencias">
-
-            </div>
+        <div>
+            
+    </div>
+        <button class='boton' value='preferencias'>Mostrar preferencias</button>
+        <div class="division" id="pref">
+            
         </div>
     </div>
 
@@ -102,7 +103,8 @@ $css = [
             <!-- FOTO DE PERFIL -->
             <img src="/img/avatar.png" alt="avatar" class="avatar">
         </div>
-
+    
+        
         <!--NOTIFICACIONES -->
         <div class="division">
             <div class="notificaciones">
