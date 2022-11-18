@@ -128,7 +128,7 @@ header {
     /*Final*/
 }
 
-.notification span:hover ~ .box {
+.notification span.activo ~ .box {
     clip-path: circle(141.4% at 100% 0%);
 }
 

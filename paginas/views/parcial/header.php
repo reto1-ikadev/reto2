@@ -31,9 +31,9 @@
             <span class="badge">
                 
             </span>
-            <div class="box">
+            <div id="box" class="box">
                 <div class="heading"><p>Cantidad de mensajes</p></div>
-                <div class="msg"><p>Test test test test test</p></div>
+                <div class="msg">Test test test</div>
             </div>
         </div>
         <div class="despleglabe">
