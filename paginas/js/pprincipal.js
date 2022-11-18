@@ -81,21 +81,48 @@ function cargarPreguntas(paginaActual) {
             div.setAttribute('id', data.preguntas[i].id);
             div.innerHTML = "<div class=contPregunta> " +
                 "<p><h3>Titulo:</h3><span> " + data.preguntas[i].titulo + " </span>" +
-                "<h5>Tags:</h5><span> " + data.preguntas[i].tags + " </span></p></div>" +
-                "<div class=contRespuesta><p><b>Ult. Resp:</b>&nbsp;<span> " + data.preguntas[i].respuesta + " </span></p>" +
+                "<h5>Tags:</h5><span> " + data.preguntas[i].tags + " </span></p>" +
+                "<span name='fav' id=" + data.preguntas[i].id + " class='material-symbols-outlined'>star</span>"+
                 "<span name='ampliar' id=" + data.preguntas[i].id + " class='material-symbols-outlined expandir'>unfold_more</span></div>";
             main.appendChild(div);
             main.appendChild(document.createElement('br'));
         }
+        ponerFav();
         window.scrollTo(0, posicionScroll);
         setTimeout(function () {
             finScroll = false;
         }, 1000);
-
+        
     });
-
+    
 
 
 }
+
+
+async function preguntaFav(id){
+    let response = await fetch('/controladores/preguntafav.php?id='+ id,
+        {
+            method: 'GET'
+
+        });
+    let result = await response.json();
+    return result;
+    
+
+}
+
+
+function ponerFav(){
+    let fav = document.getElementsByName('fav');
+    for (let i = 0; i < fav.length; i++) {
+        preguntaFav(fav[i].id).then(function (data) {
+           if(data){
+            fav[i].classList.add('fav');
+           }
+        });
+}
+}
+
 
 cargarPreguntas();

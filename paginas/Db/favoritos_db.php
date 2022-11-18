@@ -1,4 +1,5 @@
 <?php
+require_once "db.php";
 function preguntaFavEmp($numEmp){
     $dbh = connect();
     $stmt = $dbh->prepare("SELECT pregunta_id FROM favorito WHERE empleado_numEmple = :numEmp");
