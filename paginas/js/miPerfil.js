@@ -33,11 +33,10 @@ formulario.addEventListener("submit", function (e) {
 });
 //Mostrar preferencias: Obtengo todos los botones y le añado un listener al que tiene value preferencias
 var botones = document.getElementsByClassName("boton");
-console.log(botones);
-for (var boton of botones) {
-  if (boton.value == "preferencias") {
-    boton.addEventListener("click", generarPreferencias);
-  }
+
+function comprobarSiExiteLaDivPreferencias(){
+    var comprobacion = document.getElementById('formulario2');
+    console.log(comprobacion);
 }
 
 /**
@@ -45,7 +44,7 @@ for (var boton of botones) {
  * Cogemos el boton enviar y lo pasamos como parametro a la
  * funcion enviarPreferencias
  */
-function generarPreferencias() {
+function generarPreferencias(preferencias) {
   //no puede tener return
   console.log("funcion generar preferencias");
   let pref = document.getElementById("pref");
@@ -73,11 +72,11 @@ function generarPreferencias() {
     "</div>" +
     "<div>" +
     "<p>Color de la fuente:</p>" +
-    "<input type='color' name='color' id='color'>" +
+    "<input type='color' name='color' id='color' value='"+preferencias[1]+"'>" +
     "</div>" +
     "<div>" +
     "<p>Tamaño de la letra:</p>" +
-    "<input type='range' name = 'size' id= 'size' min ='10' max = '20' value=13>" +
+    "<input type='range' name = 'size' id= 'size' min ='10' max = '20' value='"+preferencias[2]+"'>" +
     "</div>" +
     "<div>" +
     "<button class='boton' id='enviarPref' type='submit'>Enviar</button>" +
@@ -130,7 +129,7 @@ function guardarPreferencias() {
   console.log(fontSize);
 
   /*Creo una cadena con los datos que ha seleccionado el usuario para crear una cookie */
-  var cadenaPreferencias = '"' + fuente + "," + color + "," + fontSize + '"';
+  var cadenaPreferencias = '' + fuente + "," + color + "," + fontSize + '';
   console.log(cadenaPreferencias);
 
   document.cookie =
@@ -164,6 +163,7 @@ function obtenerCookie() {
     var guardarPreferecias = prueba[1];
     var preferencias = guardarPreferecias.split(",");
     cambiarPreferencias(preferencias);
+    generarPreferencias(preferencias)
 }
 function obtenerSize(inputsFormulario) {
   for (var elemento of inputsFormulario) {
