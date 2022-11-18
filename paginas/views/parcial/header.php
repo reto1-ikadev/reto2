@@ -29,7 +29,7 @@
                 notifications
             </span>
             <span class="badge">
-                3
+                
             </span>
             <div class="box">
                 <div class="heading"><p>Cantidad de mensajes</p></div>
@@ -48,4 +48,5 @@
             </div>
         </div>
         </div>
+        <script src="/js/notifications.js"></script>
     </header>
