@@ -24,8 +24,8 @@
             <div class= 'lineaF'>
             <label for="tags">Tags:</label>
             <div id="tags">
-            <input type="checkbox" name="tag1" value="uno"> Uno <input type="checkbox" name="tag2" value="dos"> Dos
-            <input type="checkbox" name="tag3" value="tres"> Tres <input type="checkbox" name="tag4" value="cuatro">Cuatro
+            <input type="checkbox" name="tag1" value="mecanica"> Mecanica <input type="checkbox" name="tag2" value="electricidad"> Electricidad
+            <input type="checkbox" name="tag3" value="electronica"> Electronica <input type="checkbox" name="tag4" value="diseño"> Diseño
             </div>
             
             </div>
