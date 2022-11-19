@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,47 +12,32 @@
         <link rel="stylesheet" href="../styles/login.css">
     </head>
     <body>
-
         <div id="contenedor">
-
             <div id="titulo">
                    <h3> INICIO SESION </h3> <span class="material-symbols-outlined"> login </span> 
             </div>
-
-            <form action="#" method="post">
-
-                <div id="usuario">
+            <form action=" " method="post">
+                <div id="usuarioDiv">
                     <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario" name="usuario">
+                    <input type="text" id="usuario"name="usuario">
                 </div>
-
-                <div id="pass">
+                <div id="passDiv">
                     <label for="pass">Contraseña</label>
-                    <input type="password" id="pass" name="pass">
+                    <input type="password" id="pass"name="pass">
                 </div>
-
                 <div id="bot">
                     <input type="submit" name="aceptar" id="aceptar" class="boton" value="ACEPTAR">
                     <input type="button" id="borrar" class="boton" value="BORRAR">
                 </div>
-
-                <div id="respuesta">
-                    <label><?php
-
-                        if($response != "nothing") {
-                            echo $response;
-                        }
-                    
-                    ?></label>
-                </div>
                 
             </form>
                 <div id="cont">
-                    <a href="contrasena.php" id="cont">He olvidado la CONTRASEÑA</a>
-                    <button class="boton" id="registro">REGISTRARME <span class="material-symbols-outlined"> how_to_reg </span> </button>
+                    <a href="../controladores/contrasena.php" id="cont">He olvidado la CONTRASEÑA</a>
+                    <form action="../controladores/registro.php">
+                        <button class="boton" id="registro">REGISTRARME <span class="material-symbols-outlined"> how_to_reg </span> </button>
+                    </form>
                 </div>
         </div>
-
     </body>
-    <script src="../js/login.js"></script>
+    <script src="/js/login.js"></script>
 </html>
