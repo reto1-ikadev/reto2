@@ -20,10 +20,10 @@ require_once 'parcial/header.php';
             </div>
             <div class="filtros">
                 <div class="filtro">
-                    <form action="" method="get" class="filtro">
+                    <form  id="filtros" class="filtro">
                     <h4>Filtros</h4>
                         <label for="fechInicio">Fecha Inicio:</label>
-                        <input type="date" id="fechInicio" name="fechInicio">
+                        <input type="date" id="fechaInicio" name="fechaInicio">
                         <br>
                         <label for="fechaFinal">Fecha Final:</label>
                         <input type="date" id="fechaFinal" name="fechaFinal">

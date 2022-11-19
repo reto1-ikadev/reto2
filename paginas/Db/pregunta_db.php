@@ -117,3 +117,19 @@ function selectPreguntas($page){
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
+
+function selectPreguntasFiltradas($page, $fechaInicio ="", $fechaFin ="", $tags =""){
+    $dbh = connect();
+    $offset = 8 * ($page - 1);
+    $fechaInicio = $fechaInicio == "" ? "1999-01-01" : $fechaInicio;
+    $fechaFin = $fechaFin == "" ? "2050-01-01" : $fechaFin;
+    $stmt = $dbh->prepare("SELECT * FROM pregunta WHERE tags LIKE CONCAT('%', :tags, '%') AND fecha  BETWEEN :fechaInicio AND :fechaFin  ORDER BY id DESC LIMIT 8 OFFSET :offset");
+    $stmt ->bindValue(':tags', $tags, PDO::PARAM_STR);
+    $stmt ->bindValue(':fechaInicio', $fechaInicio, PDO::PARAM_STR);
+    $stmt ->bindValue(':fechaFin', $fechaFin, PDO::PARAM_STR);
+    $stmt ->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}

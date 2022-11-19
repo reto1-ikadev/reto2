@@ -16,7 +16,6 @@ if(isset($_GET['id'])){
         insertFav($id,$numEmple);
     }
 }
-
 //funcion mostrar pregunta
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/views/pprincipal.view.php';
