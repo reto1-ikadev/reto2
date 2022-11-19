@@ -1,33 +1,95 @@
 <?php
-//Para hacer pruebas en el navegador hay que pasarle ?accion=cargar
-    include_once "../Db/db.php";
+//Con estas líneas se muestran los errores de php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+session_start();//Para poder utilizar la sesion
+include_once "../Db/empleado_db.php";
+include_once "../Db/pregunta_db.php";
+include_once "../Db/respuesta_db.php";
+include_once "../Db/favoritos_db.php";
+
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+        $numEmple = $_SESSION["usuario"]["numEmple"];
+            deleteFav($id,$numEmple); 
+            require_once 'miPerfil.php';
+    }
+
     
-    if(isset($_GET["accion"]) && $_GET["accion"] != ''){
-        echo "recibo accion";
-        //Necesito el num de empleado con el que ha iniciado sesion. Como no tengo la parte del código, voy a establecer una variable
-        $nume = 12346; //despues lo cogere de $_SESSION
-        if(isset($nume)){
-            //Tengo que solicitar a la base de datos los datos del usuario
-            $datos = selectUsuarioById($nume); 
-            //El objeto datos, lo utilizo en miPerfil.view.php para asignar el valor al input
-            // print_r($datos);
+    //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
+    if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
+        if(!isset($_SESSION['usuario']['nombre'])){
+        
+            
+            $numEmple = obtenerNumEmple();
+
+            if(isset($numEmple)){
+                $datos = selectUsuarioById($numEmple); 
+                 añadirDatosAsession($datos);
+                
+            }
+        }
+
+        $misPreguntas = selectPreguntasUsuario($numEmple);
+        
+    }
+    if(isset($_GET['accion2'])&& $_GET['accion2']!=''){
+        $id = $_GET['id'];
+    }
+
+    //AÑADIR MIS PREGUNTAS.
+    /**
+     * Funcion que añade a session los datos del usuario
+     */
+    function añadirDatosAsession($datos){
+        foreach ($datos as $key => $value) {
+            $_SESSION[$key] = $value;
         }
     }
-    
-    function selectUsuarioById($nume){
-       
-        $dbh = connect();
+    /**
+     * Funcion que nos devuelve los datos del usuario 
+     * @param $numEmple -> El numero del empleado.
+     * @return Objeto
+     */
 
-        $stmt = $dbh->prepare("SELECT * FROM empleado WHERE numEmple = :nume");
-        $stmt ->setFetchMode(PDO::FETCH_OBJ);
-        $data = array(
-            "nume" => $nume
-        );
-        $stmt->execute($data);
-        return $stmt->fetchObject();
+/**
+ * Funcion que guarda en una variable el numero de empleado que ha iniciado sesion
+ * @return $numEmple -> Se obtiene de $_SESSION
+ */
+    function obtenerNumEmple(){
+        if(isset($_SESSION['usuario'])){
+            $session = $_SESSION['usuario'];
+            //print_r($session);
+            foreach ($session as $usuario => $value) {
+                $numEmple = $value;
+            }
+         
+        }
+        return $numEmple;
     }
 
+    function mostrarFavoritos($numEmple){
+        $preguntas = preguntaFavEmp($numEmple);
+        $respuesta ="";
+        foreach($preguntas as $pregunta){
+            $titulos = selectPreguntaId($pregunta['pregunta_id']);   
+            foreach($titulos as $titulo){    
+                $respuesta .= "<div id={$pregunta['pregunta_id']} class=favorito>";
+                $respuesta .= "<p> <h4>{$titulo->titulo}</h4>";
+                $respuesta .= "<div><span id={$pregunta['pregunta_id']} class='material-symbols-outlined fav'>star_rate</span></div>";
+                $respuesta .= "</p>";
+                $respuesta .= "</div>";
+                $respuesta .= "<br>";
+            }
+           
+        }
+        echo $respuesta;
+    }
+     
 
     require_once "../views/miPerfil.view.php";
 ?>
+
 
