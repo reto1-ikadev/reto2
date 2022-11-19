@@ -6,7 +6,7 @@
 }
 
 #contenedor{
-    width: 75%;
+    width: 90%;
     margin: 2em auto;
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -17,6 +17,8 @@
 }
 
 body{
+    display:flex;
+    justify-content: center;
     display: grid;
     width: 100%;
     background-color:#F3F2F8;
@@ -28,6 +30,7 @@ body{
     "."
     "footer";
 }
+
 
 /******************************PARTE CENTRAL DEL CONTENEDOR******************************/
 #main{
@@ -56,7 +59,7 @@ body{
 
 /******************************LAS TRES DIVISIONES TIENEN EL MISMO ESTILO******************************/
 .division{
-    border-radius: 8%;
+    border-radius: 2%;
     box-shadow: 0px 1px 6px #666666;
     width: 80%;
     display: flex;
@@ -69,19 +72,24 @@ body{
     padding-bottom: 2em;
 }
 /*****************************DIVISIONES INTERIORES DE MIS PREGUNTAS Y MIS FAVORITOS*****************************/
-.pregunta, .favorito, .notificaciones{
-    border: 1px solid rgb(117, 111, 111);
+.pregunta, .favorito{
+    border: .2px solid #c4d2ef;
     box-shadow:inset 0px 0px 2px;
     width: 80%;
-    background-color:#c9dbed;
+    background-color:#dce5ef;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: .3em;
 }
 
+
 .preferencias{
     width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 
@@ -97,19 +105,30 @@ body{
     padding: .2em;
 }
 /******************************FORMULARIO PARA MOSTRAR LOS DATOS*************************************/
-form{
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    width: 80%; 
+    width: 65%; 
 }
+#formulario2{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em;
+}
+
+.linea{
+    padding-bottom:0.2em ;
+}
+
 .lineaF{
     width: 70%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 #botones{
@@ -147,14 +166,45 @@ form{
 
 
 #fotoPerfil{
-    width: 50%;
+    width: 30%;
     padding-top: 2em;
 }
-
+input[type="text"]{
+    border:0;
+    height: 2em;
+    border-bottom: 2px solid grey;
+}
+input[name='correo']:hover{
+    box-shadow:  0px 0px 15px #6297CC;
+}
+.lineaF > label{
+    font-weight: bold;
+}
+.deshabilitado{
+    background-color: #dfe1e345;
+}
+.pregunta a{
+    text-decoration: none;
+    color:#123e6d;
+}
+a:hover{
+    text-shadow:  2px 4px 7px #173049;
+    cursor: pointer;
+}
+.respuesta{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2em;
+}
 .avatar{
     width: 100%;
     border-radius: 8%;
     box-shadow: 0px 1px 3px #666666;
-    border: 1px solid #1F2F40;
+    border: 2px solid #264668;
+}
+div[class='linea']:hover{
+    color:rgb(9, 9, 134);   
+    font-weight: 500; 
 }
    

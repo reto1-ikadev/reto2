@@ -11,32 +11,32 @@ $css = [
 <div id="contenedor">
 
     <div id="main">
-        <h4>Mis datos:</h4>
+        <h2>Mis datos:</h2>
         <div class="division">
             <form id="formulario">
                 <!-- Al cargar la pagina se envia el $get accion cargar. Se piden los datos a la bd y se cargan en el value del input -->
                 <div class="lineaF">
                     <label for="nombre">Nº empleado</label>
-                    <input type="text" name="numEmple" value="<?= $_SESSION['numEmple'] ?>" readonly>
+                    <input class='deshabilitado' type="text" name="numEmple" value="<?= $_SESSION['numEmple'] ?>" readonly>
                 </div>
                 <div class="lineaF">
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" value="<?= $_SESSION['nombre'] ?>" readonly>
+                    <input class='deshabilitado' type="text" name="nombre" value="<?= $_SESSION['nombre'] ?>" readonly>
                 </div>
 
                 <div class="lineaF">
                     <label for="apellido">Apellido</label>
-                    <input type="text" name="apellido" value="<?= $_SESSION['apellidos'] ?>" readonly>
+                    <input class='deshabilitado' type="text" name="apellido" value="<?= $_SESSION['apellidos'] ?>" readonly>
                 </div>
 
                 <div class="lineaF">
-                    <label for="correo">eMail</label>
+                    <label for="correo">Email</label>
                     <input type="text" name="correo" value="<?= $_SESSION['correo'] ?>">
                 </div>
 
                 <div class="lineaF">
                     <label for="dept">Departamento</label>
-                    <input type="text" name="dept" value="<?= $_SESSION['departamento'] ?>" readonly>
+                    <input class='deshabilitado' type="text" name="dept" value="<?= $_SESSION['departamento'] ?>" readonly>
                 </div>
 
                 <div id="botones">
@@ -47,7 +47,7 @@ $css = [
             </form>
         </div>
 
-        <h4>Mis preguntas:</h4>
+        <h2>Mis preguntas:</h2>
         <div class="division">
             <?php
             if (isset($misPreguntas)) {
@@ -69,6 +69,7 @@ $css = [
                         </div>
                         <div class = 'botonesRespuesta'>
                             <a class="boton" href="respuestas.php?titulo=<?= $value['titulo'] ?>&id=<?= $pregunta ?>">Ver respuestas</a>
+                            <a class="boton" href="miPerfil.php?accion=cargar">Cerrar</a>
                             
                         </div>
                     </div>
@@ -84,7 +85,7 @@ $css = [
             ?>
         </div>
 
-        <h4>Mis favoritos:</h4>
+        <h2>Mis favoritos:</h2>
         <div class="division">
         <?= mostrarFavoritos($_SESSION["numEmple"]) ?>
         </div>
@@ -100,7 +101,7 @@ $css = [
             <!-- FOTO DE PERFIL -->
             <img src="/img/avatar.png" alt="avatar" class="avatar">
         </div>
-        <button class='boton' value='preferencias'>Mostrar preferencias</button>
+            <h4>Preferencias</h4>
         <div class="division" id="pref">
             
         </div>

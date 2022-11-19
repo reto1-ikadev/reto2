@@ -52,35 +52,38 @@ function generarPreferencias(preferencias) {
   division.setAttribute("class", "preferencias");
   division.innerHTML =
     "<form id='formulario2'>" +
-    "<div>" +
-    "<p>Tipo de fuente:</p>" +
-    "<div>" +
-    "<input type='radio' name='fuente' id='courier' value = 'courier'>" +
-    "<label for='courier'>Maquina de escribir</label>" +
-    "</div>" +
-    "<div>" +
-    "<input type='radio' name='fuente' id='arial' value = 'arial'>" +
-    "<label for='arial'>Clasica</label>" +
-    "</div>" +
-    "<div>" +
-    "<input type='radio' name='fuente' id='cursiva' value = 'cursiva'>" +
-    "<label for='cursiva'>Cursiva</label>" +
-    "</div>" +
-    "<div>" +
-    "<input type='radio' name='fuente' id='roboto' value = 'roboto' checked>" +
-    "<label for='roboto'>Por defecto</label>" +
-    "</div>" +
-    "<div>" +
-    "<p>Color de la fuente:</p>" +
-    "<input type='color' name='color' id='color' value='"+preferencias[1]+"'>" +
-    "</div>" +
-    "<div>" +
-    "<p>Tamaño de la letra:</p>" +
-    "<input type='range' name = 'size' id= 'size' min ='10' max = '20' value='"+preferencias[2]+"'>" +
-    "</div>" +
-    "<div>" +
-    "<button class='boton' id='enviarPref' type='submit'>Enviar</button>" +
-    "</div>" +
+      "<div id= 'division'>" +
+        "<h4>Tipo de fuente:</h4>" +
+
+        "<div class='linea'>" +
+          "<input type='radio' name='fuente' id='courier' value = 'courier'>" +
+          "<label for='courier'>Maquina de escribir</label>" +
+        "</div>" +
+
+        "<div class='linea'>" +
+            "<input type='radio' name='fuente' id='arial' value = 'arial'>" +
+            "<label for='arial'>Clasica</label>" +
+        "</div>" +
+
+        "<div class='linea'>" +
+            "<input type='radio' name='fuente' id='cursiva' value = 'cursiva'>" +
+            "<label for='cursiva'>Cursiva</label>" +
+        "</div>" +
+        "<div class='linea'>" +
+            "<input type='radio' name='fuente' id='roboto' value = 'roboto' checked>" +
+            "<label for='roboto'>Por defecto</label>" +
+        "</div>" +
+        "<div>" +
+            "<h4>Color de la fuente:</h4>" +
+            "<input type='color' name='color' id='color' value='"+preferencias[1]+"'>" +
+        "</div>" +
+        "<div >" +
+            "<h4>Tamaño de la letra:</h4>" +
+            "<input type='range' name = 'size' id= 'size' min ='10' max = '20' value='"+preferencias[2]+"'>" +
+        "</div>" +
+        "<div class='botones'>" +
+          "<button class='boton' id='enviarPref' type='submit'>Enviar</button>" +
+      "</div>" +
     "</form>";
   pref.appendChild(division);
   var botonEnviar = document.getElementById("enviarPref");
