@@ -8,9 +8,8 @@ require_once 'parcial/header.php';
 <body>
 
     <div class="nav">
-        <a href="aaa">Guias</a>
-        <a href="#">Tutoriales</a>
-        <a href="#">Mis Preguntas</a>
+        <a href="#"><button class="boton" name="Enlaces">Guias</button></a>
+        <a href="#"><button class="boton" name="Enlaces">Tutoriales</button></a>
     </div>
     <div class="cont-prin">
 

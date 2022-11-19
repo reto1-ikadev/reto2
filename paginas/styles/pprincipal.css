@@ -22,18 +22,6 @@ body{
     justify-content: space-evenly;
     align-items: center;
 }
-
-.nav a {
-    text-decoration: none;
-    color: #000;
-    font-size: 1.2em;
-    font-weight: bold;
-    border-radius: 5px;
-    background-color: lightyellow;
-    border: 1px solid gray;
-    padding: 0.4em;
-    margin-top: 0.5em;
-}
 .cont-prin{
     grid-area: main;
     margin-top: 0.8em;
@@ -148,4 +136,9 @@ body{
 
 input[type="submit"][value="Filtrar"] {
     width: 75%;
+    padding: 0.2em;
+}
+
+button[name="Enlaces"] {
+    padding: 0.5em;
 }
