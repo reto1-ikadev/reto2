@@ -36,7 +36,7 @@ var botones = document.getElementsByClassName("boton");
 
 function comprobarSiExiteLaDivPreferencias(){
     var comprobacion = document.getElementById('formulario2');
-    console.log(comprobacion);
+    //console.log(comprobacion);
 }
 
 /**
@@ -85,6 +85,12 @@ function generarPreferencias(preferencias) {
   pref.appendChild(division);
   var botonEnviar = document.getElementById("enviarPref");
   console.log(botonEnviar);
+  var tipoLetra = preferencias[0];
+  console.log(tipoLetra + 'TIPO LETRA');
+  var prueba = document.getElementById(preferencias[0]);
+  console.log(prueba);
+  prueba.checked = true;
+  
   enviarPreferencias(botonEnviar);
   
 }
@@ -99,7 +105,7 @@ function enviarPreferencias(botonEnviar) {
     var prueba = cookPref.split("=");
     var guardarPreferecias = prueba[1];
     var preferencias = guardarPreferecias.split(",");
-    console.log(preferencias);
+    //console.log(preferencias);
     cambiarPreferencias(preferencias);
   });
 }
@@ -114,49 +120,49 @@ function guardarPreferencias() {
   //Obtengo todos los inputs del formulario
   var formulario = document.getElementById("formulario2");
   var inputsFormulario = formulario.querySelectorAll("input");
-  console.log(inputsFormulario);
+  //console.log(inputsFormulario);
   //Consigo un array con los radios
   radios = obtenerRadios(inputsFormulario);
-  console.log(radios);
+  //console.log(radios);
   //Obtengo el valor del radio seleccionado
   var fuente = obtenerValorFuente(radios);
-  console.log(fuente);
+  //console.log(fuente);
   //obtenerColor
   var color = obtenerColor(inputsFormulario);
-  console.log(color);
+ // console.log(color);
   //obtener tamaño
   var fontSize = obtenerSize(inputsFormulario);
-  console.log(fontSize);
+  //console.log(fontSize);
 
   /*Creo una cadena con los datos que ha seleccionado el usuario para crear una cookie */
   var cadenaPreferencias = '' + fuente + "," + color + "," + fontSize + '';
-  console.log(cadenaPreferencias);
+  //console.log(cadenaPreferencias);
 
   document.cookie =
     "preferencias = " + cadenaPreferencias + "; max-age=360000;path=/";
   var cooks = document.cookie;
-  console.log(cooks);
+  //console.log(cooks);
   let arrayCookies = cooks.split(";");
-  console.log(arrayCookies);
+  //console.log(arrayCookies);
   var expRegPref = new RegExp("preferencias");
   for (var cook of arrayCookies) {
     if (expRegPref.test(cook)) {
       var cookPref = cook;
-      console.log(cook);
+    //  console.log(cook);
     }
   }
   return cookPref;
 }
 function obtenerCookie() {
   var cooks = document.cookie;
-  console.log(cooks);
+  //console.log(cooks);
   let arrayCookies = cooks.split(";");
-  console.log(arrayCookies);
+ // console.log(arrayCookies);
   var expRegPref = new RegExp("preferencias");
   for (var cook of arrayCookies) {
     if (expRegPref.test(cook)) {
       var cookPref = cook;
-      console.log(cook);
+   //   console.log(cook);
     }
   }
     var prueba = cookPref.split("=");
@@ -189,7 +195,7 @@ function obtenerColor(inputsFormulario) {
  */
 function obtenerValorFuente(radios) {
   let i = 0;
-  console.log(radios.length);
+  //console.log(radios.length);
   for (i; i < radios.length && !radios[i].checked; i++) {}
   if (i < radios.length) {
     var fuenteElegida = radios[i].value;
@@ -210,8 +216,9 @@ function obtenerRadios(inputsFormulario) {
   return radios;
 }
 
+/**Cambia el css para modificar las preferencias elegidas por el usuario */
 function cambiarPreferencias(preferencias) {
-  console.log(preferencias[0]);
+ // console.log(preferencias[0]);
   document.querySelector("body").style.fontFamily = preferencias[0];
   document.querySelector("body").style.color = preferencias[1];
   document.querySelector("body").style.fontSize = parseInt(preferencias[2]);
@@ -221,13 +228,13 @@ function cambiarPreferencias(preferencias) {
 function validar(datos) {
   try {
     var accion = datos.get("accion");
-    console.log(accion);
+   // console.log(accion);
 
     var datosOk = true;
     var campoIncorrecto = "";
 
     var correo = datos.get("correo");
-    console.log(correo);
+   // console.log(correo);
     var expRegCorreo = new RegExp(
       /[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}/
     );
@@ -245,7 +252,7 @@ function validar(datos) {
   }
 }
 
-//Esta funcion envia los datos a main.php y recibe una respuesta
+//Esta funcion envia los datos del formulario con los datos del usuario a main.php y recibe una respuesta
 async function enviarDatos(datos) {
   let response = await fetch("/controladores/main.php", {
     method: "POST",

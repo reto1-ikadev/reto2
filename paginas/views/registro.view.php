@@ -62,4 +62,5 @@
     </body>
     <script src="../js/registro.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/cambioPreferencias.js"></script>
 </html>

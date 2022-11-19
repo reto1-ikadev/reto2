@@ -91,10 +91,7 @@ $css = [
         <div>
             
     </div>
-        <button class='boton' value='preferencias'>Mostrar preferencias</button>
-        <div class="division" id="pref">
-            
-        </div>
+        
     </div>
 
     <div id="aside">
@@ -103,15 +100,13 @@ $css = [
             <!-- FOTO DE PERFIL -->
             <img src="/img/avatar.png" alt="avatar" class="avatar">
         </div>
-    
+        <button class='boton' value='preferencias'>Mostrar preferencias</button>
+        <div class="division" id="pref">
+            
+        </div>
         
         <!--NOTIFICACIONES -->
-        <div class="division">
-            <div class="notificaciones">
-                <h4>Aquí se generan las notificaciones</h4>
-            </div>
-
-        </div>
+        
 
     </div>
 
@@ -121,5 +116,6 @@ $css = [
 </body>
 <script src="/js/miPerfil.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </html>

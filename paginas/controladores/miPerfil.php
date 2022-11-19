@@ -1,10 +1,14 @@
 <?php
-//Con estas líneas se muestran los errores de php
+session_start();
+
+//Para poder utilizar la sesion
+/*Con estas líneas se muestran los errores de php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 
-session_start();//Para poder utilizar la sesion
+
+
 include_once "../Db/empleado_db.php";
 include_once "../Db/pregunta_db.php";
 include_once "../Db/respuesta_db.php";
@@ -19,10 +23,10 @@ include_once "../Db/favoritos_db.php";
 
     
     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
-    if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
+     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
+     if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
         if(!isset($_SESSION['usuario']['nombre'])){
-        
-            
+
             $numEmple = obtenerNumEmple();
 
             if(isset($numEmple)){
@@ -58,17 +62,17 @@ include_once "../Db/favoritos_db.php";
  * Funcion que guarda en una variable el numero de empleado que ha iniciado sesion
  * @return $numEmple -> Se obtiene de $_SESSION
  */
-    function obtenerNumEmple(){
-        if(isset($_SESSION['usuario'])){
-            $session = $_SESSION['usuario'];
-            //print_r($session);
-            foreach ($session as $usuario => $value) {
-                $numEmple = $value;
-            }
-         
+function obtenerNumEmple(){
+    if(isset($_SESSION['usuario'])){
+        $session = $_SESSION['usuario'];
+        
+        foreach ($session as $usuario => $value) {
+            $numEmple = $value;
         }
-        return $numEmple;
+     
     }
+    return $numEmple;
+}
 
     function mostrarFavoritos($numEmple){
         $preguntas = preguntaFavEmp($numEmple);
@@ -90,6 +94,4 @@ include_once "../Db/favoritos_db.php";
      
 
     require_once "../views/miPerfil.view.php";
-?>
-
-
+    ?>

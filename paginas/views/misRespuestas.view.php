@@ -49,4 +49,5 @@ $css = [
     </div>
 
     <?php require_once 'parcial/footer.php'; ?>
+    <script src="../js/cambioPreferencias.js"></script>
 </body>
