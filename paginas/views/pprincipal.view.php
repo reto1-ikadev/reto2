@@ -21,7 +21,7 @@ require_once 'parcial/header.php';
             <div class="filtros">
                 <div class="filtro">
                     <form id="filtros" class="filtro">
-                        <h4>Filtros</h4>
+                        <h2>Filtros</h2>
                         <br>
                         <input type="text" name="busqueda" id="busqueda" placeholder="Filtrar por Titulo">
                         <br>
@@ -50,7 +50,7 @@ require_once 'parcial/header.php';
 
         </div>
         <div class="popular">
-            <h4>Preguntas Populares</h4>
+            <h3>Preguntas Populares</h3>
 
         </div>
 
