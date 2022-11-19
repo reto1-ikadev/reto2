@@ -105,9 +105,7 @@ $css = [
             
         </div>
         
-        <!--NOTIFICACIONES -->
         
-
     </div>
 
     <footer></footer>

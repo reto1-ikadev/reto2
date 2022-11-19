@@ -13,10 +13,13 @@ $css = [
             <!--AQUI SE GENERA EL TITULO DE LA PREGUNTA-->
             <h3><?= $titulo ?></h3>
             <div class = 'cont'><p><?= $pregunta[$id]['contenido']?></p> </div>
+            <button class='boton'>Responder</button>
+            <intput type = 'hidden' class = 'oculto' id = <?= $_GET['id'] ?>>
+            
             <!-- Aqui se carga contenido de la pregunta -->
             
-
         </div>
+
         <div class="division">
 
             <p></p>
@@ -50,4 +53,6 @@ $css = [
 
     <?php require_once 'parcial/footer.php'; ?>
     <script src="../js/cambioPreferencias.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/misRespuestas.js"></script>
 </body>

@@ -16,8 +16,7 @@ if(isset($_GET['id'])){
    //necesito el nombre del empleado.
    
    $pregunta = selectPreguntaPorIdPregunta($id);
-   
-   
 }
+
 require_once '../views/misRespuestas.view.php';
 ?>

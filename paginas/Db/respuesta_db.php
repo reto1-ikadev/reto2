@@ -1,6 +1,25 @@
 <?php
 require_once "db.php";
 require_once "empleado_db.php";
+
+function insertRespuesta($contenido, $idPregunta,$usuario){
+    try{
+        $dbh = connect();
+        $stmt = $dbh->prepare("INSERT INTO respuesta(contenido,empleado_numEmple, pregunta_id) VALUES(:contenido, :empleado_numEmple, :pregunta_id)");
+        $data = array(
+            'contenido' => $contenido,
+            "empleado_numEmple" => $usuario,
+            "pregunta_id" => $idPregunta
+        );
+       return $stmt->execute($data);
+
+
+    }catch(Exception $e){
+        echo 'Exception -> ';
+        var_dump($e->getMessage());   
+    }
+}
+
 function selectRespuestaPorIdPregunta($id){
     $respuestas = [];
     $dbh = connect();
