@@ -47,6 +47,13 @@ body{
     text-align: center;
     
 }
+.anadir{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 .anadir h4{
     margin-bottom: 0.5em;
 }
@@ -140,5 +147,24 @@ input[type="submit"][value="Filtrar"] {
 }
 
 button[name="Enlaces"] {
+    padding: 0.5em;
+    margin: 1em;
+}
+
+button[id="nPregunta"] {
+    padding: 0.7em;
+}
+.tablaPreguntas{
+    width: 100%;
+    height: 100%;
+}
+.tablaPreguntas td.titulo{
+    width: 65%;
+    padding-left: 0.5em;
+}
+.tablaPreguntas td.tags{
+    width: 35%;
+}
+.tablaPreguntas td.iconos{
     padding: 0.5em;
 }

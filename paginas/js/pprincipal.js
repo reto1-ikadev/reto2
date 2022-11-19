@@ -85,10 +85,12 @@ function cargarPreguntas(paginaActual) {
             div.setAttribute('class', 'pregunta');
             div.setAttribute('id', data.preguntas[i].id);
             div.innerHTML = "<div class=contPregunta> " +
-                "<p><h3>Titulo:</h3><span> " + data.preguntas[i].titulo + " </span>" +
-                "<h5>Tags:</h5><span> " + data.preguntas[i].tags + " </span></p>" +
-                "<span name='fav' id='star" + data.preguntas[i].id + "' class='material-symbols-outlined' onclick='agregarPreguntaFavorita(" + data.preguntas[i].id + ")'>star</span>" +
-                "<a href='respuestas.php?titulo=" + data.preguntas[i].titulo + "&id=" + data.preguntas[i].id + "'><span name='ampliar' id=" + data.preguntas[i].id + " class='material-symbols-outlined expandir'>unfold_more</span></a></div>";
+                "<table class='tablaPreguntas'><tr>" +
+                "<td rowspan='2' class='titulo'><b>Titulo:</b> <span> " + data.preguntas[i].titulo + " </span></td>" +
+                "<td rowspan='2' class='tags'><b>Tags:</b><span> " + data.preguntas[i].tags + " </span></td>" +
+                "<td  class='iconos'><span name='fav' id='star" + data.preguntas[i].id + "' class='material-symbols-outlined' onclick='agregarPreguntaFavorita(" + data.preguntas[i].id + ")'>star</span></td></tr>" +
+                "<tr><td class='iconos'><a href='/controladores/respuestas.php?titulo=" + data.preguntas[i].titulo + "&id=" + data.preguntas[i].id + "'><span name='ampliar' id=" + data.preguntas[i].id + " class='material-symbols-outlined expandir'>unfold_more</span></a></td></tr> <tbody></table></div>";
+                "</table> </div>";
             main.appendChild(div);
             main.appendChild(document.createElement('br'));
         }
@@ -183,10 +185,12 @@ function cargarPreguntasFiltradas(paginaActual) {
             div.setAttribute('class', 'pregunta');
             div.setAttribute('id', data.preguntas[i].id);
             div.innerHTML = "<div class=contPregunta> " +
-                "<p><h3>Titulo:</h3><span> " + data.preguntas[i].titulo + " </span>" +
-                "<h5>Tags:</h5><span> " + data.preguntas[i].tags + " </span></p>" +
-                "<span name='fav' id='star" + data.preguntas[i].id + "' class='material-symbols-outlined' onclick='agregarPreguntaFavorita(" + data.preguntas[i].id + ")'>star</span>" +
-                "<a href='respuestas.php?titulo=" + data.preguntas[i].titulo + "&id=" + data.preguntas[i].id + "'><span name='ampliar' id=" + data.preguntas[i].id + " class='material-symbols-outlined expandir'>unfold_more</span></a></div>";
+                "<table class='tablaPreguntas'><tr>" +
+                "<td rowspan='2' class='titulo'><b>Titulo:</b> <span> " + data.preguntas[i].titulo + " </span></td>" +
+                "<td rowspan='2' class='tags'><b>Tags:</b><span> " + data.preguntas[i].tags + " </span></td>" +
+                "<td  class='iconos'><span name='fav' id='star" + data.preguntas[i].id + "' class='material-symbols-outlined' onclick='agregarPreguntaFavorita(" + data.preguntas[i].id + ")'>star</span></td></tr>" +
+                "<tr><td class='iconos'><a href='/controladores/respuestas.php?titulo=" + data.preguntas[i].titulo + "&id=" + data.preguntas[i].id + "'><span name='ampliar' id=" + data.preguntas[i].id + " class='material-symbols-outlined expandir'>unfold_more</span></a></td></tr> <tbody></table></div>";
+                "</table> </div>";
             main.appendChild(div);
             main.appendChild(document.createElement('br'));
         }

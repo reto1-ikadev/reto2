@@ -8,19 +8,20 @@ require_once 'parcial/header.php';
 <body>
 
     <div class="nav">
-        <a href="#"><button class="boton" name="Enlaces">Guias</button></a>
-        <a href="#"><button class="boton" name="Enlaces">Tutoriales</button></a>
+
     </div>
     <div class="cont-prin">
 
         <div class="slide">
             <div class="anadir">
                 <button class="boton" id='nPregunta'>Añadir Pregunta</button>
+                <br>
+                <a href="#"><button class="boton" name="Enlaces">Tutoriales</button></a>
             </div>
             <div class="filtros">
                 <div class="filtro">
-                    <form  id="filtros" class="filtro">
-                    <h4>Filtros</h4>
+                    <form id="filtros" class="filtro">
+                        <h4>Filtros</h4>
                         <label for="fechInicio">Fecha Inicio:</label>
                         <input type="date" id="fechaInicio" name="fechaInicio">
                         <br>
@@ -44,10 +45,10 @@ require_once 'parcial/header.php';
         <div id="main" class="main">
 
 
-
         </div>
         <div class="popular">
             <h4>Preguntas Populares</h4>
+
         </div>
 
     </div>
