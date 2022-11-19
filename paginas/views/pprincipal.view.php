@@ -22,6 +22,9 @@ require_once 'parcial/header.php';
                 <div class="filtro">
                     <form id="filtros" class="filtro">
                         <h4>Filtros</h4>
+                        <br>
+                        <input type="text" name="busqueda" id="busqueda" placeholder="Filtrar por Titulo">
+                        <br>
                         <label for="fechInicio">Fecha Inicio:</label>
                         <input type="date" id="fechaInicio" name="fechaInicio">
                         <br>
