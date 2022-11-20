@@ -64,7 +64,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_aergibide`.`respuesta` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `titulo` VARCHAR(20) NOT NULL,
   `contenido` VARCHAR(45) NULL,
   `empleado_numEmple` INT NOT NULL,
   `pregunta_id` INT NOT NULL,
@@ -123,19 +122,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_aergibide`.`notificacion` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `titulo` VARCHAR(20) NOT NULL,
   `empleado_numEmple` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_Notificacion_Empleado1_idx` (`empleado_numEmple` ASC) VISIBLE,
   CONSTRAINT `fk_Notificacion_Empleado1`
     FOREIGN KEY (`empleado_numEmple`)
     REFERENCES `db_aergibide`.`empleado` (`numEmple`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  INDEX `fk_Notificacion_Titulo1_idx` (`titulo` ASC) VISIBLE,
-  CONSTRAINT `fk_Notificacion_Titulo1`
-    FOREIGN KEY (`titulo`)
-    REFERENCES `db_aergibide`.`respuesta` (`titulo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
