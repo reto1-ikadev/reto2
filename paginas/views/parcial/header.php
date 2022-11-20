@@ -32,8 +32,7 @@
                 
             </span>
             <div id="box" class="box">
-                <div class="heading"><p>Cantidad de mensajes</p></div>
-                <div class="msg">Test test test</div>
+                <div class="heading"><p>Notificaciones</p></div>
             </div>
         </div>
         <div class="despleglabe">

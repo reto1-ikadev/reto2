@@ -6,7 +6,7 @@
         $arr = array();
         $db = connect();
 
-        $stmt = $db->prepare("SELECT empleado_numEmple FROM notificacion WHERE empleado_numEmple = ?");
+        $stmt = $db->prepare("SELECT titulo FROM notificacion WHERE empleado_numEmple = ?");
         $stmt->execute([$usuario]);
         $allNotifications = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
