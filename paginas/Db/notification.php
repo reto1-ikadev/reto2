@@ -6,7 +6,8 @@
         $arr = array();
         $db = connect();
 
-        $stmt = $db->prepare("SELECT titulo FROM notificacion WHERE empleado_numEmple = ?");
+        //$stmt = $db->prepare("SELECT titulo FROM notificacion WHERE empleado_numEmple = ?");
+        $stmt = $db->prepare("SELECT titulo FROM pregunta WHERE id = (SELECT pregunta_id FROM respuesta) AND empleado_numEmple = ?");
         $stmt->execute([$usuario]);
         $allNotifications = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -15,5 +16,3 @@
     }
 
     //var_dump(searchNotification(1));
-
-?>
