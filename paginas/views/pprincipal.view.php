@@ -6,10 +6,6 @@ require_once 'parcial/header.php';
 ?>
 
 <body>
-
-    <div class="nav">
-
-    </div>
     <div class="cont-prin">
 
         <div class="slide">
