@@ -48,43 +48,44 @@ function generarPreferencias(preferencias) {
   //no puede tener return
   console.log("funcion generar preferencias");
   let pref = document.getElementById("pref");
-  let division = document.createElement("div");
-  division.setAttribute("class", "preferencias");
+  let division = document.createElement("form");
+  division.setAttribute("class", "formulario2");
   division.innerHTML =
-    "<form id='formulario2'>" +
-      "<div id= 'division'>" +
+    
         "<h4>Tipo de fuente:</h4>" +
 
         "<div class='linea'>" +
-          "<input type='radio' name='fuente' id='courier' value = 'courier'>" +
           "<label for='courier'>Maquina de escribir</label>" +
+          "<input type='radio' name='fuente' id='courier' value = 'courier'>" +
+          
         "</div>" +
 
         "<div class='linea'>" +
-            "<input type='radio' name='fuente' id='arial' value = 'arial'>" +
             "<label for='arial'>Clasica</label>" +
+            "<input type='radio' name='fuente' id='arial' value = 'arial'>" +
+            
         "</div>" +
 
         "<div class='linea'>" +
+          "<label for='cursiva'>Cursiva</label>" +
             "<input type='radio' name='fuente' id='cursiva' value = 'cursiva'>" +
-            "<label for='cursiva'>Cursiva</label>" +
+            
         "</div>" +
         "<div class='linea'>" +
+          "<label for='roboto'>Por defecto</label>" +
             "<input type='radio' name='fuente' id='roboto' value = 'roboto' checked>" +
-            "<label for='roboto'>Por defecto</label>" +
+            
         "</div>" +
-        "<div>" +
+        "<div class='lineaA'>" +
             "<h4>Color de la fuente:</h4>" +
             "<input type='color' name='color' id='color' value='"+preferencias[1]+"'>" +
         "</div>" +
-        "<div >" +
+        "<div class= 'lineaA' >" +
             "<h4>Tamaño de la letra:</h4>" +
             "<input type='range' name = 'size' id= 'size' min ='10' max = '20' value='"+preferencias[2]+"'>" +
         "</div>" +
         "<div class='botones'>" +
-          "<button class='boton' id='enviarPref' type='submit'>Enviar</button>" +
-      "</div>" +
-    "</form>";
+          "<button class='boton' id='enviarPref' type='submit'>Enviar</button>";
   pref.appendChild(division);
   var botonEnviar = document.getElementById("enviarPref");
   console.log(botonEnviar);

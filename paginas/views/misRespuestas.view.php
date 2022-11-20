@@ -23,14 +23,14 @@ $css = [
         <div class="division">
 
             <p></p>
-            <h4>Respuestas:</h4>
+            <h2>Respuestas:</h2>
 
                 <?php
                     if($respuesta != null){
                         foreach ($respuesta as $id => $value) {?>
                             <div class='interior'>
                                 <div class = 'numEmple'>
-                                    <?="nº empleado " . $value['empleado']. " Nombre: ". $value['nombreEmpleado'] ." ".$value['apellido']?>
+                                   <h3 class ='tituloR'> <?="nº empleado " . $value['empleado']. " Nombre: ". $value['nombreEmpleado'] ." ".$value['apellido']?></h3>
                                 </div>
                                 <?=  $value['contenido'] ?>
                             </div>  

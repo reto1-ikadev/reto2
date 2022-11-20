@@ -17,6 +17,9 @@
 }
 
 body{
+    background: rgb(228,238,244);
+    background: radial-gradient(circle, rgba(228,238,244,1) 0%, rgba(148,187,233,1)100%);
+    min-height: 100vh;
     display:flex;
     justify-content: center;
     display: grid;
@@ -70,6 +73,7 @@ body{
     gap: 1em;
     padding-top: 2em;
     padding-bottom: 2em;
+    
 }
 /*****************************DIVISIONES INTERIORES DE MIS PREGUNTAS Y MIS FAVORITOS*****************************/
 .pregunta, .favorito{
@@ -92,7 +96,6 @@ body{
 
 }
 
-
 .material-symbols-outlined{
     color:rgb(144, 103, 26);
 }
@@ -105,32 +108,37 @@ body{
     padding: .2em;
 }
 /******************************FORMULARIO PARA MOSTRAR LOS DATOS*************************************/
-form {
+form{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    width: 65%; 
+    width: 85%; 
+    /*El width tiene que ser 85%, si se pone menos, en tamaño
+    de pantalla menor a 1200px se juntan demasiado los inputs y los label*/
 }
-#formulario2{
+.formulario2{
     width: 100%;
-    display:flex;
-    flex-direction: column;
-    align-items: flex-start;
     padding: 1em;
+    justify-content: flex-start;
 }
 
-.linea{
-    padding-bottom:0.2em ;
+
+.linea, .lineaA, .lineaF{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+}
+.lineaA{
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .lineaF{
     width: 70%;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
 }
-
+/**************************************BOTONES*******************************************************/
 #botones{
     display:flex;
     justify-content: center;
@@ -163,11 +171,15 @@ form {
     background: -moz-linear-gradient(top, #999999, #000000)
    }
 /**********************************LATERAL ********************************************/
-
-
 #fotoPerfil{
-    width: 30%;
+    width: 50%;
     padding-top: 2em;
+}
+.avatar{
+    width: 100%;
+    border-radius: 8%;
+    box-shadow: 0px 1px 3px #666666;
+    border: 2px solid #264668;
 }
 input[type="text"]{
     border:0;
@@ -197,14 +209,81 @@ a:hover{
     align-items: center;
     gap:2em;
 }
-.avatar{
-    width: 100%;
-    border-radius: 8%;
-    box-shadow: 0px 1px 3px #666666;
-    border: 2px solid #264668;
-}
+
 div[class='linea']:hover{
     color:rgb(9, 9, 134);   
     font-weight: 500; 
 }
-   
+
+@media screen and (max-width: 590px) {
+    #aside{
+        visibility: collapse;
+    }
+    .lineaF{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  }
+@media screen and (max-width: 770px){
+    #fotoPerfil{
+        display: none;
+    }
+    #pref{
+        width: 95%;
+    }
+    #aside{
+        justify-content: center;
+    }
+  }
+@media screen and (max-width: 990px) {
+    #contenedor{
+        display:grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 80% 20% ;
+        grid-template-areas: 
+        "main"
+        "aside";
+        gap: 1%;
+    }
+    #aside{
+        flex-direction: row;
+    }
+    .formulario2{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .formulario2 > .botones{
+        width: 100%;
+       text-align: center;
+    }
+    .linea, .lineaA, .lineaF{
+        width: initial; /*Hace que no tome el valor del width cuando coja la mediaquery*/
+        gap:.3em;
+    }
+    #fotoPerfil{
+        width: 16%;
+        padding-left: 2em;
+    }
+    .avatar{
+        width: 100%;
+        border-radius: 8%;
+        box-shadow: 0px 1px 3px #666666;
+        border: 2px solid #264668;
+    }
+    #aside > h4{
+        display:none;
+    }
+    #aside > .division{
+        padding-top: initial;
+        padding-bottom: initial;
+        margin-right:1em ;
+    }
+    .lineaF{
+        width: 70%;
+        justify-content: space-between;
+    }
+    
+  }
+  
+  
