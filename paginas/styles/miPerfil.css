@@ -103,9 +103,10 @@ body{
 .material-symbols-outlined{
     color:rgb(144, 103, 26);
 }
-.fav{
+
+span[class*="material-symbols-outlined fav"] {
     color: yellow;
- }
+}
 .contenido{
     border: 1px solid grey;
     width: 80%;
