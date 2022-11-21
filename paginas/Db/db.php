@@ -13,3 +13,7 @@ function connect(){
     echo $e->getMessage();
     }
 }
+
+function close(&$dbh){
+    $dbh = null;
+}

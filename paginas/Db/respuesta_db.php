@@ -11,7 +11,8 @@ function insertRespuesta($contenido, $idPregunta,$usuario){
             "empleado_numEmple" => $usuario,
             "pregunta_id" => $idPregunta
         );
-       return $stmt->execute($data);
+        close($dbh);
+        return $stmt->execute($data);
 
 
     }catch(Exception $e){
@@ -53,6 +54,7 @@ function selectRespuestaPorIdPregunta($id){
         $respuestas[$idPregunta] = $r;
         
     }
+    close($dbh);
     return $respuestas;
     
 }
@@ -62,6 +64,7 @@ function selectRespuesta($id){
     $stmt = $dbh->prepare("SELECT * FROM respuesta WHERE pregunta_id = :id ORDER BY id DESC LIMIT 1");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute(['id' => $id]);
+    close($dbh);
     return $stmt->fetchAll();
 }
 ?> 

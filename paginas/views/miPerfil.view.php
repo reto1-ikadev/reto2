@@ -52,8 +52,8 @@ $css = [
             <?php
             if (isset($misPreguntas)) {
                 foreach ($misPreguntas as $pregunta => $value) { ?>
-                    <div class="pregunta">
-                        <h4><a href="miPerfil.php?accion=cargar&accion2=abrirPregunta&id=<?= $pregunta ?>"><?= $value['titulo']; ?></a></h4>
+                    <div class="pregunta" onclick="window.location='miPerfil.php?accion=cargar&accion2=abrirPregunta&id=<?= $pregunta ?>'">
+                        <h4><?= $value['titulo']; ?></h4>
                         <div><span class="material-symbols-outlined">delete</span><span class="material-symbols-outlined">edit</span></div>
                     </div>
                     <?php

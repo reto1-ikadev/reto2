@@ -1,12 +1,15 @@
 <?php
 ini_set('display_errors', 1);
-session_start();
-print_r($_SESSION);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include_once $_SERVER['DOCUMENT_ROOT']."/Db/pregunta_db.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/Db/respuesta_db.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/Db/favoritos_db.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/Db/empleado_db.php";
 
+if(!session_status()) {
+    session_start();
+}
 //mostrar pregunta
 if(isset($_GET['id'])){
     $id = $_GET['id'];

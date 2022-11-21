@@ -2,7 +2,7 @@ function cambiarPreferencias(preferencias) {
     console.log(preferencias[0]);
     document.querySelector("body").style.fontFamily = preferencias[0];
     document.querySelector("body").style.color = preferencias[1];
-    document.querySelector("body").style.fontSize = parseInt(preferencias[2]);
+  
   }
   function obtenerCookie() {
     var cooks = document.cookie;

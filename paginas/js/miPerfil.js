@@ -63,6 +63,7 @@ function generarPreferencias(preferencias) {
   let pref = document.getElementById("pref");
   let division = document.createElement("form");
   division.setAttribute("class", "formulario2");
+  division.setAttribute("id", "formulario2");
   division.innerHTML =
     
         "<h4>Tipo de fuente:</h4>" +
@@ -238,7 +239,8 @@ function cambiarPreferencias(preferencias) {
  // console.log(preferencias[0]);
   document.querySelector("body").style.fontFamily = preferencias[0];
   document.querySelector("body").style.color = preferencias[1];
-  document.querySelector("body").style.fontSize = parseInt(preferencias[2]);
+  document.querySelector("body").style.fontSize = (parseInt(preferencias[2])/16)+"em";
+
 }
 
 /**Esta funcion valida los datos. Retorna false si hay algun dato incorrecto*/

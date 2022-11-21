@@ -90,7 +90,7 @@ function cargarPreguntas(paginaActual) {
                 "<td rowspan='2' class='tags'><b>Tags:</b><span> " + data.preguntas[i].tags + " </span></td>" +
                 "<td  class='iconos'><span name='fav' id='star" + data.preguntas[i].id + "' class='material-symbols-outlined' onclick='agregarPreguntaFavorita(" + data.preguntas[i].id + ")'>star</span></td></tr>" +
                 "<tr><td class='iconos'><a href='/controladores/respuestas.php?titulo=" + data.preguntas[i].titulo + "&id=" + data.preguntas[i].id + "'><span name='ampliar' id=" + data.preguntas[i].id + " class='material-symbols-outlined expandir'>unfold_more</span></a></td></tr> <tbody></table></div>";
-                "</table> </div>";
+            "</table> </div>";
             main.appendChild(div);
             main.appendChild(document.createElement('br'));
         }
@@ -190,7 +190,7 @@ function cargarPreguntasFiltradas(paginaActual) {
                 "<td rowspan='2' class='tags'><b>Tags:</b><span> " + data.preguntas[i].tags + " </span></td>" +
                 "<td  class='iconos'><span name='fav' id='star" + data.preguntas[i].id + "' class='material-symbols-outlined' onclick='agregarPreguntaFavorita(" + data.preguntas[i].id + ")'>star</span></td></tr>" +
                 "<tr><td class='iconos'><a href='/controladores/respuestas.php?titulo=" + data.preguntas[i].titulo + "&id=" + data.preguntas[i].id + "'><span name='ampliar' id=" + data.preguntas[i].id + " class='material-symbols-outlined expandir'>unfold_more</span></a></td></tr> <tbody></table></div>";
-                "</table> </div>";
+            "</table> </div>";
             main.appendChild(div);
             main.appendChild(document.createElement('br'));
         }
@@ -201,28 +201,29 @@ function cargarPreguntasFiltradas(paginaActual) {
         }, 1000);
         cargarPreguntasFavoritas();
     });
-
-async function recibirPop(){
+}
+async function recibirPop() {
     let response = await fetch('../controladores/cargarpreguntaspop.php',
-    {
-    method: 'GET'
+        {
+            method: 'GET'
 
-    });
+        });
     let result = await response.json();
     return result;
 
 }
-recibirPop().then(function(data){
+recibirPop().then(function (data) {
     //crear preguntas en el html dentro del div main
     console.log(data);
     let popular = document.getElementById('popular');
-    for (let i = 0; i< data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         let div = document.createElement('div');
         div.setAttribute('class', 'preguntaPop');
         div.setAttribute('id', data[i].pregunta_id);
-        div.innerHTML = "<div class=contPreguntaPop> "+
-        "<h4><a href='/controladores/respuestas.php?titulo="+ data[i].titulo +"&id="+ data[i].pregunta_id+"'><span>" +data[i].titulo+" </span></a></h4><div class=cantFav> <span>"+ data[i].cant +"</span></div>";
+        div.innerHTML = "<div class=contPreguntaPop> " +
+            "<h4><a href='/controladores/respuestas.php?titulo=" + data[i].titulo + "&id=" + data[i].pregunta_id + "'><span>" + data[i].titulo + " </span></a></h4><div class=cantFav> <span>" + data[i].cant + "</span></div>";
         popular.appendChild(div);
         popular.appendChild(document.createElement('br'));
     }
 });
+cargarPreguntas();
