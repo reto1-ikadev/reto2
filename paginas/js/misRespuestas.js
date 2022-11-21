@@ -11,25 +11,32 @@ for(var boton of botones){
 var oculto = document.getElementsByClassName('oculto');
 console.log(oculto);
 var idPregunta = oculto[0].id;
-//console.log(idPregunta);
+console.log(idPregunta);
 
 function mostrarAñadirRespuesta(){
-    //console.log('mostrarRespuesta');
+    console.log('mostrarRespuesta');
     
     var pregunta = document.getElementsByClassName('pregunta');
-        
-        let divInterior = document.createElement('div');
-        divInterior.setAttribute('class', 'interior');
-        divInterior.innerHTML = "<form id='formulario'>"+
-        "<textarea class='contenido' rows='10' cols='50' ></textarea>"+
-        "<input type='hidden' name='id' value='"+ idPregunta +"'>" +"<div>" +
-        "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button>"+"</div>"+
-        "</form>";
-        pregunta[0].appendChild(divInterior);
-        var botonEnviar = document.getElementById('enviarRespuesta');
-        console.log(botonEnviar);
-        prepararEnvio(botonEnviar);
+    //console.log(pregunta.length);
     
+    //console.log(pregunta);
+         var interior = document.getElementsByClassName('interior');
+        console.log(interior.length);
+        if(interior.length<2){
+            let divInterior = document.createElement('div');
+            divInterior.setAttribute('class', 'interior');
+            divInterior.innerHTML = "<form id='formulario'>"+
+            "<textarea class='contenido' rows='10' cols='50' ></textarea>"+
+            "<input type='hidden' name='id' value='"+ idPregunta +"'>" +"<div>" +
+            "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button>"+"</div>"+
+            "</form>";
+            pregunta[0].appendChild(divInterior);
+            var botonEnviar = document.getElementById('enviarRespuesta');
+            console.log(botonEnviar);
+            prepararEnvio(botonEnviar);
+        }
+        
+        
 }
 
 function prepararEnvio(botonEnviar, pregunta){
