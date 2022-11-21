@@ -2,9 +2,9 @@
 
 function connect(){
     try {
-        $host="localhost";
-        $user="root";
-        $pass="root";
+        $host="db";
+        $user="ikasdev";
+        $pass="ACai7925";
         $dbname="db_aergibide";
     # MySQL
     return new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
