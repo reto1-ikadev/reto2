@@ -1,6 +1,8 @@
 <?php
 //Con estas líneas se muestran los errores de php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 session_start();//Para poder utilizar la sesion
 include_once "../Db/empleado_db.php";
@@ -14,7 +16,11 @@ include_once "../Db/favoritos_db.php";
             deleteFav($id,$numEmple); 
             require_once 'miPerfil.php';
     }
-
+    if(isset($_GET['idB'])){
+        $id = $_GET['idB'];
+        deletePregunta($id); 
+        require_once 'miPerfil.php';
+    }
     
     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
     if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
@@ -88,6 +94,5 @@ include_once "../Db/favoritos_db.php";
      
 
     require_once "../views/miPerfil.view.php";
-?>
-
+    ?>
 

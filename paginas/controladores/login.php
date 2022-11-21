@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once $_SERVER['DOCUMENT_ROOT'] . "/Db/empleado_db.php";
     $response = false;
     

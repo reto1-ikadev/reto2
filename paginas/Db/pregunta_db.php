@@ -1,8 +1,6 @@
 <?php
 require_once "db.php";
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 function selectPreguntaPorIdPregunta($id){
     try{
@@ -30,6 +28,7 @@ function selectPreguntaPorIdPregunta($id){
             }
             $misPreguntas[$id] = $p;
         }
+        
         return $misPreguntas;
 
     }catch(Exception $e){
@@ -51,7 +50,7 @@ function insertPregunta($titulo,$contenido,$empleado,$fecha,$tags){
             "empleado" => $empleado
         );
         $stmt->execute($data);
-
+        
 
     }catch(Exception $e){
         echo 'Exception -> ';
@@ -63,6 +62,7 @@ function selectPreguntaId($id){
     $stmt = $dbh->prepare("SELECT titulo FROM pregunta WHERE id = :id");
     $stmt->execute(['id' => $id]);
     $stmt->setFetchMode(PDO::FETCH_OBJ);
+    
     return $stmt->fetchAll();
 }
 
@@ -106,6 +106,7 @@ function countPreguntas(){
     $stmt = $dbh->prepare("SELECT COUNT(*) FROM pregunta");
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_OBJ);
+    
     return $stmt->fetchAll()[0]->{'COUNT(*)'};
 }
 function selectPreguntas($page){
@@ -115,6 +116,7 @@ function selectPreguntas($page){
     $stmt ->bindValue(':offset', $offset, PDO::PARAM_INT);
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute();
+    
     return $stmt->fetchAll();
 }
 
@@ -132,5 +134,15 @@ function selectPreguntasFiltradas($titulo, $page, $fechaInicio ="", $fechaFin ="
     $stmt ->bindValue(':offset', $offset, PDO::PARAM_INT);
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute();
+    
     return $stmt->fetchAll();
+}
+
+
+function deletePregunta($id){
+    $dbh = connect();
+    $stmt = $dbh->prepare("DELETE FROM pregunta WHERE id =:id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(["id"=>$id]);
+    
 }

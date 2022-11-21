@@ -45,9 +45,8 @@ require_once 'parcial/header.php';
 
 
         </div>
-        <div class="popular">
-            <h3>Preguntas Populares</h3>
-
+        <div id="popular" class="popular">
+            <h4>Preguntas Populares</h4>
         </div>
 
     </div>
@@ -55,4 +54,5 @@ require_once 'parcial/header.php';
     </div>
     <script src="../js/pprincipal.js"></script>
     <script src="../js/prueba.js"></script>
+    <script src="../js/cambioPreferencias.js"></script>
     <?php require_once 'parcial/footer.php'; ?>

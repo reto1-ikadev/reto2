@@ -4,10 +4,12 @@
     box-sizing: border-box;
 }
 body{
+    background: rgb(228,238,244);
+    background: radial-gradient(circle, rgba(228,238,244,1) 0%, rgba(148,187,233,1)100%);
     height: 100vh;
     display: grid;
     grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 15%  1fr 12%;
+    grid-template-rows: 24%  1fr 12%;
     grid-template-areas:
     "header header header"
     "main main main"
@@ -32,11 +34,10 @@ body{
     flex-direction: column;
     align-items: center;
 }
-.slide div.filtros{
-    margin: 2em;
-}
+
 .slide, .popular h4{
     text-align: center;
+    margin-bottom: 0.5em;
     
 }
 .anadir{
@@ -52,33 +53,64 @@ body{
 .filtros h4{
     margin-bottom: 0.5em;
 }
+.popular h3{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
 .filtro{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    margin-top: 1.5em;
+    align-self: start;
 
+    padding: 1em;
+    
+
+}
+.slide{
+    margin: 1em auto auto auto;
 }
 .main{
     grid-area: prin;
-    margin: 0 auto;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1em auto auto auto;
 }
-.popular{
-    grid-area: pop;
-    z-index: -1;
+.slide div.filtros{
+    margin: 2em;
+    width: 80%;
+    border-radius: 8%;
+    box-shadow: 0px 1px 6px #666666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dce5ef ;
 }
 
+.popular{
+    margin: 1em auto;
+    grid-area: pop;
+    border-radius: 8%;
+    box-shadow: 0px 1px 6px #666666;
+    width: 80%;
+    height: 21em;
+    background-color: #dce5ef;
+
+}
+.popular a{
+    text-decoration: none;
+    color: #0000EE ;
+}
 .pregunta {
     border: 1px solid rgb(117, 111, 111);
     box-shadow: inset 0px -1px 2px;
     width: 90%;
     height: 5em;
-    background-color:#c9dbed;
+    background-color:#dce5ef;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -101,7 +133,13 @@ body{
     width: 79%;
     height: 100%;
 }
-
+.contPreguntaPop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
 .material-symbols-outlined{
     color:rgb(144, 103, 26);
     font-size: 1.5em;
@@ -149,6 +187,7 @@ button[id="nPregunta"] {
 .tablaPreguntas{
     width: 100%;
     height: 100%;
+    margin-top: 0.2em;
 }
 .tablaPreguntas td.titulo{
     width: 65%;
@@ -160,14 +199,30 @@ button[id="nPregunta"] {
 .tablaPreguntas td.iconos{
     padding: 0.5em;
 }
-
+input, select{
+    border:0;
+    height: 2em;
+    border-bottom: 2px solid grey;
+}
+input:hover ,select:hover{
+    box-shadow:  0px 0px 15px #6297CC;
+}
+.popular a:hover{
+    text-shadow: 0px 0px 15px #6297CC;
+}
+.popular a:visited{
+    color: #0000EE;
+}
+input[type='submit']{
+    box-shadow:  initial;
+}
 /* Media queries */
 @media (max-width:900px) {
     body{
-        height: 100vh;
+        min-height: 100vh;
         display: grid;
         grid-template-columns: 40% 60%;
-        grid-template-rows: 15% 1fr 12%;
+        grid-template-rows: 24% 1fr 12%;
         grid-template-areas:
         "header header"
         "main main"
@@ -183,13 +238,14 @@ button[id="nPregunta"] {
         grid-template-areas: "slide prin";
     }
     .popular{
+        margin: 1em auto;
         grid-area: slide;
-        z-index: -1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 9em;
+        border-radius: 8%;
+        box-shadow: 0px 1px 6px #666666;
+        width: 80%;
+        height: 21em;
+        background-color: #F5F5F5;
+        margin-top: 32em;
     }
     .slide{
         grid-area: slide;
@@ -212,4 +268,11 @@ button[id="nPregunta"] {
     }
        
  
+}
+
+.preguntaPop{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

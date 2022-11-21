@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <?php
     foreach ($css as $css) {
@@ -21,8 +23,6 @@
             <img src="/img/logoAergibide.png" class="imglogo">
         </div>
         <div class="bin">
-            <b><?php //nombre_Empleado($dbh); 
-                ?></b>
         </div>
         <div class="despleglabe">
         <div class="dropdown">
