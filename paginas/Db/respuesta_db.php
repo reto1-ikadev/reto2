@@ -45,4 +45,3 @@ function selectRespuesta($id){
     $stmt->execute(['id' => $id]);
     return $stmt->fetchAll();
 }
-?> 

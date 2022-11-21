@@ -54,7 +54,7 @@ $css = [
                 foreach ($misPreguntas as $pregunta => $value) { ?>
                     <div class="pregunta">
                         <h4><a href="miPerfil.php?accion=cargar&accion2=abrirPregunta&id=<?= $pregunta ?>"><?= $value['titulo']; ?></a></h4>
-                        <div><span class="material-symbols-outlined">delete</span><span class="material-symbols-outlined">edit</span></div>
+                        <div><span class='material-symbols-outlined borrar' id=<?= $pregunta ?>>delete</span><span class="material-symbols-outlined">edit</span></div>
                     </div>
                     <?php
             if (isset($id) && $id == $pregunta) {
@@ -86,7 +86,7 @@ $css = [
 
         <h4>Mis favoritos:</h4>
         <div class="division">
-        <?= mostrarFavoritos($_SESSION["numEmple"]) ?>
+        <?= mostrarFavoritos(1) ?>
         </div>
         <div>
             

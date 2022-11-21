@@ -16,7 +16,11 @@ include_once "../Db/favoritos_db.php";
             deleteFav($id,$numEmple); 
             require_once 'miPerfil.php';
     }
-
+    if(isset($_GET['idB'])){
+        $id = $_GET['idB'];
+        deletePre($id); 
+        require_once 'miPerfil.php';
+    }
     
     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
     if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
