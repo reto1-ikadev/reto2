@@ -38,13 +38,14 @@ function selectRespuestaPorIdPregunta($id){
     while($row = $stmt->fetch()){
         
         $idPregunta = $row->id;
-        
+        $idRespuesta = $row->id;
         $contenido = $row->contenido;
         $empleado = $row->empleado_numEmple;
         $resultadoNombre = selectNombreEmpleadoById($empleado);
         $nombre = $resultadoNombre->nombre;
         $apellido = $resultadoNombre->apellidos;
         $r = array(
+            "idRespuesta" => $idRespuesta,
             "contenido" => $contenido,
             "empleado" => $empleado,
             "nombreEmpleado" => $nombre,
@@ -104,6 +105,37 @@ function insertArchivoRespuestas($idRespuesta, $idArchivo){
         echo 'Exception -> ';
         var_dump($e->getMessage());   
     }
+}
+function respuestaContieneArchivo($id){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT * FROM archivo_respuesta WHERE id_respuesta = :id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id]);
+    $resultado = $stmt->fetchAll();
+    if(count($resultado) > 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function buscaridArchivo($id){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT id_archivo FROM archivo_respuesta WHERE id_respuesta = :id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id]);
+    $resultado = $stmt->fetch();
+
+    return $resultado->id_archivo;
+}
+
+function recojerArchivo($idArchivo){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT * FROM archivos WHERE id = :id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $idArchivo]);
+    
+    return $stmt->fetchAll();
 }
 
 ?> 

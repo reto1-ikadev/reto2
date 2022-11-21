@@ -7,17 +7,15 @@ $idPregunta = $_POST['id'];
 $usuario = $_SESSION['usuario']['numEmple'];
 
 //move the file to the correct location
-$target_dir = "../archivosGuardados/";
-$target_file = $target_dir . basename($_FILES["archivos"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$target_file = "../archivosGuardados/" . basename($_FILES["archivos"]["name"]);
 
 if ($contenido === '') {
   echo json_encode(['error' => 'Todos los campos son obligatorios']);
 } else {
-  if(isset($_FILES["archivos"])){
+  if(($_FILES["archivos"])['size'] > 0) {
     if (move_uploaded_file($_FILES["archivos"]["tmp_name"], $target_file)) {
-      $archivo_ruta = $target_file;
+      //delete ../ fron $target_file
+      $archivo_ruta = substr($target_file, 3);
       $archivo_nombre = $_FILES["archivos"]["name"];
       $archivo_tipo = $_FILES["archivos"]["type"];
       $idRespuesta = insertRespuesta($contenido, $idPregunta,$usuario, $archivo);
