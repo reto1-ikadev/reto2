@@ -51,7 +51,7 @@ require_once 'parcial/header.php';
             
 
         </div>
-        <div class="popular">
+        <div id="popular" class="popular">
             <h4>Preguntas Populares</h4>
         </div>
 

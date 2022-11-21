@@ -108,3 +108,11 @@ function selectPregunta(){
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
+
+function deletePregunta(){
+    $dbh = connect();
+    $stmt = $dbh->prepare("DELETE FROM pregunta WHERE id =:id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(["id"=>$id]);
+}

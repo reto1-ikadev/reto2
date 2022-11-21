@@ -41,4 +41,4 @@
 
     require $_SERVER['DOCUMENT_ROOT'] . "/views/login.view.php";
 
-?>
+

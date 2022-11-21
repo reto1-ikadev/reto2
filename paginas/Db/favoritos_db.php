@@ -1,4 +1,5 @@
-<?php
+<?php 
+require_once "db.php";
 function preguntaFavEmp($numEmp){
     $dbh = connect();
     $stmt = $dbh->prepare("SELECT pregunta_id FROM favorito WHERE empleado_numEmple = :numEmp");
@@ -12,14 +13,12 @@ function deleteFav($id,$numEmple){
     $stmt = $dbh->prepare("DELETE FROM favorito WHERE pregunta_id = :id  AND empleado_numEmple = :numEmp");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute(['id' => $id, 'numEmp' => $numEmple]);
-
-
 }
-
 
 function todasFav(){
     $dbh = connect();
-    $stmt = $dbh->prepare("SELECT pregunta_id,COUNT(pregunta_id) FROM `favorito` GROUP BY pregunta_id ORDER BY COUNT(pregunta_id) DESC");
+    $stmt = $dbh->prepare("SELECT pregunta_id,titulo,COUNT(pregunta_id) as cant FROM `favorito`, pregunta WHERE pregunta_id=id GROUP BY pregunta_id ORDER BY COUNT(pregunta_id) DESC LIMIT 7");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute();
     return $stmt->fetchAll();
 }

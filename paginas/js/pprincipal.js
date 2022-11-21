@@ -44,3 +44,28 @@ recibirDatos().then(function(data){
     }
 
 });
+
+async function recibirPop(){
+    let response = await fetch('../controladores/cargarpreguntaspop.php',
+    {
+    method: 'GET'
+
+    });
+    let result = await response.json();
+    return result;
+
+}
+recibirPop().then(function(data){
+    //crear preguntas en el html dentro del div main
+    console.log(data);
+    let popular = document.getElementById('popular');
+    for (let i = 0; i< data.length; i++) {
+        let div = document.createElement('div');
+        div.setAttribute('class', 'preguntaPop');
+        div.setAttribute('id', data[i].pregunta_id);
+        div.innerHTML = "<div class=contPreguntaPop> "+
+        "<h4><a href='/controladores/respuestas.php?titulo="+ data[i].titulo +"&id="+ data[i].pregunta_id+"'><span>" +data[i].titulo+" </span></a></h4><div class=cantFav> <span>"+ data[i].cant +"</span></div>";
+        popular.appendChild(div);
+        popular.appendChild(document.createElement('br'));
+    }
+});

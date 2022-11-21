@@ -34,7 +34,6 @@ body{
     "footer";
 }
 
-
 /******************************PARTE CENTRAL DEL CONTENEDOR******************************/
 #main{
     grid-area: main;
@@ -95,6 +94,11 @@ body{
     justify-content: center;
 
 }
+
+.preferencias{
+    width: 100%;
+}
+
 
 .material-symbols-outlined{
     color:rgb(144, 103, 26);
