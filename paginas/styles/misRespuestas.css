@@ -122,3 +122,6 @@ body{
 a.boton{
    padding: 0.7em;
 }
+input[type="file"]{
+    float: right;
+}

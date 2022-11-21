@@ -23,7 +23,7 @@ function mostrarAñadirRespuesta(){
         divInterior.innerHTML = "<form id='formulario'>"+
         "<textarea class='contenido' rows='10' cols='50' ></textarea>"+
         "<input type='hidden' name='id' value='"+ idPregunta +"'>" +"<div>" +
-        "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button>"+"</div>"+
+        "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button> <input type='file' name='archivo'>"+"</div>";
         "</form>";
         pregunta[0].appendChild(divInterior);
         var botonEnviar = document.getElementById('enviarRespuesta');
