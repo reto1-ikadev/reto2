@@ -82,7 +82,7 @@ include_once "../Db/favoritos_db.php";
             foreach($titulos as $titulo){    
                 $respuesta .= "<div id={$pregunta['pregunta_id']} class=favorito>";
                 $respuesta .= "<p> <h4>{$titulo->titulo}</h4>";
-                $respuesta .= "<div><span id={$pregunta['pregunta_id']} class='material-symbols-outlined fav'>star_rate</span></div>";
+                $respuesta .= "<div><span id={$pregunta['pregunta_id']} name='fav' class='material-symbols-outlined fav'>star_rate</span></div>";
                 $respuesta .= "</p>";
                 $respuesta .= "</div>";
                 $respuesta .= "<br>";
