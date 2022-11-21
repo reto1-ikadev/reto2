@@ -11,8 +11,13 @@ if (isset($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0 && $_
     $page = 1;
 }
 
+$titulo = $_POST['busqueda'] ?? '';
+$fechaInicio = $_POST['fechaInicio'] ?? '1999-01-01';
+$fechaFin = $_POST['fechaFinal'] ?? '2050-01-01';
+$tags = $_POST['tags'] ?? '';
 
-$preguntas = selectPreguntas($page);
+
+$preguntas = selectPreguntasFiltradas( $titulo, $page,$fechaInicio, $fechaFin, $tags);
 $datos = ["preguntas" => $preguntas, "numPreguntas" => $numPreguntas];
 
 //enviar $preguntas al archivo js pprincipal

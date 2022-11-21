@@ -14,7 +14,6 @@
                     setcookie("pass", $_POST['pass'], time() + (86400 * 60), "/");
                     $_SESSION["usuario"] = array();
                     $_SESSION["usuario"]["numEmple"] = trim($_POST['usuario']);
-                    print_r($_SESSION);
                     require $_SERVER['DOCUMENT_ROOT'] . "/controladores/pprincipal.php";
                     die();
                 }
@@ -41,4 +40,4 @@
 
     require $_SERVER['DOCUMENT_ROOT'] . "/views/login.view.php";
 
-
+?>

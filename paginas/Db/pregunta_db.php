@@ -100,10 +100,36 @@ function selectPreguntasUsuario($numEmple){
     
     return $misPreguntas;
 }
-
-function selectPregunta(){
+//function count preguntas
+function countPreguntas(){
     $dbh = connect();
-    $stmt = $dbh->prepare("SELECT * FROM pregunta");
+    $stmt = $dbh->prepare("SELECT COUNT(*) FROM pregunta");
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    return $stmt->fetchAll()[0]->{'COUNT(*)'};
+}
+function selectPreguntas($page){
+    $dbh = connect();
+    $offset = 8 * ($page - 1);
+    $stmt = $dbh->prepare("SELECT * FROM pregunta ORDER BY id DESC LIMIT 8 OFFSET :offset");
+    $stmt ->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+
+function selectPreguntasFiltradas($titulo, $page, $fechaInicio ="", $fechaFin ="", $tags =""){
+    $dbh = connect();
+    $offset = 8 * ($page - 1);
+    $fechaInicio = $fechaInicio == "" ? "1999-01-01" : $fechaInicio;
+    $fechaFin = $fechaFin == "" ? "2050-01-01" : $fechaFin;
+    $stmt = $dbh->prepare("SELECT * FROM pregunta WHERE titulo LIKE CONCAT('%', :titulo, '%') AND tags  LIKE CONCAT('%', :tags, '%') AND fecha  BETWEEN :fechaInicio AND :fechaFin  ORDER BY id DESC LIMIT 8 OFFSET :offset");
+    $stmt ->bindValue(':titulo', $titulo, PDO::PARAM_STR);
+    $stmt ->bindValue(':tags', $tags, PDO::PARAM_STR);
+    $stmt ->bindValue(':fechaInicio', $fechaInicio, PDO::PARAM_STR);
+    $stmt ->bindValue(':fechaFin', $fechaFin, PDO::PARAM_STR);
+    $stmt ->bindValue(':offset', $offset, PDO::PARAM_INT);
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute();
     return $stmt->fetchAll();

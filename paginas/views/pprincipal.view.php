@@ -3,31 +3,26 @@ $css = [
     '/styles/pprincipal.css'
 ];
 require_once 'parcial/header.php';
-
 ?>
 
 <body>
-
-    <div class="nav">
-        <a href="aaa">Guias</a>
-        <a href="#">Tutoriales</a>
-        <a href="#">Mis Preguntas</a>
-    </div>
     <div class="cont-prin">
 
         <div class="slide">
             <div class="anadir">
-                <h4>Añadir Pregunta</h4>
-                <!--<input type="submit" id="accion" value="Añadir"> -->
-                <button id='nPregunta'>Añadir</button>
+                <button class="boton" id='nPregunta'>Añadir Pregunta</button>
+                <br>
+                <a href="#"><button class="boton" name="Enlaces">Tutoriales</button></a>
             </div>
             <div class="filtros">
-                <h4>Filtros</h4>
-
                 <div class="filtro">
-                    <form action="" method="get" class="filtro">
+                    <form id="filtros" class="filtro">
+                        <h2>Filtros</h2>
+                        <br>
+                        <input type="text" name="busqueda" id="busqueda" placeholder="Filtrar por Titulo">
+                        <br>
                         <label for="fechInicio">Fecha Inicio:</label>
-                        <input type="date" id="fechInicio" name="fechInicio">
+                        <input type="date" id="fechaInicio" name="fechaInicio">
                         <br>
                         <label for="fechaFinal">Fecha Final:</label>
                         <input type="date" id="fechaFinal" name="fechaFinal">
@@ -41,14 +36,13 @@ require_once 'parcial/header.php';
                             <option value="diseño">Diseño</option>
                         </select>
                         <br>
-                        <input type="submit" value="Filtar">
+                        <input class="boton" type="submit" value="Filtrar">
                     </form>
                 </div>
             </div>
         </div>
         <div id="main" class="main">
-            <h4>Preguntas</h4>
-            
+
 
         </div>
         <div id="popular" class="popular">

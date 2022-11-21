@@ -24,10 +24,10 @@ if(isset($_GET['titulo']) && $_GET['titulo']!='' && $_GET['contenido'] && $_GET[
     if(isset($_GET['tag4'])){
         $tags .= $_GET['tag4'];
     }
-    $fecha = date('d-m-Y');  
+    $fecha = date('y-m-d');  
    $result = insertPregunta($titulo,$contenido,$empleado,$fecha,$tags);
    
-    
+   echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
 }
 
 require_once '../views/nPregunta.view.php';

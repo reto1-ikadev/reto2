@@ -20,7 +20,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="/img/aernnova.png" class="imglogo">
+            <img src="/img/logoAergibide.png" class="imglogo">
         </div>
         <div class="bin">
             <b><?php //nombre_Empleado($dbh); 
