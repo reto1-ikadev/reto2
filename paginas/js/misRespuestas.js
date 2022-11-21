@@ -23,7 +23,7 @@ function mostrarAñadirRespuesta(){
         divInterior.innerHTML = "<form id='formulario'>"+
         "<textarea class='contenido' rows='10' cols='50' ></textarea>"+
         "<input type='hidden' name='id' value='"+ idPregunta +"'>" +"<div>" +
-        "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button>"+"</div>"+
+        "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button><input type='file' name='archivos'>"+"</div>"+
         "</form>";
         pregunta[0].appendChild(divInterior);
         var botonEnviar = document.getElementById('enviarRespuesta');
@@ -40,14 +40,12 @@ function prepararEnvio(botonEnviar, pregunta){
         var texto = document.querySelector('textarea');
         var contenido = texto.value;
         var comprobado =validarContenido(contenido);
+        var file = document.querySelector('input[type=file]').files[0];
+        datos.append('file', file);
         if(comprobado){
             datos.append('contenido',contenido);
             //console.log(datos.get('contenido'))
-           enviado = enviarRespuesta(datos);
-        }
-        if(enviado){
-            location.reload();
-            alert('Se ha añadido la respuesta');
+            enviarRespuesta(datos);
         }
         
     });
@@ -60,12 +58,14 @@ async function enviarRespuesta(datos){
         body: datos,
     });
     let result = await response.json();
-    if (result.success) {
-        enviado = true;
-        Swal.fire(result.success);
+    if (result.success != null) {
+        console.log(result.success);
+            Swal.fire('Se ha añadido la respuesta');
+            setInterval(function(){
+            location.reload();}, 2000);
+            enviado = result.result;
+        };
       }
-    return enviado;
-}
 
 function validarContenido(contenido){
     var comprobado = false;

@@ -11,8 +11,10 @@ function insertRespuesta($contenido, $idPregunta,$usuario){
             "empleado_numEmple" => $usuario,
             "pregunta_id" => $idPregunta
         );
-        
-        return $stmt->execute($data);
+        //show last id inserted
+        $stmt->execute($data);
+        $lastId = $dbh->lastInsertId();
+        return $lastId;
 
 
     }catch(Exception $e){
@@ -67,4 +69,41 @@ function selectRespuesta($id){
     
     return $stmt->fetchAll();
 }
+
+function insertArchivo($archivo_ruta, $archivo_nombre, $archivo_tipo){
+    //insert into archivo (nombre, ruta) values ('nombre', 'ruta');
+    try{
+        $dbh = connect();
+        $stmt = $dbh->prepare("INSERT INTO archivos (nombre, ruta, tipo) VALUES(:nombre, :ruta, :tipo)");
+        $data = array(
+            'nombre' => $archivo_nombre,
+            'ruta' => $archivo_ruta,
+            'tipo' => $archivo_tipo
+        );
+        $stmt->execute($data);
+        $lastId = $dbh->lastInsertId();
+        return $lastId;
+    }catch(Exception $e){
+        echo 'Exception -> ';
+        var_dump($e->getMessage());   
+    }
+}
+
+function insertArchivoRespuestas($idRespuesta, $idArchivo){
+    try{
+        $dbh = connect();
+        $stmt = $dbh->prepare("INSERT INTO archivo_respuesta (id_respuesta, id_archivo) VALUES(:id_respuesta, :id_archivo)");
+        $data = array(
+            'id_respuesta' => $idRespuesta,
+            'id_archivo' => $idArchivo
+        );
+        $stmt->execute($data);
+        $lastId = $dbh->lastInsertId();
+        return $lastId;
+    }catch(Exception $e){
+        echo 'Exception -> ';
+        var_dump($e->getMessage());   
+    }
+}
+
 ?> 

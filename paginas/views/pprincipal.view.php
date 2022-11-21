@@ -35,6 +35,7 @@ require_once 'parcial/header.php';
                             <option value="electronica">Electronica</option>
                             <option value="diseño">Diseño</option>
                         </select>
+                        
                         <br>
                         <input class="boton" type="submit" value="Filtrar">
                     </form>
