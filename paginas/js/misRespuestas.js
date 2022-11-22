@@ -19,7 +19,7 @@ function mostrarAñadirRespuesta(){
     var pregunta = document.getElementsByClassName('pregunta');
     var interior = document.getElementsByClassName('interior');
     console.log(interior.length);
-    if(interior.length<2){
+
         let divInterior = document.createElement('div');
         divInterior.setAttribute('class', 'interior');
         divInterior.innerHTML = "<form id='formulario'>"+
@@ -31,7 +31,7 @@ function mostrarAñadirRespuesta(){
         var botonEnviar = document.getElementById('enviarRespuesta');
         console.log(botonEnviar);
         prepararEnvio(botonEnviar);
-    }
+    
 }
 
 function prepararEnvio(botonEnviar, pregunta){
