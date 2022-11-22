@@ -10,8 +10,8 @@ include_once "../Db/pregunta_db.php";
 include_once "../Db/respuesta_db.php";
 include_once "../Db/favoritos_db.php";
 
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
+    if(isset($_GET['idF'])){
+        $id = $_GET['idF'];
         $numEmple = $_SESSION["usuario"]["numEmple"];
             deleteFav($id,$numEmple); 
             require_once 'miPerfil.php';
@@ -81,9 +81,9 @@ include_once "../Db/favoritos_db.php";
             $titulos = selectPreguntaId($pregunta['pregunta_id']);   
             foreach($titulos as $titulo){    
                 $respuesta .= "<div id={$pregunta['pregunta_id']} class=favorito>";
-                $respuesta .= "<p> <h4>{$titulo->titulo}</h4>";
-                $respuesta .= "<div><span id={$pregunta['pregunta_id']} name='fav' class='material-symbols-outlined fav'>star_rate</span></div>";
-                $respuesta .= "</p>";
+                $respuesta .= "<div class='pregunta'><h4>{$titulo->titulo}</h4>";
+                $respuesta .= "</div><div><span id={$pregunta['pregunta_id']} name='fav' class='material-symbols-outlined fav'>star_rate</span>";
+                $respuesta .= "</div>";
                 $respuesta .= "</div>";
                 $respuesta .= "<br>";
             }

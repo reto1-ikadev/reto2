@@ -6,29 +6,16 @@ var fav = document.getElementsByName("fav");
 for (var i = 0; i < fav.length; i++) {
   fav[i].addEventListener("click", function () {
     var id = this.id;
-    alert(id);
     var datos = id;
-    var accion = "cargar";
-    enviarId(datos, accion);
-  });
-}
-var fav = document.getElementsByName("borrar");
-for (var i = 0; i < fav.length; i++) {
-  fav[i].addEventListener("click", function () {
-    var id = this.id;
-    alert(id);
-    var datos = id;
-    borrarPregunta(datos);
+    enviarId(datos);
   });
 }
 
-function enviarId(datos, accion) {
+function enviarId(datos) {
   window.location.href =
-    "/controladores/miPerfil.php?accion=" + accion + "&id=" + datos;
-}
-function borrarPregunta(datos) {
-  window.location.href =
-    "/controladores/miPerfil.php?idB=" + datos;
+    "/controladores/miPerfil.php?idF=" + datos;
+    window.location.href =
+    "/controladores/miPerfil.php?accion=cargar";
 }
 
 //Guardo el elemento formulario en una variable

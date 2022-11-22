@@ -75,7 +75,7 @@ body{
     
 }
 /*****************************DIVISIONES INTERIORES DE MIS PREGUNTAS Y MIS FAVORITOS*****************************/
-.pregunta, .favorito{
+.pregunta{
     border: .2px solid #c4d2ef;
     box-shadow:inset 0px 0px 2px;
     width: 80%;
@@ -84,9 +84,13 @@ body{
     flex-direction: column;
     justify-content: space-around;
     padding: .3em;
+    padding-left: .7;
 }
 
-
+.iconos, .favorito{
+    display: flex;
+    width: 80%;
+}
 .preferencias{
     width: 100%;
     display:flex;
@@ -102,10 +106,6 @@ body{
 
 .material-symbols-outlined{
     color:rgb(144, 103, 26);
-}
-
-span[class*="material-symbols-outlined fav"] {
-    color: yellow;
 }
 .contenido{
     border: 1px solid grey;
