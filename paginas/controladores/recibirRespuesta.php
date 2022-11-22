@@ -14,11 +14,10 @@ if ($contenido === '') {
 } else {
   if(($_FILES["archivos"])['size'] > 0) {
     if (move_uploaded_file($_FILES["archivos"]["tmp_name"], $target_file)) {
-      //delete ../ fron $target_file
-      $archivo_ruta = substr($target_file, 3);
+      $archivo_ruta = $target_file;
       $archivo_nombre = $_FILES["archivos"]["name"];
       $archivo_tipo = $_FILES["archivos"]["type"];
-      $idRespuesta = insertRespuesta($contenido, $idPregunta,$usuario, $archivo);
+      $idRespuesta = insertRespuesta($contenido, $idPregunta,$usuario);
       $idArchivo = insertArchivo($archivo_ruta, $archivo_nombre, $archivo_tipo);
       insertArchivoRespuestas($idRespuesta, $idArchivo);
       echo json_encode(['success' => "El archivo se ha subido correctamente"]);
