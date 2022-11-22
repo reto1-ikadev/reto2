@@ -5,6 +5,8 @@ $css = [
 
 ?>
 <?php require_once 'parcial/header.php';
+include_once "../Db/respuesta_db.php";
+
 ?>
 
 <body>
@@ -32,7 +34,20 @@ $css = [
                                 <div class = 'numEmple'>
                                    <h3 class ='tituloR'> <?="nº empleado " . $value['empleado']. " Nombre: ". $value['nombreEmpleado'] ." ".$value['apellido']?></h3>
                                 </div>
-                                <?=  $value['contenido'] ?>
+                                <?=  $value['contenido'] ?> <br>
+                                <?php if(respuestaContieneArchivo($value['idRespuesta'])){
+                                    $idRespuesta = $value['idRespuesta'];
+                                    $idArchivo = buscaridArchivo($idRespuesta);
+                                    $archivo = recojerArchivo($idArchivo);
+                                    $ruta = $archivo[0]->ruta;
+                                    $nombre = $archivo[0]->nombre;
+                                    
+                                    ?><a class="archivos" href="<?= $ruta ?>" download="<?= $nombre ?>">Archivo Adjunto</a>
+                                  <?php  
+                                }
+                                    
+                                    ?>
+
                             </div>  
                     <?php
                     }?>

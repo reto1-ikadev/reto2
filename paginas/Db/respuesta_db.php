@@ -11,14 +11,16 @@ function insertRespuesta($contenido, $idPregunta,$usuario){
             "empleado_numEmple" => $usuario,
             "pregunta_id" => $idPregunta
         );
-
+//show last id inserted
         $stmtNot = $dbh->prepare("INSERT INTO notificacion (empleado_numEmple, titulo) VALUES((SELECT empleado_numEmple FROM pregunta WHERE ID = :preguntaID), (SELECT titulo FROM pregunta WHERE ID = :preguntaaID))");
         $stmtNot->execute(
             array(
                 'preguntaID' => $idPregunta,
                 'preguntaaID' => $idPregunta
             ));        
-        return $stmt->execute($data);
+        $stmt->execute($data);
+        $lastId = $dbh->lastInsertId();
+        return $lastId;
 
 
     }catch(Exception $e){
@@ -42,13 +44,14 @@ function selectRespuestaPorIdPregunta($id){
     while($row = $stmt->fetch()){
         
         $idPregunta = $row->id;
-        
+        $idRespuesta = $row->id;
         $contenido = $row->contenido;
         $empleado = $row->empleado_numEmple;
         $resultadoNombre = selectNombreEmpleadoById($empleado);
         $nombre = $resultadoNombre->nombre;
         $apellido = $resultadoNombre->apellidos;
         $r = array(
+            "idRespuesta" => $idRespuesta,
             "contenido" => $contenido,
             "empleado" => $empleado,
             "nombreEmpleado" => $nombre,
@@ -73,4 +76,72 @@ function selectRespuesta($id){
     
     return $stmt->fetchAll();
 }
+
+function insertArchivo($archivo_ruta, $archivo_nombre, $archivo_tipo){
+    //insert into archivo (nombre, ruta) values ('nombre', 'ruta');
+    try{
+        $dbh = connect();
+        $stmt = $dbh->prepare("INSERT INTO archivos (nombre, ruta, tipo) VALUES(:nombre, :ruta, :tipo)");
+        $data = array(
+            'nombre' => $archivo_nombre,
+            'ruta' => $archivo_ruta,
+            'tipo' => $archivo_tipo
+        );
+        $stmt->execute($data);
+        $lastId = $dbh->lastInsertId();
+        return $lastId;
+    }catch(Exception $e){
+        echo 'Exception -> ';
+        var_dump($e->getMessage());   
+    }
+}
+
+function insertArchivoRespuestas($idRespuesta, $idArchivo){
+    try{
+        $dbh = connect();
+        $stmt = $dbh->prepare("INSERT INTO archivo_respuesta (id_respuesta, id_archivo) VALUES(:id_respuesta, :id_archivo)");
+        $data = array(
+            'id_respuesta' => $idRespuesta,
+            'id_archivo' => $idArchivo
+        );
+        $stmt->execute($data);
+        $lastId = $dbh->lastInsertId();
+        return $lastId;
+    }catch(Exception $e){
+        echo 'Exception -> ';
+        var_dump($e->getMessage());   
+    }
+}
+function respuestaContieneArchivo($id){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT * FROM archivo_respuesta WHERE id_respuesta = :id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id]);
+    $resultado = $stmt->fetchAll();
+    if(count($resultado) > 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function buscaridArchivo($id){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT id_archivo FROM archivo_respuesta WHERE id_respuesta = :id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id]);
+    $resultado = $stmt->fetch();
+
+    return $resultado->id_archivo;
+}
+
+function recojerArchivo($idArchivo){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT * FROM archivos WHERE id = :id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $idArchivo]);
+    
+    return $stmt->fetchAll();
+}
+
 ?> 

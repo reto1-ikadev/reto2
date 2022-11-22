@@ -17,26 +17,21 @@ function mostrarAñadirRespuesta(){
     console.log('mostrarRespuesta');
     
     var pregunta = document.getElementsByClassName('pregunta');
-    //console.log(pregunta.length);
-    
-    //console.log(pregunta);
-         var interior = document.getElementsByClassName('interior');
-        console.log(interior.length);
-        if(interior.length<2){
-            let divInterior = document.createElement('div');
-            divInterior.setAttribute('class', 'interior');
-            divInterior.innerHTML = "<form id='formulario'>"+
-            "<textarea class='contenido' rows='10' cols='50' ></textarea>"+
-            "<input type='hidden' name='id' value='"+ idPregunta +"'>" +"<div>" +
-            "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button>"+"</div>"+
-            "</form>";
-            pregunta[0].appendChild(divInterior);
-            var botonEnviar = document.getElementById('enviarRespuesta');
-            console.log(botonEnviar);
-            prepararEnvio(botonEnviar);
-        }
-        
-        
+    var interior = document.getElementsByClassName('interior');
+    console.log(interior.length);
+    if(interior.length<2){
+        let divInterior = document.createElement('div');
+        divInterior.setAttribute('class', 'interior');
+        divInterior.innerHTML = "<form id='formulario'>"+
+        "<textarea class='contenido' rows='10' cols='50' ></textarea>"+
+        "<input type='hidden' name='id' value='"+ idPregunta +"'>" +"<div>" +
+        "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button><input type='file' name='archivos'>"+"</div>"+
+        "</form>";
+        pregunta[0].appendChild(divInterior);
+        var botonEnviar = document.getElementById('enviarRespuesta');
+        console.log(botonEnviar);
+        prepararEnvio(botonEnviar);
+    }
 }
 
 function prepararEnvio(botonEnviar, pregunta){
@@ -47,14 +42,12 @@ function prepararEnvio(botonEnviar, pregunta){
         var texto = document.querySelector('textarea');
         var contenido = texto.value;
         var comprobado =validarContenido(contenido);
+        var file = document.querySelector('input[type=file]').files[0];
+        datos.append('file', file);
         if(comprobado){
             datos.append('contenido',contenido);
             //console.log(datos.get('contenido'))
-           enviado = enviarRespuesta(datos);
-        }
-        if(enviado){
-            location.reload();
-            alert('Se ha añadido la respuesta');
+            enviarRespuesta(datos);
         }
         
     });
@@ -67,12 +60,14 @@ async function enviarRespuesta(datos){
         body: datos,
     });
     let result = await response.json();
-    if (result.success) {
-        enviado = true;
-        Swal.fire(result.success);
+    if (result.success != null) {
+        console.log(result.success);
+            Swal.fire('Se ha añadido la respuesta');
+            setInterval(function(){
+            location.reload();}, 2000);
+            enviado = result.result;
+        };
       }
-    return enviado;
-}
 
 function validarContenido(contenido){
     var comprobado = false;
