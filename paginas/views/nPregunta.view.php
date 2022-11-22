@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles/nPregunta.css">
 </head>
 <body>
+    <?php session_start();?>
     <div id="division">
         <?php 
             if(isset($_GET['id'])){
@@ -18,7 +19,7 @@
             <input type="hidden"id='idPregunta' value = <?= $id ?>>
         <?php     
         } ?></h1>
-        <form action="nPregunta.php" method="get">
+        <form action="" method="get">
             <div class= 'lineaF'>
             <label for="titulo">T&iacute;tulo:</label>
             <input type="text" name ='titulo' id='titulo' placeholder="Escribe el titulo de la pregunta">
@@ -38,12 +39,12 @@
         </div>
             
             </div>
-            <input type="hidden" name="empleado" value = '12346'><!-- El numero hay que cogerlo de $_sesion -->
+            <input type="hidden" name="empleado" value ="<?= $_SESSION['numEmple']?>"><!-- El numero hay que cogerlo de $_sesion -->
             <input type="submit" value="Enviar" class ="boton" >
         </form>
 
     </div>
     
 </body>
-<script src="../js/nPregunta.js"></script>
+
 </html>

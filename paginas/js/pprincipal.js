@@ -222,5 +222,6 @@ recibirPop().then(function (data) {
         popular.appendChild(div);
         popular.appendChild(document.createElement('br'));
     }
+    
 });
 cargarPreguntas();
