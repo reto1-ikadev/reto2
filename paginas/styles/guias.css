@@ -1,0 +1,77 @@
+body{
+    display:grid;
+    grid-template-rows: auto 2fr auto;
+    grid-template-columns: 100%;
+    grid-template-areas:
+    "header"
+    "contenedor"
+    "footer";
+    height: 100vh;
+
+    background: rgb(228,238,244);
+    background: radial-gradient(circle, rgba(228,238,244,1) 0%, rgba(148,187,233,1)100%);
+}
+
+.contenedor{
+    grid-area: contenedor;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 100%;
+    grid-template-areas: "anadir main";
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.anadirguia{
+    grid-area: anadir;
+    margin-top: 20%;
+    margin-left: 20%;
+
+}
+#main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #1F2F40;
+}
+.guia{
+    border: 1px solid rgb(117, 111, 111);
+    box-shadow: inset 0px -1px 2px;
+    width: 25%;
+    margin: 1em;
+    height: 5em;
+    background-color: #dce5ef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow-anchor: none;
+}
+
+
+
+
+.boton {
+    font-family: Arial;
+    color: #000000;
+    font-size: 15px;
+    padding: 4px;
+    text-decoration: none;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    -webkit-box-shadow: 0px 1px 3px #666666;
+    -moz-box-shadow: 0px 1px 3px #666666;
+    box-shadow: 0px 1px 3px #666666;
+    text-shadow: 1px 1px 3px #666666;
+    border: solid #1F2F40 2px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#6297CC), to(#43688C));
+    background: -moz-linear-gradient(top, #6297CC, #43688C);
+   }
+.boton:hover {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#43688C), to(#6297CC));
+    background: -moz-linear-gradient(top, #999999, #000000)
+   }
