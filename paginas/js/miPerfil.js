@@ -10,6 +10,25 @@ for (var i = 0; i < fav.length; i++) {
     enviarId(datos);
   });
 }
+//Necesito el id de la pregunta y el listener del lapiz
+var lapiz = document.getElementsByTagName('span');
+var editar;
+for(var i=0; i<lapiz.length;i++){
+  //console.log(lapiz[i].textContent);
+  if(lapiz[i].textContent=='edit'){
+    editar = lapiz[i];
+    editar.addEventListener('click', abrirVentanaPregunta);
+  }
+}
+
+
+function abrirVentanaPregunta(event){
+  var idPregunta = event.target.id;
+  console.log(idPregunta);
+  //Ya tengo el id de la pregunta
+  window.open("../controladores/nPregunta.php?accion=editar&id="+idPregunta, 'Nueva pregunta', 'width=900,height=800');
+  
+}
 
 function enviarId(datos) {
   window.location.href =
@@ -89,11 +108,11 @@ function generarPreferencias(preferencias) {
           "<button class='boton' id='enviarPref' type='submit'>Enviar</button>";
   pref.appendChild(division);
   var botonEnviar = document.getElementById("enviarPref");
-  console.log(botonEnviar);
+  //console.log(botonEnviar);
   var tipoLetra = preferencias[0];
-  console.log(tipoLetra + 'TIPO LETRA');
+  //console.log(tipoLetra + 'TIPO LETRA');
   var prueba = document.getElementById(preferencias[0]);
-  console.log(prueba);
+  //console.log(prueba);
   prueba.checked = true;
   
   enviarPreferencias(botonEnviar);

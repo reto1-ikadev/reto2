@@ -1,35 +1,20 @@
 <?php
 require_once "db.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 
 function selectPreguntaPorIdPregunta($id){
     try{
         $dbh = connect();
         $stmt = $dbh->prepare("SELECT * FROM pregunta WHERE id=:id ");
-        $stmt ->setFetchMode(PDO::FETCH_OBJ);
-        $data = array(
-            "id" => $id
-        );
-        $stmt->execute($data);
-        while($row = $stmt->fetch()){
-        
-            $tags = $row->tags;
-            $contenido = $row->contenido;
-            $fecha = $row->fecha;
-
-            $p = array(
-                "contenido" => $contenido,
-                "fecha" => $fecha,
-                "tags" => $tags
-            );
-    
-            if(!isset($misPreguntas[$id])){
-                $misPreguntas[$id] = [];
-            }
-            $misPreguntas[$id] = $p;
-        }
-        
-        return $misPreguntas;
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $idInt = intval($id);
+        $stmt->bindValue(':id', $idInt, PDO::PARAM_INT);
+        $stmt->execute();
+        return  $stmt->fetchAll();
 
     }catch(Exception $e){
         echo 'Exception -> ';

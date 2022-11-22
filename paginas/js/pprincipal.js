@@ -9,13 +9,10 @@ var filtrado = false;
 function nuevaVentana(event) {
     var entrada = event.target.id;
     console.log(entrada);
-    switch (entrada) {
-        case 'nPregunta':
-            window.open("../controladores/nPregunta.php", 'Nueva pregunta', 'width=900,height=800');
-            break;
-
-        default:
-            break;
+    if(entrada=='nPregunta') {
+        
+            window.open("../controladores/nPregunta.php?accion=nuevapregunta", 'Nueva pregunta', 'width=900,height=800');
+            
     }
 }
 

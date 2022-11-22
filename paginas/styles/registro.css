@@ -5,6 +5,8 @@
 }
 
 body {
+    background: rgb(228,238,244);
+    background: radial-gradient(circle, rgba(228,238,244,1) 0%, rgba(148,187,233,1)100%);
     display: flex;
     justify-content: center;
     align-items: center;

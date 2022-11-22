@@ -58,6 +58,7 @@ $css = [
                         </div>
                         <div><span class="material-symbols-outlined"  onclick="window.location='miPerfil.php?accion=cargar&idB=<?= $pregunta ?>'">delete</span><span class="material-symbols-outlined">edit</span></div>
                     </div>
+                    <div><span class="material-symbols-outlined">delete</span><span id=<?= $pregunta ?> name='edit'  class="material-symbols-outlined">edit</span></div>
                     <?php
             if (isset($id) && $id == $pregunta) {
                 foreach ($misPreguntas as $pregunta => $value) { 
