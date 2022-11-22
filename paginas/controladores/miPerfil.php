@@ -39,6 +39,7 @@ include_once "../Db/favoritos_db.php";
         $misPreguntas = selectPreguntasUsuario($numEmple);
         
     }
+    
     if(isset($_GET['accion2'])&& $_GET['accion2']!=''){
         $id = $_GET['id'];
     }

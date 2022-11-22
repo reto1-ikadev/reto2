@@ -53,9 +53,10 @@ $css = [
             if (isset($misPreguntas)) {
                 foreach ($misPreguntas as $pregunta => $value) { ?>
                     <div class="pregunta" onclick="window.location='miPerfil.php?accion=cargar&accion2=abrirPregunta&id=<?= $pregunta ?>'">
-                        <h4><?= $value['titulo']; ?></h4>
-                        <div><span class="material-symbols-outlined">delete</span><span class="material-symbols-outlined">edit</span></div>
+                        <h4><?= $value['titulo']; ?></h4><input type='hidden' name='idPregunta' value = <?= $pregunta; ?>>
+                        
                     </div>
+                    <div><span class="material-symbols-outlined">delete</span><span id=<?= $pregunta ?> name='edit'  class="material-symbols-outlined">edit</span></div>
                     <?php
             if (isset($id) && $id == $pregunta) {
                 foreach ($misPreguntas as $pregunta => $value) { 

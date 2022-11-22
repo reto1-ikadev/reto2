@@ -9,7 +9,15 @@
 </head>
 <body>
     <div id="division">
-        <h1>Nueva pregunta</h1>
+        <?php 
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+            }
+        ?>
+        <h1>Nueva pregunta <?php if(isset($id)){?>
+            <input type="hidden"id='idPregunta' value = <?= $id ?>>
+        <?php     
+        } ?></h1>
         <form action="nPregunta.php" method="get">
             <div class= 'lineaF'>
             <label for="titulo">T&iacute;tulo:</label>
@@ -24,9 +32,10 @@
             <div class= 'lineaF'>
             <label for="tags">Tags:</label>
             <div id="tags">
-            <input type="checkbox" name="tag1" value="mecanica"> Mecanica <input type="checkbox" name="tag2" value="electricidad"> Electricidad
-            <input type="checkbox" name="tag3" value="electronica"> Electronica <input type="checkbox" name="tag4" value="diseño"> Diseño
-            </div>
+            <div><input type="radio" name="tag" id="general" value="general">General</div> <div><input type="radio" name="tag" id="mecanica" value="mecanica" required>Mecanica</div><div><input type="radio" name="tag" id="electricidad" value="electricidad">Electricidad</div>
+            <div><input type="radio" name="tag" id="electronica" value="electronica">Electronica</div>  <div><input type="radio" name="tag" id="diseño" value="diseño">Diseño</div>
+             
+        </div>
             
             </div>
             <input type="hidden" name="empleado" value = '12346'><!-- El numero hay que cogerlo de $_sesion -->
@@ -34,5 +43,7 @@
         </form>
 
     </div>
+    
 </body>
+<script src="../js/nPregunta.js"></script>
 </html>
