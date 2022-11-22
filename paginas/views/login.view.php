@@ -26,8 +26,8 @@
                     <input type="password" id="pass"name="pass">
                 </div>
                 <div id="bot">
-                    <input type="submit" name="aceptar" id="aceptar" class="boton" value="ACEPTAR">
-                    <input type="button" id="borrar" class="boton" value="BORRAR">
+                    <input type="submit" name="aceptar" id="aceptar" class="boton" value="aceptar">
+                    <input type="button" id="borrar" class="boton" value="borrar">
                 </div>
                 
             </form>

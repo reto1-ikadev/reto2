@@ -16,7 +16,7 @@
             <div id="titulo">
                    <h3> REGISTRO </h3> <span class="material-symbols-outlined"> how_to_reg </span>
             </div>
-            <form id="formulario">
+            <form id="formulario" method="POST">
                 <div id="nombreDiv">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre">
@@ -39,7 +39,7 @@
                 </div>
                 <div id="deptDiv">
                     <label for="depart">Departamento</label>
-                    <select id="dept">
+                    <select name="depar" id="dept">
                         <option name="1" value="1">1</option>
                         <option name="2" value="2">2</option>
                         <option name="3" value="3">3</option>
@@ -48,8 +48,8 @@
                     </select>
                 </div>
                 <div id="bot">
-                    <input type="submit" id="aceptar" class="boton" value="Aceptar">
-                    <input type="button" id="borrar" class="boton" value="Borrar">
+                    <input type="submit" name="aceptar" id="aceptar" class="boton" value="aceptar">
+                    <input type="button" id="borrar" class="boton" value="borrar">
                 </div>
                 
             </form>

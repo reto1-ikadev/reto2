@@ -43,7 +43,7 @@
                     <a href="/controladores/miPerfil.php?accion=cargar">Mi Perfil</a>
                     <a href="">Mis Preguntas</a>
                     <a href="">Favoritas</a>
-                    <a href="">Cerrar Sesion</a>
+                    <a href="/controladores/login.php?accion=cerrar">Cerrar Sesion</a>
             </div>
         </div>
         </div>

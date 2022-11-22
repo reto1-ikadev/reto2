@@ -1,8 +1,17 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
     session_start();
     require_once $_SERVER['DOCUMENT_ROOT'] . "/Db/empleado_db.php";
     $response = false;
     
+    if(isset($_GET['accion'])){
+        session_destroy();
+        require $_SERVER['DOCUMENT_ROOT'] . "/views/login.view.php";
+        die();
+    }
+
     if(!isset($_COOKIE['acceptCookies'])) {
         if(isset($_POST['aceptar'])) {
             if(!trim($_POST['usuario']) == "" && !trim($_POST['pass']) == "") {

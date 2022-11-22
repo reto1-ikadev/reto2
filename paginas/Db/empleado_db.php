@@ -50,13 +50,13 @@ function registerUser($name, $surname, $email, $numEmp, $pass, $depar) {
             $data = $find->fetchAll(PDO::FETCH_ASSOC);
             foreach($data as $row) {
                 if($row['numEmple'] == $numEmp) {
-                    return "Ya existe el empleado.";
+                    return ['success' => 'El numero de empleado ya existe'];
                 }
             }
             $stmt = $dbh->prepare("INSERT into empleado (numEmple, nombre, apellidos, pass, correo, departamento) values (:numEmp, :name, :surname, :pass, :email, :depar)");
             $stmt->execute(['numEmp' => $numEmp, 'name' => $name, 'surname' => $surname, 'pass' => password_hash($pass, PASSWORD_DEFAULT), 'email' => $email, 'depar' => $depar]);
             
-            return "Registrado correctamente.";
+            return ['error' => 'Datos guardados correctamente'];
         }
         catch(PDOException $e){
             echo $e->getMessage();
