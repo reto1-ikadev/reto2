@@ -126,3 +126,17 @@ function deletePregunta($id){
     $stmt->execute(["id"=>$id]);
     
 }
+
+function updatePregunta($id,$titulo,$contenido,$fecha,$tags){
+    $dbh = connect();
+    $stmt = $dbh->prepare("UPDATE pregunta SET titulo = :titulo, contenido = :contenido, tags = :tags  WHERE id = :id");
+    $data = array(
+        "id"=>$id,
+        "titulo" => $titulo,
+        "contenido" => $contenido,
+        "tags" => $tags
+    );
+    $stmt->execute($data);
+
+
+}

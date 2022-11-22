@@ -14,11 +14,11 @@ async function recibirDatos(idPregunta){
 }
 function cargarDatos(){
     alert(idPregunta);
-    console.log
 recibirDatos(idPregunta).then(function(data){
     console.log(data);
     document.getElementById('titulo').value = data.pregunta[0].titulo ;
     document.getElementById('cont').value = data.pregunta[0].contenido ;
+    document.getElementById('idPregunta').value = idPregunta;
     var radio = document.getElementsByName('tag');
 
     for(var x =0; x<radio.length; x++){

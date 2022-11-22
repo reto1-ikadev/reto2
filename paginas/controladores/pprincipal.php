@@ -14,13 +14,10 @@ if(isset($_GET['id'])){
 
     
     if(preguntaFav($id,$numEmple)){
-        deleteFav($id,$numEmple);
-        header("Refresh:1");
+        deleteFav($id,$numEmple);  
     }else{
         insertFav($id,$numEmple);
-        header("Refresh:0; url=/contoladores/pprincipal.php");
     }
-    
 }
 //funcion mostrar pregunta
 

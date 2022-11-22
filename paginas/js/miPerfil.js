@@ -26,7 +26,7 @@ function abrirVentanaPregunta(event){
   var idPregunta = event.target.id;
   console.log(idPregunta);
   //Ya tengo el id de la pregunta
-  window.open("../controladores/nPregunta.php?accion=editar&id="+idPregunta, 'Nueva pregunta', 'width=900,height=800');
+  window.open("../controladores/updatePregunta.php?accion=editar&id="+idPregunta, 'Nueva pregunta', 'width=900,height=800');
   
 }
 

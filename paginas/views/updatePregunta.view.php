@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nueva pregunta</title>
+    <title>Modificar pregunta</title>
     <link rel="stylesheet" href="../styles/nPregunta.css">
 </head>
 <body>
@@ -15,8 +15,8 @@
                 $id = $_GET['id'];
             }
         ?>
-        <h1>Nueva pregunta </h1>
-        <form action="" method="get">
+        <h1>Modificar pregunta </h1>
+        <form action="updatePregunta.php" method="get">
             <div class= 'lineaF'>
             <label for="titulo">T&iacute;tulo:</label>
             <input type="text" name ='titulo' id='titulo' placeholder="Escribe el titulo de la pregunta">
@@ -32,10 +32,9 @@
             <div id="tags">
             <div><input type="radio" name="tag" id="general" value="general">General</div> <div><input type="radio" name="tag" id="mecanica" value="mecanica" required>Mecanica</div><div><input type="radio" name="tag" id="electricidad" value="electricidad">Electricidad</div>
             <div><input type="radio" name="tag" id="electronica" value="electronica">Electronica</div>  <div><input type="radio" name="tag" id="diseño" value="diseño">Diseño</div>
-            <?php if(isset($id)){?>
-            <input type="text" id="idPregunta" value = <?= $id ?>>
-        <?php     
-        } ?>
+        
+            <input type="text" id="idPregunta" name="idPregunta" value ="<?= $id ?>">
+
         </div>
             
             </div>
