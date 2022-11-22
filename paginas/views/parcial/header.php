@@ -24,6 +24,17 @@
         </div>
         <div class="bin">
         </div>
+        <div class="notification">
+            <span id="botonNotificaciones" class="material-symbols-outlined">
+                notifications
+            </span>
+            <span class="badge">
+                
+            </span>
+            <div class="box" id="box">
+                <div class="heading"><p>Notificaciones</p></div>
+            </div>
+        </div>
         <div class="despleglabe">
         <div class="dropdown">
             <button class="imagenPerfil"></button>
@@ -36,4 +47,5 @@
             </div>
         </div>
         </div>
+        <script src="/js/notifications.js"></script>
     </header>
