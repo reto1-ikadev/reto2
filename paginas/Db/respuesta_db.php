@@ -11,7 +11,13 @@ function insertRespuesta($contenido, $idPregunta,$usuario){
             "empleado_numEmple" => $usuario,
             "pregunta_id" => $idPregunta
         );
-        
+
+        $stmtNot = $dbh->prepare("INSERT INTO notificacion (empleado_numEmple, titulo) VALUES((SELECT empleado_numEmple FROM pregunta WHERE ID = :preguntaID), (SELECT titulo FROM pregunta WHERE ID = :preguntaaID))");
+        $stmtNot->execute(
+            array(
+                'preguntaID' => $idPregunta,
+                'preguntaaID' => $idPregunta
+            ));        
         return $stmt->execute($data);
 
 

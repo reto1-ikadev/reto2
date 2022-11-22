@@ -31,7 +31,7 @@
             <span class="badge">
                 
             </span>
-            <div class="box">
+            <div class="box" id="box">
                 <div class="heading"><p>Notificaciones</p></div>
             </div>
         </div>

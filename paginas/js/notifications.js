@@ -10,12 +10,13 @@ fetch('http://localhost/controladores/notifications.php').then(function(response
     }
         return response.text();// En caso de que salga bien devolvemos el texto con json.
     }).then(function(text) { // Ahora lo añadimos a la tabla de notificaciones.
+        alert(text);
         document.getElementsByClassName("badge")[0].innerHTML = JSON.parse(text).length; // badge hace referencia a la cantidad de notificaciones
         jsonNot = JSON.parse(text);
         for(let i = 0; i < jsonNot.length; i++) { // Añadimos en divs las respuestas nuevas.
             var element = document.createElement("div");
             element.classList.add('msg');
-            element.appendChild(document.createTextNode('Nueva respueta en: ' . jsonNot[i].titulo));
+            element.appendChild(document.createTextNode('Nueva respuesta en: ' + jsonNot[i].titulo));
             document.getElementById('box').appendChild(element);
         }
         //document.body.appendChild(element);
