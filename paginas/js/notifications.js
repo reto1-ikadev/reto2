@@ -10,7 +10,7 @@ fetch('http://localhost/controladores/notifications.php').then(function(response
     }
         return response.text();// En caso de que salga bien devolvemos el texto con json.
     }).then(function(text) { // Ahora lo añadimos a la tabla de notificaciones.
-        document.getElementsByClassName("badge")[0].innerHTML = JSON.parse(text).length; // badge hace referencia a la cantidad de notificaciones
+        document.getElementsByClassName("contador")[0].innerHTML = JSON.parse(text).length; // contador hace referencia a la cantidad de notificaciones
         jsonNot = JSON.parse(text);
         for(let i = 0; i < jsonNot.length; i++) { // Añadimos en divs las respuestas nuevas.
             var element = document.createElement("div");
@@ -24,11 +24,19 @@ fetch('http://localhost/controladores/notifications.php').then(function(response
         alert("Error: " + error);
     });
 
-//document.getElementsByClassName("badge")[0].innerHTML = Object.keys(jsonNot).length;
+//document.getElementsByClassName("contador")[0].innerHTML = Object.keys(jsonNot).length;
 
 //En caso de que el usuario haga click en el span del boton de notificaciones
 // este añadira o quitara la clase activo. Si esta la clase activo aparece
 // el cuadro con las notificaciones, en caso contrario, no sale nada.
 document.getElementById("botonNotificaciones").addEventListener('click', function() {
     document.getElementById("botonNotificaciones").classList.toggle("activo");
+});
+
+document.getElementById("botonLimpiar").addEventListener('click', function() {
+    var msgs = document.getElementsByClassName("msg");
+    for(let i = 0; i < msgs.length; i++) {
+        msgs[i].remove();
+    }
+    document.getElementsByClassName("contador")[0].innerHTML = 0;
 });
