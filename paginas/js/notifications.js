@@ -42,4 +42,11 @@ document.getElementById("botonLimpiar").addEventListener('click', function() {
         msgs[i].remove();
     }
     document.getElementsByClassName("contador")[0].innerHTML = 0;
+    fetch('http://localhost/controladores/notificationsDelete.php').then(function(response) {
+        if(!response.ok) { // Si la promise nos devuelvo falso quiere decir que algo salio mal
+            throw new Exception("Error");
+        }
+    }).catch(function(error) {
+        alert("Error: " + error);
+    });
 });
