@@ -33,7 +33,7 @@
             </span>
             <div class="box" id="box">
                 <div class="heading"><p>Notificaciones</p></div>
-                <button type="button" name="botonLimpiar">Limpiar</button>
+                <button type="button" id="botonLimpiar">Limpiar</button>
             </div>
         </div>
         <div class="despleglabe">
@@ -44,7 +44,7 @@
                     <a href="/controladores/miPerfil.php?accion=cargar">Mi Perfil</a>
                     <a href="">Mis Preguntas</a>
                     <a href="">Favoritas</a>
-                    <a href="">Cerrar Sesion</a>
+                    <a href="/controladores/cerrarSesion.php">Cerrar Sesion</a>
             </div>
         </div>
         </div>

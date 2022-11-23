@@ -14,8 +14,11 @@ fetch('http://localhost/controladores/notifications.php').then(function(response
         jsonNot = JSON.parse(text);
         for(let i = 0; i < jsonNot.length; i++) { // Añadimos en divs las respuestas nuevas.
             var element = document.createElement("div");
+            var bold = document.createElement("strong");
             element.classList.add('msg');
-            element.appendChild(document.createTextNode('Nueva respuesta en: ' + jsonNot[i].titulo));
+            element.appendChild(document.createTextNode('Nueva respuesta en: '));
+            bold.appendChild(document.createTextNode(jsonNot[i].titulo));
+            element.appendChild(bold);
             document.getElementById('box').appendChild(element);
         }
         //document.body.appendChild(element);

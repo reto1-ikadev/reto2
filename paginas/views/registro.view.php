@@ -61,7 +61,7 @@
                 
             </form>
                 <div id="volv">
-                    <form action="../controladores/login.php">
+                    <form action="../controladores/login.php" method="POST">
                         <button class="boton" id="volver">Volver <span class="material-symbols-outlined"> keyboard_return </span> </button>
                     </form>
                 </div>

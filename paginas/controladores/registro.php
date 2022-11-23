@@ -6,7 +6,6 @@
     $response = "nothing";
 
     if(isset($_POST['aceptar'])) {
-        echo "<script>alert('llegue');</script>";
         $response = registerUser($_POST['nombre'], $_POST['apellido'], $_POST['correo'], $_POST['num'], $_POST['pass'], $_POST['depar']);
     }
 
