@@ -38,6 +38,7 @@ body{
 
 /******************************PARTE CENTRAL DEL CONTENEDOR******************************/
 #main{
+    height: fit-content;
     grid-area: main;
     display: flex;
     width: 100%;
@@ -242,6 +243,7 @@ div[class='linea']:hover{
     }
     #aside{
         justify-content: center;
+        display: none;
     }
   }
 @media screen and (max-width: 990px) {
@@ -256,6 +258,7 @@ div[class='linea']:hover{
     }
     #aside{
         flex-direction: row;
+        margin-top: 4em;
     }
     .formulario2{
         display:flex;

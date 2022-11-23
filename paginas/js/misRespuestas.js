@@ -18,19 +18,19 @@ function mostrarAñadirRespuesta(){
     
     var pregunta = document.getElementsByClassName('pregunta');
     var interior = document.getElementsByClassName('interior');
-    console.log(interior.length);
-
+        if(interior.length <3){
         let divInterior = document.createElement('div');
         divInterior.setAttribute('class', 'interior');
         divInterior.innerHTML = "<form id='formulario'>"+
         "<textarea class='contenido' rows='10' cols='50' ></textarea>"+
-        "<input type='hidden' name='id' value='"+ idPregunta +"'>" +"<div>" +
-        "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button><input type='file' name='archivos'>"+"</div>"+
+        "<input type='hidden' name='id' value='"+ idPregunta +"'>" +"<div class='divenviar'>" +
+        "<input type='file' name='archivos'><button class='boton' id='enviarRespuesta' type='submit'>Enviar</button>"+"</div>"+
         "</form>";
         pregunta[0].appendChild(divInterior);
         var botonEnviar = document.getElementById('enviarRespuesta');
         console.log(botonEnviar);
         prepararEnvio(botonEnviar);
+        }
     
 }
 

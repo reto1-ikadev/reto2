@@ -6,6 +6,7 @@ $contenido = $_POST['contenido'];
 $idPregunta = $_POST['id'];
 $usuario = $_SESSION['usuario']['numEmple'];
 
+
 //move the file to the correct location
 $target_file = "../archivosGuardados/" . basename($_FILES["archivos"]["name"]);
 

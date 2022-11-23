@@ -19,7 +19,7 @@ function deleteFav($id,$numEmple){
 
 function todasFav(){
     $dbh = connect();
-    $stmt = $dbh->prepare("SELECT pregunta_id,titulo,COUNT(pregunta_id) as cant FROM `favorito`, pregunta WHERE pregunta_id=id GROUP BY pregunta_id ORDER BY COUNT(pregunta_id) DESC LIMIT 7");
+    $stmt = $dbh->prepare("SELECT pregunta_id,titulo,COUNT(pregunta_id) as cant FROM `favorito`, pregunta WHERE pregunta_id=id GROUP BY pregunta_id ORDER BY COUNT(pregunta_id) DESC LIMIT 5");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute();
     

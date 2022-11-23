@@ -97,7 +97,7 @@ body{
     border-radius: 8%;
     box-shadow: 0px 1px 6px #666666;
     width: 80%;
-    height: 21em;
+    height: auto;
     background-color: #dce5ef;
 
 }
@@ -109,7 +109,7 @@ body{
     border: 1px solid rgb(117, 111, 111);
     box-shadow: inset 0px -1px 2px;
     width: 90%;
-    height: 5em;
+    height: 6em;
     background-color:#dce5ef;
     display: flex;
     flex-direction: column;
@@ -238,14 +238,7 @@ input[type='submit']{
         grid-template-areas: "slide prin";
     }
     .popular{
-        margin: 1em auto;
-        grid-area: slide;
-        border-radius: 8%;
-        box-shadow: 0px 1px 6px #666666;
-        width: 80%;
-        height: 21em;
-        background-color: #F5F5F5;
-        margin-top: 32em;
+       display: none;
     }
     .slide{
         grid-area: slide;
@@ -258,6 +251,7 @@ input[type='submit']{
     }
     .slide div.filtros{
         margin: 0em;
+        margin-top: 2em;
     }
     .filtro {
         display: flex;
@@ -266,13 +260,38 @@ input[type='submit']{
         align-items: flex-start;
         margin-top: 0.5em;
     }
+    .filtro > input,select{
+        width: 100%;
+    }
        
  
 }
-
+@media screen and (max-width:500px) {
+    /*tags display none*/
+    .tablaPreguntas td.tags{
+        display: none;
+    }
+    .tablaPreguntas td.titulo{
+        width: auto;
+    }
+    input[type="submit"][value="Filtrar"] {
+        text-indent: -9999px;
+    }    
+}
 .preguntaPop{
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.contPreguntaPop > h4 {
+    text-align: justify;
+    margin-right: 2em;
+}
+
+.cantFav > span{
+    border: #000000 1px solid;
+    padding: 0.3em;
+    border-radius: 50%;
 }

@@ -14,7 +14,7 @@ include_once "../Db/respuesta_db.php";
         <div class=pregunta>
             <!--AQUI SE GENERA EL TITULO DE LA PREGUNTA-->
             <h3><?= $titulo ?></h3>
-            <div class = 'cont'><p><?= $pregunta[$id]['contenido']?></p> </div>
+            <div class = 'cont'><p><?= $pregunta[0]->contenido ?></p> </div>
             <button class='boton'>Responder</button>
             <intput type = 'hidden' class = 'oculto' id = <?= $_GET['id'] ?>>
             

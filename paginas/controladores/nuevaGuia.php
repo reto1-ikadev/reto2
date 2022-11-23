@@ -1,15 +1,17 @@
 <?php
-include_once "../Db/pregunta_db.php";
+include_once "../Db/guias_db.php";
 
 if(isset($_POST['titulo']) && $_FILES['archivos']['size'] > 0){
-        //Si recibo los datos titulo, contenido y empleado del get. Los guardo
-        //$titulo = $_GET['titulo'];
-        //echo "<p>Titulo2: $archivo </p>";
-        //echo "<p>Titulo: $titulo</p>";
-        //echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
-        //echo json_encode(['success' => "El archivo se ha subido correctamente"]);
-
-        echo json_encode(['success' => "El archivo se ha subido correctamente"]);
+        $target_file = "../archivosGuardados/" . basename($_FILES["archivos"]["name"]);
+        if (move_uploaded_file($_FILES["archivos"]["tmp_name"], $target_file)){
+            $contenido = $_POST['titulo'];
+            $archivo_ruta = $target_file;
+            $archivo_nombre = $_FILES["archivos"]["name"];
+            $archivo_tipo = $_FILES["archivos"]["type"];    
+            $idArchivo = insertArchivo($archivo_ruta, $archivo_nombre, $archivo_tipo);
+            insertGuia($contenido, $idArchivo);
+            echo json_encode(['success' => "El archivo se ha subido correctamente"]);
+    }
     }
 
        

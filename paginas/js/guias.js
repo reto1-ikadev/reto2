@@ -4,7 +4,9 @@ document.getElementById('nGuia').addEventListener('click', mostrarAñadirGuia);
 
 function mostrarAñadirGuia(){
     var divform = document.getElementById('formularioGuias');
-        let divInterior = document.createElement('div');
+    var cantdivint = document.getElementsByClassName('interior');
+    if(cantdivint.length < 1){
+    let divInterior = document.createElement('div');
         divInterior.setAttribute('class', 'interior');
         divInterior.innerHTML = "<form id='formGuias'>"+
         "<div class= 'lineaF'>"+
@@ -12,7 +14,7 @@ function mostrarAñadirGuia(){
         "<input type='text' name ='titulo' id='titulo' placeholder='Escribe el titulo de la guia' required></div>"+
         "<div class= 'lineaF'>"+
         "<label for='archivo'>Añade la Guia: </label>" +
-        "<input type='file' name ='archivos' id='archivos' required></div>"+
+        "<input type='file' name ='archivos' id='archivos' title=' s' required/></div>"+
         "<div class= 'lineaF'>"+
         "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button></div>"+
         "</form>";
@@ -20,19 +22,13 @@ function mostrarAñadirGuia(){
         var botonEnviar = document.getElementById('enviarRespuesta');
         console.log(botonEnviar);
         prepararEnvio(botonEnviar);
-    
+    }
 }
 
 function prepararEnvio(botonEnviar, pregunta){
     botonEnviar.addEventListener('click', function(e){
         e.preventDefault();
-        var enviado
         var datos = new FormData(formGuias);
-        var titulo = document.getElementsByName('titulo')[0].value;
-        //var file = document.querySelector('input[type=file]').files[0];
-        //datos.append('file', file);
-            //datos.append('titulo',titulo);
-            //console.log(datos.get('contenido'))
             enviarRespuesta(datos);
         
     });
@@ -53,17 +49,6 @@ async function enviarRespuesta(datos){
             enviado = result.result;
         };
       }
-
-
-
-
-
-
-
-
-
-
-
 
 recibirDatos().then(function (data) {
     buscarArchivos(data);

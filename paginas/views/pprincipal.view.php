@@ -11,15 +11,13 @@ require_once 'parcial/header.php';
         <div class="slide">
             <div class="anadir">
                 <button class="boton" id='nPregunta'>Añadir Pregunta</button>
-                <br>
-                <a href="/controladores/verGuias.php"><button class="boton" name="Enlaces">Tutoriales</button></a>
-            </div>
+              </div>
             <div class="filtros">
                 <div class="filtro">
                     <form id="filtros" class="filtro">
                         <h2>Filtros</h2>
                         <br>
-                        <input type="text" name="busqueda" id="busqueda" placeholder="Filtrar por Titulo">
+                        <input type="text" name="busqueda" id="busqueda" placeholder="Titulo">
                         <br>
                         <label for="fechInicio">Fecha Inicio:</label>
                         <input type="date" id="fechaInicio" name="fechaInicio">

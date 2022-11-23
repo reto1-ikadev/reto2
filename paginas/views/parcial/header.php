@@ -41,8 +41,7 @@
             <div class="dropdown-content">
                     <a href="/controladores/pprincipal.php">Inicio</a>
                     <a href="/controladores/miPerfil.php?accion=cargar">Mi Perfil</a>
-                    <a href="">Mis Preguntas</a>
-                    <a href="">Favoritas</a>
+                    <a href="/controladores/verGuias.php">Tutoriales</a>
                     <a href="">Cerrar Sesion</a>
             </div>
         </div>
