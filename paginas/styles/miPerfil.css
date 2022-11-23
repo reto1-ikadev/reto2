@@ -226,7 +226,18 @@ div[class='linea']:hover{
     color:rgb(9, 9, 134);   
     font-weight: 500; 
 }
-
+#formelegir{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    width: 85%;
+    margin-bottom: 2em;
+}
+#formelegir > input{
+    padding: 0.5em;
+}
 @media screen and (max-width: 590px) {
     #aside{
         visibility: collapse;

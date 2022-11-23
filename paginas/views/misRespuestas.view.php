@@ -33,6 +33,7 @@ include_once "../Db/respuesta_db.php";
                             <div class='interior'>
                                 <div class = 'numEmple'>
                                    <h3 class ='tituloR'> <?="nº empleado " . $value['empleado']. " Nombre: ". $value['nombreEmpleado'] ." ".$value['apellido']?></h3>
+                                   <span name='fav' id='star<?= $value["idRespuesta"] ?>' class='material-symbols-outlined' onclick='agregarRespuestaFavorita("<?= $value["idRespuesta"] ?>")'>star</span>
                                 </div>
                                 <?=  $value['contenido'] ?> <br>
                                 <?php if(respuestaContieneArchivo($value['idRespuesta'])){

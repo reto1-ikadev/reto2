@@ -83,5 +83,23 @@ function validarContenido(contenido){
     }
     
 }
-
+function agregarRespuestaFavorita(id){
+        let url = "/controladores/respuestasFav.php?id=" + id;
+        fetch(url, {
+            method: 'GET'
+        }).then(function (response) {
+            return response.status;
+        }).then(function (data) {
+            if (data == 200) {
+                // get element that callet the function
+                let fav = document.getElementById('star' + id);
+                if (fav.classList.contains('fav')) {
+                    fav.classList.remove('fav');
+                } else {
+                    fav.classList.add('fav');
+                }
+            }
+        });
+    
+    }
 

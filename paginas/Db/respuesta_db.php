@@ -77,6 +77,15 @@ function selectRespuesta($id){
     return $stmt->fetchAll();
 }
 
+function selectRespuestaIdRespuesta($id){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT contenido FROM respuesta WHERE id = :id ORDER BY id DESC LIMIT 1");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id]);
+    
+    return $stmt->fetchAll();
+}
+
 function insertArchivo($archivo_ruta, $archivo_nombre, $archivo_tipo){
     //insert into archivo (nombre, ruta) values ('nombre', 'ruta');
     try{

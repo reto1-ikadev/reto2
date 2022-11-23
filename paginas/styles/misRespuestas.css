@@ -87,6 +87,8 @@ body{
     background: -moz-linear-gradient(top, #999999, #000000)
    }
 .numEmple{
+    display: flex;
+    justify-content: space-between;
     width: 90%;
     border-bottom: 2px solid grey;
     margin-bottom: 2em;
@@ -133,3 +135,6 @@ input[type="file"]{
     align-items: center;
 
 }
+.fav{
+    color: yellow;
+ }

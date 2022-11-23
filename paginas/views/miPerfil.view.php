@@ -88,8 +88,22 @@ $css = [
         </div>
 
         <h2>Mis favoritos:</h2>
-        <div class="division">
-        <?= mostrarFavoritos($_SESSION["numEmple"]) ?>
+        <div class="division" id="divfavoritos">
+            <form action="miPerfil.php" method="post" id="formelegir">
+                 <input type="submit" class="boton" name="someAction" value="Preguntas" /> <input type="submit" class="boton" name="someAction2" value="Respuestas" />
+            </form>
+            <?php
+            if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['someAction']) || isset($_POST['someAction2']))
+            {
+              if(isset($_POST['someAction'])=="Preguntas")
+              {
+                mostrarPreguntasFavoritos($_SESSION['usuario']['numEmple']);
+              }
+              else if(isset($_POST['someAction2'])=="Respuestas")
+              {
+                mostrarRespuestasFavoritas($_SESSION['usuario']['numEmple']);
+              }
+            }?>
         </div>
         <div>
             
@@ -111,9 +125,8 @@ $css = [
         
     </div>
 
-    <footer></footer>
 </div>
-<?php require_once 'parcial/footer.php'; ?>
+<?php require 'parcial/footer.php'; ?>
 </body>
 <script src="/js/miPerfil.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

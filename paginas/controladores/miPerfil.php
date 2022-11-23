@@ -12,12 +12,12 @@ include_once "../Db/favoritos_db.php";
         $id = $_GET['idF'];
         $numEmple = $_SESSION["usuario"]["numEmple"];
             deleteFav($id,$numEmple); 
-            require_once 'miPerfil.php';
+            //require_once 'miPerfil.php';
     }
     if(isset($_GET['idB'])){
         $id = $_GET['idB'];
         deletePregunta($id); 
-        require_once 'miPerfil.php';
+        //require_once 'miPerfil.php';
     }
     
     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
@@ -41,7 +41,6 @@ include_once "../Db/favoritos_db.php";
     if(isset($_GET['accion2'])&& $_GET['accion2']!=''){
         $id = $_GET['id'];
     }
-
     //AÑADIR MIS PREGUNTAS.
     /**
      * Funcion que añade a session los datos del usuario
@@ -73,7 +72,7 @@ include_once "../Db/favoritos_db.php";
         return $numEmple;
     }
 
-    function mostrarFavoritos($numEmple){
+    function mostrarPreguntasFavoritos($numEmple){
         $preguntas = preguntaFavEmp($numEmple);
         $respuesta ="";
         foreach($preguntas as $pregunta){
@@ -89,7 +88,25 @@ include_once "../Db/favoritos_db.php";
         }
         echo $respuesta;
     }
-     
+
+    function mostrarRespuestasFavoritas($numEmple){
+        $respuestas = respuestasFavEmp($numEmple);
+        $salida ="";
+        foreach($respuestas as $respuesta){
+            $contenidos = selectRespuestaIdRespuesta($respuesta['id_respuesta']);   
+            foreach($contenidos as $contenido){    
+                $salida .= "<div id={$respuesta['id_respuesta']} class=favorito>";
+                $salida .= "<div class='pregunta'><h4>{$contenido->contenido}</h4>";
+                $salida .= "</div><div><span id={$respuesta['id_respuesta']} name='fav' class='material-symbols-outlined fav'>delete</span>";
+                $salida .= "</div>";
+                $salida .= "</div>";
+            }
+           
+        }
+        echo $salida;
+    }
+
+    
 
     require_once "../views/miPerfil.view.php";
     ?>

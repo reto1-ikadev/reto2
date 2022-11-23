@@ -48,4 +48,43 @@ function insertFav($id,$numEmple){
     
 }
 
+
+function deleteRespFav($id,$numEmple){
+    $dbh = connect();
+    $stmt = $dbh->prepare("DELETE FROM respuestas_fav WHERE id_respuesta = :id  AND empleado_numEmple = :numEmp");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id, 'numEmp' => $numEmple]);
+    
+}
+
+function respuestaFav($id,$numEmp){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT * FROM respuestas_fav WHERE id_respuesta = :id AND empleado_numEmple = :numEmp");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id, 'numEmp' => $numEmp]);
+    
+    if($stmt->rowCount() > 0){
+        return true;}
+    else{
+        return false;
+    }
+}
+
+function insertRespFav($id,$numEmple){
+    $dbh = connect();
+    $stmt = $dbh->prepare("INSERT INTO respuestas_fav (id_respuesta, empleado_numEmple) VALUES (:id, :numEmp)");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute(['id' => $id, 'numEmp' => $numEmple]);
+    
+}
+
+function respuestasFavEmp($numEmp){
+    $dbh = connect();
+    $stmt = $dbh->prepare("SELECT id_respuesta FROM respuestas_fav WHERE empleado_numEmple = :numEmp");
+    $stmt->execute(['numEmp' => $numEmp]);
+    
+    return $stmt->fetchAll();
+}
+
+
 ?>
