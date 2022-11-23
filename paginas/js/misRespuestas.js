@@ -103,3 +103,27 @@ function agregarRespuestaFavorita(id){
     
     }
 
+    async function comprobarPreguntaFavorita(id) {
+        let response = await fetch('/controladores/buscarrespuestafav.php?id=' + id,
+            {
+                method: 'GET'
+    
+            });
+        let result = await response.json();
+        return result;
+    }
+    
+    
+    function cargarPreguntasFavoritas() {
+        let fav = document.getElementsByName('fav');
+        for (let i = 0; i < fav.length; i++) {
+            let id = fav[i].id.substring(4);
+            comprobarPreguntaFavorita(id).then(function (data) {
+                if (data) {
+                    fav[i].classList.add('fav');
+                }
+            });
+        }
+    }
+
+    cargarPreguntasFavoritas();
