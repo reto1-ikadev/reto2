@@ -52,7 +52,7 @@ body{
     justify-content: space-around;
     padding: 3em;
 }
-.interior{
+.interior, .preguntaDesp{
     width: 80%;
     border: 1px solid grey;
     box-shadow:inset 0px 0px 2px;

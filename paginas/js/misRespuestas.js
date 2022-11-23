@@ -17,10 +17,10 @@ function mostrarAñadirRespuesta(){
     console.log('mostrarRespuesta');
     
     var pregunta = document.getElementsByClassName('pregunta');
-    var interior = document.getElementsByClassName('interior');
-        if(interior.length <3){
+    var preguntaDesp = document.getElementsByClassName('preguntaDesp');
+        if(preguntaDesp.length <1){
         let divInterior = document.createElement('div');
-        divInterior.setAttribute('class', 'interior');
+        divInterior.setAttribute('class', 'preguntaDesp');
         divInterior.innerHTML = "<form id='formulario'>"+
         "<textarea class='contenido' rows='10' cols='50' ></textarea>"+
         "<input type='hidden' name='id' value='"+ idPregunta +"'>" +"<div class='divenviar'>" +

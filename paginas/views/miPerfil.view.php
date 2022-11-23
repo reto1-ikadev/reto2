@@ -89,10 +89,11 @@ $css = [
 
         <h2>Mis favoritos:</h2>
         <div class="division" id="divfavoritos">
-            <form action="miPerfil.php" method="post" id="formelegir">
+            <form action="" method="post" id="formelegir">
                  <input type="submit" class="boton" name="someAction" value="Preguntas" /> <input type="submit" class="boton" name="someAction2" value="Respuestas" />
             </form>
             <?php
+            if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
             if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['someAction']) || isset($_POST['someAction2']))
             {
               if(isset($_POST['someAction'])=="Preguntas")
@@ -103,7 +104,7 @@ $css = [
               {
                 mostrarRespuestasFavoritas($_SESSION['usuario']['numEmple']);
               }
-            }?>
+            }}?>
         </div>
         <div>
             
