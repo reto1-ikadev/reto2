@@ -33,7 +33,7 @@
             <div><input type="radio" name="tag" id="general" value="general">General</div> <div><input type="radio" name="tag" id="mecanica" value="mecanica" required>Mecanica</div><div><input type="radio" name="tag" id="electricidad" value="electricidad">Electricidad</div>
             <div><input type="radio" name="tag" id="electronica" value="electronica">Electronica</div>  <div><input type="radio" name="tag" id="diseño" value="diseño">Diseño</div>
         
-            <input type="text" id="idPregunta" name="idPregunta" value ="<?= $id ?>">
+            <input type="hidden" id="idPregunta" name="idPregunta" value ="<?= $id ?>">
 
         </div>
             
