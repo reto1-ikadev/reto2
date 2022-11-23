@@ -60,6 +60,8 @@ body{
     align-items: center;
     gap: 2em;
     background-color: #dfe1e345;
+    height: fit-content;
+    padding-bottom: 2em;
 }
 
 /******************************LAS TRES DIVISIONES TIENEN EL MISMO ESTILO******************************/

@@ -23,4 +23,5 @@ $css = [
 
 </div>
 <script src="/js/guias.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php require_once 'parcial/footer.php'; ?>

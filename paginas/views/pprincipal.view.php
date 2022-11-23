@@ -5,7 +5,7 @@ $css = [
 require_once 'parcial/header.php';
 ?>
 
-<body>
+
     <div class="cont-prin">
 
         <div class="slide">
@@ -19,7 +19,7 @@ require_once 'parcial/header.php';
                         <br>
                         <input type="text" name="busqueda" id="busqueda" placeholder="Titulo">
                         <br>
-                        <label for="fechInicio">Fecha Inicio:</label>
+                        <label for="fechaInicio">Fecha Inicio:</label>
                         <input type="date" id="fechaInicio" name="fechaInicio">
                         <br>
                         <label for="fechaFinal">Fecha Final:</label>
@@ -49,9 +49,8 @@ require_once 'parcial/header.php';
         </div>
 
     </div>
-
-    </div>
     <script src="../js/pprincipal.js"></script>
     <script src="../js/prueba.js"></script>
     <script src="../js/cambioPreferencias.js"></script>
+
     <?php require_once 'parcial/footer.php'; ?>

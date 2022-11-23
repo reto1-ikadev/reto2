@@ -14,7 +14,7 @@ function mostrarAñadirGuia(){
         "<input type='text' name ='titulo' id='titulo' placeholder='Escribe el titulo de la guia' required></div>"+
         "<div class= 'lineaF'>"+
         "<label for='archivo'>Añade la Guia: </label>" +
-        "<input type='file' name ='archivos' id='archivos' title=' s' required/></div>"+
+        "<input type='file' name ='archivos' id='archivos' title='' required/></div>"+
         "<div class= 'lineaF'>"+
         "<button class='boton' id='enviarRespuesta' type='submit'>Enviar</button></div>"+
         "</form>";
@@ -43,11 +43,14 @@ async function enviarRespuesta(datos){
     let result = await response.json();
     if (result.success != null) {
         console.log(result.success);
-            alert('Se ha añadido la subido la guia correctamente');
+            Swal.fire('Se ha añadido la subido la guia correctamente');
             setInterval(function(){
             location.reload();}, 2000);
             enviado = result.result;
-        };
+        }
+    else{
+        Swal.fire('Ha ocurrido un error al subir la guia');
+    }   
       }
 
 recibirDatos().then(function (data) {

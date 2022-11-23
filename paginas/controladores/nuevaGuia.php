@@ -13,6 +13,9 @@ if(isset($_POST['titulo']) && $_FILES['archivos']['size'] > 0){
             echo json_encode(['success' => "El archivo se ha subido correctamente"]);
     }
     }
+    else{
+        echo json_encode(['error' => "No ha seleccionado ningun archivo"]);
+    }
 
        
 ?>
