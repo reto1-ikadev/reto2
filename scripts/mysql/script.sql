@@ -19,7 +19,7 @@ USE `db_aergibide` ;
 
 -- Crear usuario
 CREATE USER 'ikasdev'@'%' IDENTIFIED BY 'ACai7925';
-GRANT PRIVILEGE ON db_aergibide.* TO 'ikasdev'@'%';
+GRANT ALL PRIVILEGES ON db_aergibide.* TO 'ikasdev'@'%';
 
 -- -----------------------------------------------------
 -- Table `db_aergibide`.`Empleado`
