@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nueva pregunta</title>
-    <link rel="stylesheet" href="../styles/nPregunta.css">
+    <link rel="stylesheet" href="../styles/guias.css">
 </head>
-<body>
+<body id="subirguias">
         <h1>Subir Guia </h1>
-        <form action="" method="get">
+        <form action="" id="formGuias">
             <div class= 'lineaF'>
-            <label for="titulo">T&iacute;tulo:</label>
-            <input type="text" name ='titulo' id='titulo' placeholder="Escribe el titulo de la guia">
+            <label for="titulo">T&iacute;tulo: </label>
+            <input type="text" name ='titulo' id='titulo' placeholder="Escribe el titulo de la guia" required>
             </div>
             <div class= 'lineaF'>
-            <label for="archivo">Subir Guia</label>
-            <input type='file' name='archivos' require>
+            <label for="archivo">Subir Guia: </label>
+            <input type='file' name='archivos' required>
             
             </div>
             <input type="submit" value="Enviar" class ="boton" >

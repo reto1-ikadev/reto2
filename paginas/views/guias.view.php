@@ -12,6 +12,9 @@ $css = [
 
 <div class="anadirguia">
     <button class="boton" id='nGuia'>Añadir Guia</button>
+    <div id="formularioGuias">
+        
+    </div>
 </div>
 <div id="main">
 
