@@ -21,7 +21,7 @@
 body{
     background: rgb(228,238,244);
     background: radial-gradient(circle, rgba(228,238,244,1) 0%, rgba(148,187,233,1)100%);
-    min-height: 100vh;
+    height: 100vh;
     display:flex;
     justify-content: center;
     display: grid;
@@ -29,7 +29,7 @@ body{
     background-color:#F3F2F8;
     font-family: Roboto;
     grid-template-columns: 100%;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 20% 1fr auto;
     grid-template-areas:
     "header"
     "."

@@ -20,7 +20,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="/img/logoAergibide.png" class="imglogo">
+
         </div>
         <div class="bin">
         </div>

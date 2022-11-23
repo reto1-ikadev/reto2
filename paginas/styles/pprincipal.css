@@ -9,7 +9,7 @@ body{
     height: 100vh;
     display: grid;
     grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 24%  1fr 12%;
+    grid-template-rows: 20%  1fr 12%;
     grid-template-areas:
     "header header header"
     "main main main"
@@ -222,7 +222,7 @@ input[type='submit']{
         min-height: 100vh;
         display: grid;
         grid-template-columns: 40% 60%;
-        grid-template-rows: 24% 1fr 12%;
+        grid-template-rows: 20% 1fr 12%;
         grid-template-areas:
         "header header"
         "main main"
