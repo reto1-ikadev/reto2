@@ -58,6 +58,7 @@ body{
     box-shadow:inset 0px 0px 2px;
     padding: .5em;
     background-color:white;
+    margin: 1em auto;
 }
 
 .pregunta > h3{
@@ -89,7 +90,7 @@ body{
 .numEmple{
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
     border-bottom: 2px solid grey;
     margin-bottom: 2em;
     
@@ -136,5 +137,13 @@ input[type="file"]{
 
 }
 .fav{
-    color: yellow;
+    color: #D2AD07;
  }
+
+@media screen and (max-width: 900px){
+    .numEmple{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
