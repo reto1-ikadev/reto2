@@ -9,13 +9,14 @@ function preguntaFavEmp($numEmp){
 }
 
 
-function deleteFav($id,$numEmple){
+function deletePFav($id,$numEmple){
     $dbh = connect();
     $stmt = $dbh->prepare("DELETE FROM favorito WHERE pregunta_id = :id  AND empleado_numEmple = :numEmp");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute(['id' => $id, 'numEmp' => $numEmple]);
     
 }
+
 
 function todasFav(){
     $dbh = connect();

@@ -2,12 +2,21 @@
 
 console.log("fichero miPerfil.js");
 var cookPref;
-var fav = document.getElementsByName("fav");
+var fav = document.getElementsByName("favP");
 for (var i = 0; i < fav.length; i++) {
   fav[i].addEventListener("click", function () {
     var id = this.id;
     var datos = id;
-    enviarId(datos);
+    enviarPId(datos);
+  });
+}
+var fav = document.getElementsByName("favR");
+for (var i = 0; i < fav.length; i++) {
+  fav[i].addEventListener("click", function () {
+    var id = this.id;
+    var datos = id;
+    console.log(datos);
+    enviarRId(datos);
   });
 }
 //Necesito el id de la pregunta y el listener del lapiz
@@ -30,10 +39,15 @@ function abrirVentanaPregunta(event){
   
 }
 
-function enviarId(datos) {
+function enviarPId(datos) {
   window.location.href =
     "/controladores/miPerfil.php?idF=" + datos;
 }
+function enviarRId(datos) {
+  window.location.href =
+    "/controladores/miPerfil.php?idR=" + datos;
+}
+
 
 //Guardo el elemento formulario en una variable
 var formulario = document.getElementById("formulario");

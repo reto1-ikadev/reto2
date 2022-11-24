@@ -11,7 +11,13 @@ include_once "../Db/favoritos_db.php";
     if(isset($_GET['idF'])){
         $id = $_GET['idF'];
         $numEmple = $_SESSION["usuario"]["numEmple"];
-            deleteFav($id,$numEmple); 
+            deletePFav($id,$numEmple); 
+            //require_once 'miPerfil.php';
+    }
+    if(isset($_GET['idR'])){
+        $id = $_GET['idR'];
+        $numEmple = $_SESSION["usuario"]["numEmple"];
+            deleteRespFav($id,$numEmple); 
             //require_once 'miPerfil.php';
     }
     if(isset($_GET['idB'])){
@@ -79,7 +85,7 @@ include_once "../Db/favoritos_db.php";
             foreach($titulos as $titulo){    
                 $respuesta .= "<div id={$pregunta['pregunta_id']} class=favorito>";
                 $respuesta .= "<div class='pregunta'><h4>{$titulo->titulo}</h4>";
-                $respuesta .= "</div><div><span id={$pregunta['pregunta_id']} name='fav' class='material-symbols-outlined fav'>delete</span>";
+                $respuesta .= "</div><div><span id={$pregunta['pregunta_id']} name='favP' class='material-symbols-outlined fav'>delete</span>";
                 $respuesta .= "</div>";
                 $respuesta .= "</div>";
             }
@@ -96,7 +102,7 @@ include_once "../Db/favoritos_db.php";
             foreach($contenidos as $contenido){    
                 $salida .= "<div id={$respuesta['id_respuesta']} class=favorito>";
                 $salida .= "<div class='pregunta'><h4>{$contenido->contenido}</h4>";
-                $salida .= "</div><div><span id={$respuesta['id_respuesta']} name='fav' class='material-symbols-outlined fav'>delete</span>";
+                $salida .= "</div><div><span id={$respuesta['id_respuesta']} name='favR' class='material-symbols-outlined fav'>delete</span>";
                 $salida .= "</div>";
                 $salida .= "</div>";
             }
