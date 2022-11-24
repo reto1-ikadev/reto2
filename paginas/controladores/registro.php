@@ -1,4 +1,5 @@
 <?php
+    require_once "../show_all_errors.php";
     include "../Db/empleado_db.php";
     
 

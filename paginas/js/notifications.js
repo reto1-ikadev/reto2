@@ -10,12 +10,15 @@ fetch('http://localhost/controladores/notifications.php').then(function(response
     }
         return response.text();// En caso de que salga bien devolvemos el texto con json.
     }).then(function(text) { // Ahora lo añadimos a la tabla de notificaciones.
-        document.getElementsByClassName("badge")[0].innerHTML = JSON.parse(text).length; // badge hace referencia a la cantidad de notificaciones
+        document.getElementsByClassName("contador")[0].innerHTML = JSON.parse(text).length; // contador hace referencia a la cantidad de notificaciones
         jsonNot = JSON.parse(text);
         for(let i = 0; i < jsonNot.length; i++) { // Añadimos en divs las respuestas nuevas.
             var element = document.createElement("div");
+            var bold = document.createElement("strong");
             element.classList.add('msg');
-            element.appendChild(document.createTextNode('Nueva respuesta en: ' + jsonNot[i].titulo));
+            element.appendChild(document.createTextNode('Nueva respuesta en: '));
+            bold.appendChild(document.createTextNode(jsonNot[i].titulo));
+            element.appendChild(bold);
             document.getElementById('box').appendChild(element);
         }
         //document.body.appendChild(element);
@@ -24,11 +27,26 @@ fetch('http://localhost/controladores/notifications.php').then(function(response
         alert("Error: " + error);
     });
 
-//document.getElementsByClassName("badge")[0].innerHTML = Object.keys(jsonNot).length;
+//document.getElementsByClassName("contador")[0].innerHTML = Object.keys(jsonNot).length;
 
 //En caso de que el usuario haga click en el span del boton de notificaciones
 // este añadira o quitara la clase activo. Si esta la clase activo aparece
 // el cuadro con las notificaciones, en caso contrario, no sale nada.
 document.getElementById("botonNotificaciones").addEventListener('click', function() {
     document.getElementById("botonNotificaciones").classList.toggle("activo");
+});
+
+document.getElementById("botonLimpiar").addEventListener('click', function() {
+    var msgs = document.getElementsByClassName("msg");
+    for(let i = 0; i < msgs.length; i++) {
+        msgs[i].remove();
+    }
+    document.getElementsByClassName("contador")[0].innerHTML = 0;
+    fetch('http://localhost/controladores/notificationsDelete.php').then(function(response) {
+        if(!response.ok) { // Si la promise nos devuelvo falso quiere decir que algo salio mal
+            throw new Exception("Error");
+        }
+    }).catch(function(error) {
+        alert("Error: " + error);
+    });
 });

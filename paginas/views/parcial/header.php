@@ -28,11 +28,12 @@
             <span id="botonNotificaciones" class="material-symbols-outlined">
                 notifications
             </span>
-            <span class="badge">
+            <span class="contador">
                 
             </span>
             <div class="box" id="box">
                 <div class="heading"><p>Notificaciones</p></div>
+                <button type="button" id="botonLimpiar">Limpiar</button>
             </div>
         </div>
         <div class="despleglabe">
@@ -42,7 +43,7 @@
                     <a href="/controladores/pprincipal.php">Inicio</a>
                     <a href="/controladores/miPerfil.php?accion=cargar">Mi Perfil</a>
                     <a href="/controladores/verGuias.php">Tutoriales</a>
-                    <a href="">Cerrar Sesion</a>
+                    <a href="/controladores/cerrarSesion.php">Cerrar Sesion</a>
             </div>
         </div>
         </div>

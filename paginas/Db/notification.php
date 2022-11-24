@@ -15,4 +15,10 @@
         return $allNotifications;
     }
 
+    function deleteNotification($usuario) {
+        $db = connect();
+        $stmt = $db->prepare("DELETE FROM notificacion WHERE empleado_numEmple = ?");
+        $stmt->execute([$usuario]);
+    }
+
     //var_dump(searchNotification(1));

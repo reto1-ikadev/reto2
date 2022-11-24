@@ -18,4 +18,3 @@ if(isset($_GET['titulo']) && $_GET['titulo']!='' && $_GET['contenido'] && $_GET[
 
 
 require_once '../views/nPregunta.view.php';
-?>
