@@ -28,6 +28,7 @@ require_once 'parcial/header.php';
                         <label for="tags">Tags:</label>
                         <select name="tags" id="tags">
                             <option value="">-------------</option>
+                            <option value="general">General</option>
                             <option value="mecanica">Mecanica</option>
                             <option value="electricidad">Electricidad</option>
                             <option value="electronica">Electronica</option>

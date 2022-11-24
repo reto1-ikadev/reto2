@@ -172,7 +172,7 @@ body footer{
     flex-direction: column;
     background-color: #0c0c1bc2;
     justify-content: center;
-    height: 10em;
+
 }
 
 footer div.container{
@@ -184,6 +184,7 @@ footer div.container{
 }
 
 header .bin >p {
+    float: right;
     font-size: 1.5em;
     font-weight: bold;
     margin-top: 0.5em;

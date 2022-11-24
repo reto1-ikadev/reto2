@@ -1,6 +1,6 @@
 body{
     display:grid;
-    grid-template-rows: 20% 2fr auto;
+    grid-template-rows: 20% 1fr 10%;
     grid-template-columns: 100%;
     grid-template-areas:
     "header"
@@ -44,7 +44,7 @@ body{
 .interior{
     border-radius: 2%;
     box-shadow: 0px 1px 6px #666666;
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -63,24 +63,22 @@ input[type='file'] {
     margin-top: 10%;
 }
 #main{
+    grid-area: main;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;
-    justify-content: center;
     align-items: flex-start;
     width: 90%;
     margin: 0 auto;
     background-color: #dfe1e345;
     box-shadow: 0px 1px 6px #666666;
-
-
     margin: 3em;
 }
 .guia{
     border: 1px solid rgb(117, 111, 111);
     box-shadow: inset 0px -1px 2px;
-    width: 25%;
+    width: 22%;
     margin: 1em;
     height: 5em;
     background-color: #dce5ef;
@@ -89,8 +87,11 @@ input[type='file'] {
     justify-content: space-around;
     align-items: center;
     overflow-anchor: none;
+    padding: 3em 2em;
 }
-
+.guia > span{
+    text-align: center;
+}
 
 .boton {
     font-family: Arial;
@@ -137,3 +138,21 @@ input[type="text"]{
 input[type='text']:hover{
     box-shadow:  0px 0px 15px #6297CC;
 }
+
+@media screen and (max-width: 900px){
+    .guia{
+        width: 17em;
+        margin: 1em;
+    }
+    #formularioGuias{
+       width: 12em;
+    }
+    .lineaF{
+        width: 11em;
+    }
+    input[type="text"]{
+        width: 11em;
+        
+    }
+}
+    

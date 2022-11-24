@@ -10,15 +10,15 @@ $css = [
 <div class="contenedor">
 
 
-<div class="anadirguia">
-    <button class="boton" id='nGuia'>Añadir Guia</button>
-    <div id="formularioGuias">
+    <div class="anadirguia">
+        <button class="boton" id='nGuia'>Añadir Guia</button>
+        <div id="formularioGuias">
+
+        </div>
+    </div>
+    <div id="main">
         
     </div>
-</div>
-<div id="main">
-
-</div>
 
 
 </div>

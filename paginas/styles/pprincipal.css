@@ -64,9 +64,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-self: start;
-
-    padding: 1em;
-    
+    padding: 0.5em;
 
 }
 .slide{
@@ -97,7 +95,7 @@ body{
     border-radius: 8%;
     box-shadow: 0px 1px 6px #666666;
     width: 80%;
-    height: auto;
+    height: fit-content;
     background-color: #dce5ef;
 
 }
