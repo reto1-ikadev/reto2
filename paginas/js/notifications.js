@@ -50,3 +50,19 @@ document.getElementById("botonLimpiar").addEventListener('click', function() {
         alert("Error: " + error);
     });
 });
+
+mostarNombre();
+function mostarNombre() {
+    var nombre = localStorage.getItem('DatosUsuario');
+    var bienvenida = document.getElementsByClassName("bin");
+    bienvenida[0].innerHTML = "<p>Bienvenido " + nombre+ "</p>";
+}
+
+function quitarNombre() {
+    var nombre = document.getElementsByClassName("bin");
+    nombre[0].innerHTML = "";
+}
+
+setInterval(function() {
+    quitarNombre();
+}, 5000);

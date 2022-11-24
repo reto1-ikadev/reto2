@@ -23,6 +23,7 @@
 
         </div>
         <div class="bin">
+            
         </div>
         <div class="notification">
             <span id="botonNotificaciones" class="material-symbols-outlined">
