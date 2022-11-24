@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once $_SERVER['DOCUMENT_ROOT'] . "/Db/empleado_db.php";
-    $response = false;
+    $response = "nothing";
     
     if(!isset($_COOKIE['acceptCookies'])) {
         if(isset($_POST['aceptar'])) {
@@ -16,6 +16,8 @@
                     $_SESSION["usuario"]["numEmple"] = trim($_POST['usuario']);
                     require $_SERVER['DOCUMENT_ROOT'] . "/controladores/pprincipal.php";
                     die();
+                } else {
+                    $response = "Contraseña incorrecta.";
                 }
             } else {
                 $response = "Hay que completar todos los campos por favor.";
