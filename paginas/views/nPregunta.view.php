@@ -44,7 +44,6 @@
         </form>
 
     </div>
-    <script languaje='javascript' type='text/javascript' src='/js/nPregunta.js'></script>
-</body>
+    </body>
 
 </html>

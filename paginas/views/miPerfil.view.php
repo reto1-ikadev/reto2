@@ -53,10 +53,10 @@ $css = [
             if (isset($misPreguntas)) {
                 foreach ($misPreguntas as $pregunta => $value) { ?>
                     <div class="iconos">
-                    <div class="pregunta" onclick="window.location='miPerfil.php?accion=cargar&accion2=abrirPregunta&id=<?= $pregunta ?>'">
+                    <div class="pregunta" onclick="window.location='miPerfil.php?accion2=abrirPregunta&id=<?= $pregunta ?>'">
                         <h4><?= $value['titulo']; ?></h4>
                         </div>
-                        <div><span class="material-symbols-outlined"  onclick="window.location='miPerfil.php?accion=cargar&idB=<?= $pregunta ?>'">delete</span>
+                        <div><span class="material-symbols-outlined"  onclick="window.location='miPerfil.php?idB=<?= $pregunta ?>'">delete</span>
                     <span id=<?= $pregunta ?> name='edit'  class="material-symbols-outlined">edit</span></div></div>
                     <?php
             if (isset($id) && $id == $pregunta) {
@@ -71,7 +71,7 @@ $css = [
                         </div>
                         <div class = 'botonesRespuesta'>
                             <a class="boton" href="respuestas.php?titulo=<?= $value['titulo'] ?>&id=<?= $pregunta ?>">Ver respuestas</a>
-                            <a class="boton" href="miPerfil.php?accion=cargar">Cerrar</a>
+                            <a class="boton" href="miPerfil.php">Cerrar</a>
                             
                         </div>
                     </div>
@@ -93,7 +93,6 @@ $css = [
                  <input type="submit" class="boton" name="someAction" value="Preguntas" /> <input type="submit" class="boton" name="someAction2" value="Respuestas" />
             </form>
             <?php
-            if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
             if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['someAction']) || isset($_POST['someAction2']))
             {
               if(isset($_POST['someAction'])=="Preguntas")
@@ -104,7 +103,7 @@ $css = [
               {
                 mostrarRespuestasFavoritas($_SESSION['usuario']['numEmple']);
               }
-            }}?>
+            }?>
         </div>
         <div>
             

@@ -13,17 +13,16 @@ async function recibirDatos(idPregunta){
     return result;   
 }
 function cargarDatos(){
-    alert(idPregunta);
+    
 recibirDatos(idPregunta).then(function(data){
-    console.log(data);
     document.getElementById('titulo').value = data.pregunta[0].titulo ;
     document.getElementById('cont').value = data.pregunta[0].contenido ;
     document.getElementById('idPregunta').value = idPregunta;
     var radio = document.getElementsByName('tag');
 
     for(var x =0; x<radio.length; x++){
-        if(radio[x].value = data.pregunta[0].tags){
-            radio[x].checked =true;
+        if(radio[x].value == data.pregunta[0].tags){
+            radio[x].checked = true;
         }
     }
 

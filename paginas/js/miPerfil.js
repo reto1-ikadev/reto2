@@ -33,8 +33,6 @@ function abrirVentanaPregunta(event){
 function enviarId(datos) {
   window.location.href =
     "/controladores/miPerfil.php?idF=" + datos;
-    window.location.href =
-    "/controladores/miPerfil.php?accion=cargar";
 }
 
 //Guardo el elemento formulario en una variable
@@ -279,7 +277,7 @@ function validar(datos) {
 
 //Esta funcion envia los datos del formulario con los datos del usuario a main.php y recibe una respuesta
 async function enviarDatos(datos) {
-  let response = await fetch("/controladores/main.php", {
+  let response = await fetch("/controladores/actualizarUsuario.php", {
     method: "POST",
     body: datos,
   });

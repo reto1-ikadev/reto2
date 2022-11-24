@@ -21,7 +21,7 @@ include_once "../Db/favoritos_db.php";
     }
     
     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
-    if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
+    
         if(!isset($_SESSION['usuario']['nombre'])){
         
             
@@ -36,7 +36,6 @@ include_once "../Db/favoritos_db.php";
 
         $misPreguntas = selectPreguntasUsuario($numEmple);
         
-    }
     
     if(isset($_GET['accion2'])&& $_GET['accion2']!=''){
         $id = $_GET['id'];
