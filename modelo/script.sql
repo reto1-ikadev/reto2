@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 24-11-2022 a las 12:18:38
+-- Tiempo de generación: 24-11-2022 a las 13:06:13
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.19
 
@@ -23,9 +23,6 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `db_aergibide` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE `db_aergibide`;
 
-CREATE USER 'ikasdev'@'%' IDENTIFIED BY 'ACai7925';
-GRANT ALL PRIVILEGES ON db_aergibide.* TO 'ikasdev'@'%';
-
 -- --------------------------------------------------------
 
 --
@@ -34,9 +31,9 @@ GRANT ALL PRIVILEGES ON db_aergibide.* TO 'ikasdev'@'%';
 
 CREATE TABLE `archivos` (
   `id` int NOT NULL,
-  `nombre` varchar(45) NOT NULL,
-  `ruta` varchar(45) NOT NULL,
-  `tipo` varchar(45) NOT NULL
+  `nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ruta` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `tipo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -70,8 +67,7 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`numEmple`, `nombre`, `apellidos`, `pass`, `correo`, `departamento`) VALUES
-(12345, 'Prueba', 'Cortes Perez', '$2y$10$2jr5cu4DCqF4qcdEiurIvuoIybHhtDqjJM3NlxLFYP8HrvM/g47TS', 'bobo@alejandro.esss', 'aeronautica'),
-(12346, 'Aritz', 'castillo', '12346', 'aritz@castillo.es', 'aeronautica');
+(12345, 'Carlos', 'Ruiz Pérez', '$2y$10$llGMxkC4aJISy.t930qpX.hCYUU/An3RwP5bgEeDJJRUXXuJHf2Ii', 'carlos@aergibide.es', 'aeronautica');
 
 -- --------------------------------------------------------
 
@@ -84,6 +80,13 @@ CREATE TABLE `favorito` (
   `pregunta_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Volcado de datos para la tabla `favorito`
+--
+
+INSERT INTO `favorito` (`empleado_numEmple`, `pregunta_id`) VALUES
+(12345, 21);
+
 -- --------------------------------------------------------
 
 --
@@ -92,7 +95,7 @@ CREATE TABLE `favorito` (
 
 CREATE TABLE `guia` (
   `id` int NOT NULL,
-  `contenido` varchar(45) DEFAULT NULL,
+  `contenido` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `idArchivo` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -123,6 +126,13 @@ CREATE TABLE `pregunta` (
   `empleado_numEmple` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Volcado de datos para la tabla `pregunta`
+--
+
+INSERT INTO `pregunta` (`id`, `titulo`, `contenido`, `fecha`, `tags`, `empleado_numEmple`) VALUES
+(21, 'Manual de usuario', 'Buenas estaba buscando por la nueva app y no he encontrado todavía el manual de usuario. ¿Alguien puede indicarme donde encontrarlo?', '2022-11-24', 'general', 12345);
+
 -- --------------------------------------------------------
 
 --
@@ -131,10 +141,17 @@ CREATE TABLE `pregunta` (
 
 CREATE TABLE `respuesta` (
   `id` int NOT NULL,
-  `contenido` varchar(45) DEFAULT NULL,
+  `contenido` varchar(4500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `empleado_numEmple` int NOT NULL,
   `pregunta_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `respuesta`
+--
+
+INSERT INTO `respuesta` (`id`, `contenido`, `empleado_numEmple`, `pregunta_id`) VALUES
+(35, 'Buenos días, puedes encontrarlo en el menú desplegable superior derecho, en Guías.', 12345, 21);
 
 -- --------------------------------------------------------
 
@@ -146,6 +163,13 @@ CREATE TABLE `respuestas_fav` (
   `empleado_numEmple` int NOT NULL,
   `id_respuesta` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `respuestas_fav`
+--
+
+INSERT INTO `respuestas_fav` (`empleado_numEmple`, `id_respuesta`) VALUES
+(12345, 35);
 
 --
 -- Índices para tablas volcadas
@@ -224,7 +248,7 @@ ALTER TABLE `respuestas_fav`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `guia`
@@ -236,19 +260,19 @@ ALTER TABLE `guia`
 -- AUTO_INCREMENT de la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Restricciones para tablas volcadas
@@ -258,27 +282,27 @@ ALTER TABLE `respuesta`
 -- Filtros para la tabla `archivo_respuesta`
 --
 ALTER TABLE `archivo_respuesta`
-  ADD CONSTRAINT `fk_id_archivo` FOREIGN KEY (`id_archivo`) REFERENCES `archivos` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `fk_id_respuesta` FOREIGN KEY (`id_respuesta`) REFERENCES `respuesta` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fk_id_archivo` FOREIGN KEY (`id_archivo`) REFERENCES `archivos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_id_respuesta` FOREIGN KEY (`id_respuesta`) REFERENCES `respuesta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `favorito`
 --
 ALTER TABLE `favorito`
-  ADD CONSTRAINT `fk_Empleado_has_Pregunta_Empleado1` FOREIGN KEY (`empleado_numEmple`) REFERENCES `empleado` (`numEmple`),
-  ADD CONSTRAINT `fk_Empleado_has_Pregunta_Pregunta1` FOREIGN KEY (`pregunta_id`) REFERENCES `pregunta` (`id`);
+  ADD CONSTRAINT `fk_Empleado_has_Pregunta_Empleado1` FOREIGN KEY (`empleado_numEmple`) REFERENCES `empleado` (`numEmple`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_Empleado_has_Pregunta_Pregunta1` FOREIGN KEY (`pregunta_id`) REFERENCES `pregunta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `guia`
 --
 ALTER TABLE `guia`
-  ADD CONSTRAINT `fk_idarchivo` FOREIGN KEY (`idArchivo`) REFERENCES `archivos` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fk_idarchivo` FOREIGN KEY (`idArchivo`) REFERENCES `archivos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
-  ADD CONSTRAINT `fk_Notificacion_Empleado1` FOREIGN KEY (`empleado_numEmple`) REFERENCES `empleado` (`numEmple`);
+  ADD CONSTRAINT `fk_Notificacion_Empleado1` FOREIGN KEY (`empleado_numEmple`) REFERENCES `empleado` (`numEmple`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `pregunta`
@@ -291,14 +315,14 @@ ALTER TABLE `pregunta`
 --
 ALTER TABLE `respuesta`
   ADD CONSTRAINT `fk_Respuesta_Empleado` FOREIGN KEY (`empleado_numEmple`) REFERENCES `empleado` (`numEmple`),
-  ADD CONSTRAINT `fk_Respuesta_Pregunta1` FOREIGN KEY (`pregunta_id`) REFERENCES `pregunta` (`id`);
+  ADD CONSTRAINT `fk_Respuesta_Pregunta1` FOREIGN KEY (`pregunta_id`) REFERENCES `pregunta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `respuestas_fav`
 --
 ALTER TABLE `respuestas_fav`
-  ADD CONSTRAINT `fk_idrespuesta` FOREIGN KEY (`id_respuesta`) REFERENCES `respuesta` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `fk_Tutorial_Empleado1` FOREIGN KEY (`empleado_numEmple`) REFERENCES `empleado` (`numEmple`);
+  ADD CONSTRAINT `fk_idrespuesta` FOREIGN KEY (`id_respuesta`) REFERENCES `respuesta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_Tutorial_Empleado1` FOREIGN KEY (`empleado_numEmple`) REFERENCES `empleado` (`numEmple`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
