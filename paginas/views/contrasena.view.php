@@ -16,7 +16,7 @@
             <div id="titulo">
                 <h3> CONTRASEÑA OLVIDADA </h3> <span class="material-symbols-outlined">password</span>
             </div>
-            <form action="contrasena.php" method="post">
+            <form action="#" method="post">
                 <div class="nPass">
                     <label for="pass">Nueva contraseña</label>
                     <input type="password" id="pass" name="pass">

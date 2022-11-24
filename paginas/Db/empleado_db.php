@@ -127,3 +127,21 @@ function updateUsuario($correo,$numEmple){
     }
     
   }
+
+  function recoverPass($dbh, $numEmple, $newPass) {
+    try{
+        if(!is_numeric($numEmple)) {
+            return "El numero de empleado solo puede contener numeros.";
+        }
+
+        $find = $dbh->prepare("UPDATE empleado SET pass = ? WHERE numEmple = ?");
+        $result = $find->execute([password_hash($newPass, PASSWORD_DEFAULT), $numEmple]);
+        if($result) {
+            return "Contraseña cambiada correctamente.";
+        }
+        return "Contraseña no cambiada.";
+    }
+    catch(PDOException $e){
+        echo $e->getMessage();
+    }   
+}
