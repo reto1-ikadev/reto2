@@ -4,8 +4,6 @@
 
 Esta aplicación web a sido escrita por Artiz, Iker, Adrián y Celia, con el objetivo de permitir una comunicación entre empleados para una empresa de aeronautica.
 
-> Se ne
-
 ## Funciones
 
 Para comunicar a empleados de una empresa aeronautica hemos creado un portal web (tipo forum) en el que se pueden añadir preguntas las cuales serán respondidas por otros empleados con dicho conocimiento.
