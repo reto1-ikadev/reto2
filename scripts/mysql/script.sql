@@ -50,6 +50,11 @@ CREATE TABLE `archivo_respuesta` (
   `id_archivo` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Volcado de datos para la tabla `empleado`
+--
+
+INSERT INTO `archivos` (`id`, `nombre`, `ruta`, `tipo`) VALUES (NULL, 'Manual_de_usuario.pdf', '../archivosGuardados/Manual_de_usuario.pdf', 'application/pdf');
 -- --------------------------------------------------------
 
 --
