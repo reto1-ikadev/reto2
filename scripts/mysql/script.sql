@@ -23,6 +23,9 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `db_aergibide` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE `db_aergibide`;
 
+CREATE USER 'ikasdev'@'%' IDENTIFIED BY 'ACai7925';
+GRANT ALL PRIVILEGES ON db_aergibide.* TO 'ikasdev'@'%';
+
 -- --------------------------------------------------------
 
 --

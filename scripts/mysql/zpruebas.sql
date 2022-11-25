@@ -5,3 +5,4 @@ INSERT INTO `empleado`  VALUES(90, 'Roberto', 'Prueba', '$2y$10$OUNwNA058r74efK4
 
 -- Crear una pregunta de prueba
 INSERT INTO `pregunta` (`titulo`, `contenido`, `fecha`, `tags`, `empleado_numEmple`) VALUES("¿Que se creo primero el huevo o la gallina?", "Siempre tuve aquella duda, por ello me gustaria ver si en esta pagina web me podriais sacar esta duda de mi cabeza.", CURDATE(), "mecanica", 90);
+
