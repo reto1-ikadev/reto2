@@ -10,6 +10,13 @@ Para comunicar a empleados de una empresa aeronautica hemos creado un portal web
 
 ## Como usar
 
+> Aviso
+
+Ya existe un usuario de prueba que se puede usar para ver como sería la aplicación web con datos ya insertados.
+
+Este es su numero de empleado : 12345
+Y esta es su contraseña: Jm12345
+
 Para poder usar la aplicación web es necesario crearse un usuario empleado.
 
 > Para crear un usuario empleado hay que registrarse en el login donde encontraremos el botón "Registrarme"
@@ -27,6 +34,14 @@ Para poder hacer funcionar la aplicación web son necesario los siguientes compo
 - Servicio Docker
 - Docker compose
 - Tener JavaScript disponible en el navegador.
+
+> Instrucciones
+
+Primero tenemos que usar el comando docker-compose up en la raiz del proyecto.
+
+Una vez iniciado el proyecto hay que entrar a el navegador usando en este caso, localhost, y presionamos enter.
+
+Ya estaremos en el login principal de la aplicación web.
 
 ## Desarrollo
 
