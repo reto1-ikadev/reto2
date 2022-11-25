@@ -17,6 +17,8 @@ Ya existe un usuario de prueba que se puede usar para ver como sería la aplicac
 Este es su numero de empleado : 12345
 Y esta es su contraseña: Jm12345
 
+> En caso de querer usarla como un nuevo usuario siga estas otras instrucciones.
+
 Para poder usar la aplicación web es necesario crearse un usuario empleado.
 
 > Para crear un usuario empleado hay que registrarse en el login donde encontraremos el botón "Registrarme"
