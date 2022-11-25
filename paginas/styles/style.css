@@ -158,11 +158,7 @@ header {
     margin-top: 0.4em auto 0 auto;
     width: 100%;
     height: 30px;
-}
-
-.msg p{
-    margin-bottom: 0.4em;
-    color: rgb(43, 43, 43);
+    overflow-x: auto;
 }
 
 body footer{
