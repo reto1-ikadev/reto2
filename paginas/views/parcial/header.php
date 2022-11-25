@@ -35,6 +35,8 @@
             <div class="box" id="box">
                 <div class="heading"><p>Notificaciones</p></div>
                 <button type="button" id="botonLimpiar">Limpiar</button>
+                <div id="notificaciones">
+                </div>
             </div>
         </div>
         <div class="despleglabe">

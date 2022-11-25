@@ -19,7 +19,7 @@ fetch('http://localhost/controladores/notifications.php').then(function(response
             element.appendChild(document.createTextNode('Nueva respuesta en: '));
             bold.appendChild(document.createTextNode(jsonNot[i].titulo));
             element.appendChild(bold);
-            document.getElementById('box').appendChild(element);
+            document.getElementById('notificaciones').appendChild(element);
         }
         //document.body.appendChild(element);
         //alert(jsonNot[0].empleado_numEmple);
@@ -37,10 +37,8 @@ document.getElementById("botonNotificaciones").addEventListener('click', functio
 });
 
 document.getElementById("botonLimpiar").addEventListener('click', function() {
-    var msgs = document.getElementsByClassName("msg");
-    for(let i = 0; i < msgs.length; i++) {
-        msgs[i].remove();
-    }
+    var notificaciones = document.getElementById("notificaciones");
+    notificaciones.innerHTML = "";
     document.getElementsByClassName("contador")[0].innerHTML = 0;
     fetch('http://localhost/controladores/notificationsDelete.php').then(function(response) {
         if(!response.ok) { // Si la promise nos devuelvo falso quiere decir que algo salio mal

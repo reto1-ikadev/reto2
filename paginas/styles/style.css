@@ -164,7 +164,8 @@ header {
 .msg {
     margin-top: 0.4em auto 0 auto;
     width: 100%;
-    height: 30px;
+    height: 2.5em;
+    color: white;
     overflow-x: auto;
 }
 
