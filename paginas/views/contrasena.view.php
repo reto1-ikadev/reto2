@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,27 +12,49 @@
         <link rel="stylesheet" href="../styles/pass.css">
     </head>
     <body>
+
         <div id="contenedor">
+
             <div id="titulo">
                 <h3> CONTRASEÑA OLVIDADA </h3> <span class="material-symbols-outlined">password</span>
             </div>
+
             <form action="#" method="post">
+
+                <div class="nPass">
+                    <label for="pass">Numero del empleado</label>
+                    <input type="text" id="numEmple" name="numEmple">
+                </div>
+
                 <div class="nPass">
                     <label for="pass">Nueva contraseña</label>
                     <input type="password" id="pass" name="pass">
                 </div>
+
                 <div class="nPass">
                     <label for="pass2">Escribe de nuevo</label>
                     <input type="password" id="pass2" name="pass2">
                 </div>
-                <div id="bot">
-                    <input type="submit" id="aceptar" class="boton" value="Aceptar">
-                    <input type="submit" id="aceptar" class="boton" value="Borrar">
+
+                <div class="nPass">
+                    <?php
+                        if(isset($response)) {
+                            echo $response;
+                        }
+                    ?>
                 </div>
+
+                <div id="bot">
+                    <input type="submit" name="aceptar" id="aceptar" class="boton" value="Aceptar">
+                    <input type="submit" name="borrar" id="borrar" class="boton" value="Borrar">
+                </div>
+
             </form>
-            <a id="volver" href="../controladores/login.php">Volver <span class="material-symbols-outlined"> keyboard_return </span> </a> 
+
+            <a id="volver" href="/">Volver <span class="material-symbols-outlined"> keyboard_return </span> </a> 
             
         </div>
+
     </body>
-    <script src="pass.js"></script>
+    <!--<script src="pass.js"></script>-->
 </html>
