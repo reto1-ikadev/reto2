@@ -12,6 +12,6 @@ async function getNombre() {
     if (result.nombre != null) {
         nombre = result.nombre + " " + result.apellidos;
         localStorage.setItem('DatosUsuario', nombre);
-        console.log(nombre);
+        
     }
 }

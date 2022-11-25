@@ -92,7 +92,7 @@ body{
 .popular{
     margin: 1em auto;
     grid-area: pop;
-    border-radius: 8%;
+    
     box-shadow: 0px 1px 6px #666666;
     width: 80%;
     height: fit-content;
@@ -287,7 +287,10 @@ input[type='submit']{
     text-align: justify;
     margin-right: 2em;
 }
-
+.popular > h3 {
+    
+    padding: 0.2em;
+}
 .cantFav > span{
     border: #000000 1px solid;
     padding: 0.3em;

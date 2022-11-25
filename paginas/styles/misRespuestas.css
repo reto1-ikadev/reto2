@@ -67,10 +67,11 @@ body{
 
 
 .boton {
+    width: 9em;
     font-family: Arial;
     color: #000000;
     font-size: 15px;
-    padding: 4px;
+    padding: 0.4em;
     text-decoration: none;
     -webkit-border-radius: 28px;
     -moz-border-radius: 28px;

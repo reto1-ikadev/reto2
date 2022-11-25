@@ -32,7 +32,7 @@ include_once "../Db/respuesta_db.php";
                         foreach ($respuesta as $id => $value) {?>
                             <div class='interior'>
                                 <div class = 'numEmple'>
-                                   <h3 class ='tituloR'> <?="nº empleado " . $value['empleado']?></h3><h3><?= "  Nombre: ". $value['nombreEmpleado'] ." ".$value['apellido']?></h3>
+                                   <h3 class ='tituloR'> <?="Nº empleado " . $value['empleado']?></h3><h3><?= "  Nombre: ". $value['nombreEmpleado'] ." ".$value['apellido']?></h3>
                                    <span name='fav' id='star<?= $value["idRespuesta"] ?>' class='material-symbols-outlined' onclick='agregarRespuestaFavorita("<?= $value["idRespuesta"] ?>")'>star</span>
                                 </div>
                                 <?=  $value['contenido'] ?> <br>

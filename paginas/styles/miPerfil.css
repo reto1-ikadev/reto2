@@ -160,9 +160,9 @@ form{
 
 .boton {
     font-family: Arial;
-    color: #000000;
+    color: black;
     font-size: 15px;
-    padding: 4px;
+    padding: 0.5em;
     text-decoration: none;
     -webkit-border-radius: 28px;
     -moz-border-radius: 28px;
