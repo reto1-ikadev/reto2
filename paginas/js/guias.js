@@ -29,12 +29,12 @@ function prepararEnvio(botonEnviar, pregunta){
     botonEnviar.addEventListener('click', function(e){
         e.preventDefault();
         var datos = new FormData(formGuias);
-            enviarRespuesta(datos);
+            enviarGuia(datos);
         
     });
     
 }
-async function enviarRespuesta(datos){
+async function enviarGuia(datos){
     enviado = false;
     let response = await fetch("/controladores/nuevaGuia.php",{
         method: 'POST',
