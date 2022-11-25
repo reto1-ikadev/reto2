@@ -188,11 +188,12 @@ button[id="nPregunta"] {
     margin-top: 0.2em;
 }
 .tablaPreguntas td.titulo{
-    width: 65%;
+    width: 80%;
     padding-left: 0.5em;
+    margin-right: 0.2em;
 }
 .tablaPreguntas td.tags{
-    width: 35%;
+    width: 20%;
 }
 .tablaPreguntas td.iconos{
     padding: 0.5em;

@@ -28,7 +28,7 @@ body{
     align-items: center;
     background-color: #dfe1e345;
     box-shadow: 0px 1px 6px #666666;
-    padding-top: 3em;
+    padding: 3em 0;
 }
 .division{
     box-shadow: 0px 1px 6px #666666;
@@ -67,6 +67,7 @@ body{
 
 
 .boton {
+    text-align: center;
     width: 9em;
     font-family: Arial;
     color: #000000;
@@ -123,9 +124,7 @@ body{
     gap: 1em;
 }
 
-a.boton{
-   padding: 0.7em;
-}
+
 input[type="file"]{
     float: right;
     color: rgba(0, 0, 0, 0)
