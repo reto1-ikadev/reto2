@@ -135,6 +135,7 @@ header {
     clip-path: circle(0% at 100% 0%);
     transition: clip-path 0.4s;
     /*Final*/
+    overflow-y: auto; /*Nos aparece una barra para subir y bajar*/
 }
 
 .notification span.activo ~ .box {
@@ -157,7 +158,6 @@ header {
     margin-top: 0.4em auto 0 auto;
     width: 100%;
     height: 30px;
-    overflow-y: auto; /*Nos aparece una barra para subir y bajar*/
 }
 
 .msg p{
