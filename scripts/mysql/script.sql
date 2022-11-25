@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 24-11-2022 a las 13:06:13
+-- Tiempo de generación: 25-11-2022 a las 12:20:34
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.19
 
@@ -39,6 +39,13 @@ CREATE TABLE `archivos` (
   `tipo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Volcado de datos para la tabla `archivos`
+--
+
+INSERT INTO `archivos` (`id`, `nombre`, `ruta`, `tipo`) VALUES
+(12, 'Manual_de_usuario.pdf', '../archivosGuardados/Manual_de_usuario.pdf', 'application/pdf');
+
 -- --------------------------------------------------------
 
 --
@@ -50,11 +57,6 @@ CREATE TABLE `archivo_respuesta` (
   `id_archivo` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Volcado de datos para la tabla `empleado`
---
-
-INSERT INTO `archivos` (`id`, `nombre`, `ruta`, `tipo`) VALUES (NULL, 'Manual_de_usuario.pdf', '../archivosGuardados/Manual_de_usuario.pdf', 'application/pdf');
 -- --------------------------------------------------------
 
 --
@@ -93,7 +95,7 @@ CREATE TABLE `favorito` (
 --
 
 INSERT INTO `favorito` (`empleado_numEmple`, `pregunta_id`) VALUES
-(12345, 21);
+(12345, 30);
 
 -- --------------------------------------------------------
 
@@ -106,6 +108,13 @@ CREATE TABLE `guia` (
   `contenido` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `idArchivo` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `guia`
+--
+
+INSERT INTO `guia` (`id`, `contenido`, `idArchivo`) VALUES
+(16, 'Guia de Prueba', 12);
 
 -- --------------------------------------------------------
 
@@ -139,7 +148,7 @@ CREATE TABLE `pregunta` (
 --
 
 INSERT INTO `pregunta` (`id`, `titulo`, `contenido`, `fecha`, `tags`, `empleado_numEmple`) VALUES
-(21, 'Manual de usuario', 'Buenas estaba buscando por la nueva app y no he encontrado todavía el manual de usuario. ¿Alguien puede indicarme donde encontrarlo?', '2022-11-24', 'general', 12345);
+(30, 'Donde puedo encontrar el manual de usuario?', 'Buenas soy nuevo aquí y todavía no me se situar. Estoy intentando encontrar el manual de usuario.\r\nMuchas gracias por la ayuda.', '2022-11-25', 'general', 12345);
 
 -- --------------------------------------------------------
 
@@ -159,7 +168,7 @@ CREATE TABLE `respuesta` (
 --
 
 INSERT INTO `respuesta` (`id`, `contenido`, `empleado_numEmple`, `pregunta_id`) VALUES
-(35, 'Buenos días, puedes encontrarlo en el menú desplegable superior derecho, en Guías.', 12345, 21);
+(36, 'Buenas lo puedes encontrar en el menú de usuario, en el apartado Guías.', 12345, 30);
 
 -- --------------------------------------------------------
 
@@ -177,7 +186,7 @@ CREATE TABLE `respuestas_fav` (
 --
 
 INSERT INTO `respuestas_fav` (`empleado_numEmple`, `id_respuesta`) VALUES
-(12345, 35);
+(12345, 36);
 
 --
 -- Índices para tablas volcadas
@@ -256,31 +265,31 @@ ALTER TABLE `respuestas_fav`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `guia`
 --
 ALTER TABLE `guia`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Restricciones para tablas volcadas
