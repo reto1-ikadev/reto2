@@ -8,7 +8,7 @@ function mostrarAñadirGuia(){
     if(cantdivint.length < 1){
     let divInterior = document.createElement('div');
         divInterior.setAttribute('class', 'interior');
-        divInterior.innerHTML = "<form id='formGuias'>"+
+        divInterior.innerHTML = "<form id='formGuias' enctype='multipart/form-data'>"+
         "<div class= 'lineaF'>"+
         "<label for='titulo'>T&iacute;tulo: </label>" +
         "<input type='text' name ='titulo' id='titulo' placeholder='Escribe el titulo de la guia' required></div>"+
@@ -43,7 +43,7 @@ async function enviarRespuesta(datos){
     let result = await response.json();
     if (result.success != null) {
         console.log(result.success);
-            alert('Se ha añadido la subido la guia correctamente');
+            Swal.fire('Se ha añadido la subido la guia correctamente');
             setInterval(function(){
             location.reload();}, 2000);
             enviado = result.result;
