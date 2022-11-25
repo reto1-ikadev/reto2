@@ -1,0 +1,317 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor:default;
+}
+
+#contenedor{
+    width: 90%;
+    margin: 2em auto;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 98%;
+    grid-template-areas:
+        "main aside";
+    gap: 5%;
+}
+.material-symbols-outlined:hover{
+    cursor: pointer;
+}
+body{
+    background: rgb(228,238,244);
+    background: radial-gradient(circle, rgba(228,238,244,1) 0%, rgba(148,187,233,1)100%);
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    display: grid;
+    width: 100%;
+    background-color:#F3F2F8;
+    font-family: Roboto;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 1fr auto;
+    grid-template-areas:
+    "header"
+    "."
+    "footer";
+}
+
+/******************************PARTE CENTRAL DEL CONTENEDOR******************************/
+#main{
+    height: fit-content;
+    grid-area: main;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-content: space-between ;
+    align-items: center;
+    gap: 2em;
+    background-color: #dfe1e345;
+    box-shadow: 0px 1px 6px #666666;
+    padding-bottom: 5em;
+    padding-top: 2em;
+    
+}
+#aside{
+    grid-area: aside;
+    box-shadow: 0px 1px 6px #666666;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    background-color: #dfe1e345;
+    height: fit-content;
+    padding-bottom: 2em;
+}
+
+/******************************LAS TRES DIVISIONES TIENEN EL MISMO ESTILO******************************/
+.division{
+    border-radius: 2%;
+    box-shadow: 0px 1px 6px #666666;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    background-color: #F5F5F5;
+    gap: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    
+}
+/*****************************DIVISIONES INTERIORES DE MIS PREGUNTAS Y MIS FAVORITOS*****************************/
+.pregunta{
+    border: .2px solid #c4d2ef;
+    box-shadow:inset 0px 0px 2px;
+    width: 80%;
+    background-color:#dce5ef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: .3em;
+    padding-left: .7;
+}
+
+.iconos, .favorito{
+    display: flex;
+    width: 80%;
+}
+.preferencias{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.preferencias{
+    width: 100%;
+}
+
+
+.material-symbols-outlined{
+    color:rgb(144, 103, 26);
+}
+.contenido{
+    border: 1px solid grey;
+    width: 80%;
+    padding: .2em;
+}
+/******************************FORMULARIO PARA MOSTRAR LOS DATOS*************************************/
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 85%; 
+    /*El width tiene que ser 85%, si se pone menos, en tamaño
+    de pantalla menor a 1200px se juntan demasiado los inputs y los label*/
+}
+.formulario2{
+    width: 100%;
+    padding: 1em;
+    justify-content: flex-start;
+}
+
+
+.linea, .lineaA, .lineaF{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+}
+.lineaA{
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.lineaF{
+    width: 70%;
+    align-items: center;
+}
+/**************************************BOTONES*******************************************************/
+#botones{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap:.3em;
+    padding: .5em;
+}
+
+.boton {
+    font-family: Arial;
+    color: black;
+    font-size: 15px;
+    padding: 0.5em;
+    text-decoration: none;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    -webkit-box-shadow: 0px 1px 3px #666666;
+    -moz-box-shadow: 0px 1px 3px #666666;
+    box-shadow: 0px 1px 3px #666666;
+    text-shadow: 1px 1px 3px #666666;
+    border: solid #1F2F40 2px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#6297CC), to(#43688C));
+    background: -moz-linear-gradient(top, #6297CC, #43688C);
+    z-index: 9;
+   }
+.boton:hover {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#43688C), to(#6297CC));
+    background: -moz-linear-gradient(top, #999999, #000000)
+   }
+/**********************************LATERAL ********************************************/
+#fotoPerfil{
+    width: 50%;
+    padding-top: 2em;
+}
+.avatar{
+    width: 100%;
+    border-radius: 8%;
+    box-shadow: 0px 1px 3px #666666;
+    border: 2px solid #264668;
+}
+input[type="text"]{
+    border:0;
+    height: 2em;
+    border-bottom: 2px solid grey;
+}
+input[name='correo']:hover{
+    box-shadow:  0px 0px 15px #6297CC;
+}
+.lineaF > label{
+    font-weight: bold;
+}
+.deshabilitado{
+    background-color: #dfe1e345;
+}
+.pregunta a{
+    text-decoration: none;
+    color:#123e6d;
+}
+a:hover{
+    text-shadow:  2px 4px 7px #173049;
+    cursor: pointer;
+}
+.respuesta{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2em;
+}
+div[class='pregunta']:hover{
+    box-shadow:  0px 0px 15px #6297CC;
+}
+div[class='linea']:hover{
+    color:rgb(9, 9, 134);   
+    font-weight: 500; 
+}
+#formelegir{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    width: 85%;
+    margin-bottom: 2em;
+}
+#formelegir > input{
+    padding: 0.5em;
+}
+.ver{
+    text-decoration:none;
+}
+@media screen and (max-width: 590px) {
+    #aside{
+        visibility: collapse;
+    }
+    .lineaF{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  }
+@media screen and (max-width: 770px){
+    #fotoPerfil{
+        display: none;
+    }
+    #pref{
+        width: 95%;
+    }
+    #aside{
+        justify-content: center;
+        display: none;
+    }
+  }
+@media screen and (max-width: 990px) {
+    #contenedor{
+        display:grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 80% 20% ;
+        grid-template-areas: 
+        "main"
+        "aside";
+        gap: 1%;
+    }
+    #aside{
+        flex-direction: row;
+        margin-top: 4em;
+    }
+    .formulario2{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .formulario2 > .botones{
+        width: 100%;
+       text-align: center;
+    }
+    .linea, .lineaA, .lineaF{
+        width: initial; /*Hace que no tome el valor del width cuando coja la mediaquery*/
+        gap:.3em;
+    }
+    #fotoPerfil{
+        width: 16%;
+        padding-left: 2em;
+    }
+    .avatar{
+        width: 100%;
+        border-radius: 8%;
+        box-shadow: 0px 1px 3px #666666;
+        border: 2px solid #264668;
+    }
+    #aside > h4{
+        display:none;
+    }
+    #aside > .division{
+        padding-top: initial;
+        padding-bottom: initial;
+        margin-right:1em ;
+    }
+    .lineaF{
+        width: 70%;
+        justify-content: space-between;
+    }
+    
+  }
+  
+  

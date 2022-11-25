@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    font-family: Roboto;
+    font-size: 1em;
+    color: black;
+}
+
+header {
+    grid-area: header;
+    margin: 0 auto;
+    width: 100%;
+    border: 1px solid #000;
+    border-top: 0px;
+    background-image: url(/img/logoAergibide.png), url(/img/header.webp);
+    background-position: center left, center center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 20%, fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+
+
+.bin {
+    margin: auto;
+    color: white;
+}
+
+.logo {
+    margin-left: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.imglogo {
+    width: 100%;
+    height: 50%;
+}
+
+.imagenPerfil {
+    background: url(/img/avatar.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+}
+.despleglabe{
+    margin-right: 5em;
+    align-items: center;
+}
+.dropdown {
+    width: 50%;
+    display: inline-block;
+    position: relative;
+    margin-right: 1em;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin-right: 5em;
+    width: 7em;
+    overflow: auto;
+    background-color: #0c0c1bc2;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    color: white;
+    padding: 0.5em;
+    text-decoration: none;
+    font-size: bold;
+}
+
+.dropdown-content a:hover {
+    color: #FFFFFF;
+    background-color: #00A4BD;
+}
+
+.notification {
+    /*background: url('/img/noti.png');*/
+    background-color: white;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    padding: 10px 10px;
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.notification span {
+    cursor: pointer;
+    appearance: none;
+}
+  
+.material-symbols-outlined {
+    color: black;
+}
+  
+.notification .contador {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+}
+
+.notification .box {
+    width: 200px;
+    height: 250px;
+    background: #0c0c1bc2;
+    position: absolute;
+    border-radius: 20px;
+    top: 30px;
+    left: -210px;
+    /*Animacion guapa*/
+    clip-path: circle(0% at 100% 0%);
+    transition: clip-path 0.4s;
+    /*Final*/
+    overflow-y: auto; /*Nos aparece una barra para subir y bajar*/
+    padding: 20px;
+}
+
+.notification span.activo ~ .box {
+    clip-path: circle(141.4% at 100% 0%);
+}
+
+.notification .heading {
+    background: #3E5F80;
+    color: black;
+    width: 95%;
+    height: 40px;
+    margin-top: 0.2em;
+    margin-left: 0.2em;
+    text-align: center;
+    padding-top: 1em;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.432);
+}
+
+.notification #botonLimpiar {
+    margin-top: 1em;
+}
+
+.msg {
+    margin-top: 0.4em auto 0 auto;
+    width: 100%;
+    height: 2.5em;
+    color: white;
+    overflow-x: auto;
+}
+
+body footer{
+    grid-area: footer;
+    display:  flex;
+    min-height: 3em;
+    flex-direction: column;
+    background-color: #0c0c1bc2;
+    justify-content: center;
+
+}
+
+footer div.container{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header .bin >p {
+    float: right;
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    -webkit-text-stroke: 1px black; /* width and color */
+}
+
+
+@media screen and (max-width:730px) {
+    header .bin >p {
+        display: none;
+    }
+    
+}
