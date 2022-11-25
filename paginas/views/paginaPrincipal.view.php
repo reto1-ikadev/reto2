@@ -1,6 +1,6 @@
 <?php
 $css = [
-    '/styles/pprincipal.css'
+    '/styles/paginaPrincipal.css'
 ];
 require_once 'parcial/header.php';
 ?>
@@ -50,7 +50,7 @@ require_once 'parcial/header.php';
         </div>
 
     </div>
-    <script src="../js/pprincipal.js"></script>
+    <script src="../js/paginaPrincipal.js"></script>
     <script src="../js/cambioPreferencias.js"></script>
 
     <?php require_once 'parcial/footer.php'; ?>

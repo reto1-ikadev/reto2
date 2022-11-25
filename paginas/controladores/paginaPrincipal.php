@@ -13,14 +13,14 @@ if(isset($_GET['id'])){
 
     
     if(preguntaFav($id,$numEmple)){
-        deleteFav($id,$numEmple);  
+        deletePregFav($id,$numEmple);  
     }else{
-        insertFav($id,$numEmple);
+        insertPregFav($id,$numEmple);
     }
 }
 //funcion mostrar pregunta
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/views/pprincipal.view.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/views/paginaPrincipal.view.php';
 
 
 

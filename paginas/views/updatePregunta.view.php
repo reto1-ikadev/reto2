@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar pregunta</title>
-    <link rel="stylesheet" href="../styles/nPregunta.css">
+    <link rel="stylesheet" href="../styles/nuevaPregunta.css">
 </head>
 <body>
     <?php session_start();?>
@@ -43,7 +43,7 @@
         </form>
 
     </div>
-    <script languaje='javascript' type='text/javascript' src='/js/nPregunta.js'></script>
+    <script languaje='javascript' type='text/javascript' src='/js/nuevaPregunta.js'></script>
 </body>
 
 </html>

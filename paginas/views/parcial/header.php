@@ -41,7 +41,7 @@
         <div class="dropdown">
             <button class="imagenPerfil"></button>
             <div class="dropdown-content">
-                    <a href="/controladores/pprincipal.php">Inicio</a>
+                    <a href="/controladores/paginaPrincipal.php">Inicio</a>
                     <a href="/controladores/miPerfil.php?accion=cargar">Mi Perfil</a>
                     <a href="/controladores/verGuias.php">Gu&iacute;as</a>
                     <a href="/controladores/cerrarSesion.php">Cerrar Sesion</a>

@@ -9,7 +9,7 @@ function preguntaFavEmp($numEmp){
 }
 
 
-function deletePFav($id,$numEmple){
+function deletePregFav($id,$numEmple){
     $dbh = connect();
     $stmt = $dbh->prepare("DELETE FROM favorito WHERE pregunta_id = :id  AND empleado_numEmple = :numEmp");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
@@ -41,7 +41,7 @@ function preguntaFav($id,$numEmp){
     }
 }
 
-function insertFav($id,$numEmple){
+function insertPregFav($id,$numEmple){
     $dbh = connect();
     $stmt = $dbh->prepare("INSERT INTO favorito (pregunta_id, empleado_numEmple) VALUES (:id, :numEmp)");
     $stmt->setFetchMode(PDO::FETCH_OBJ);

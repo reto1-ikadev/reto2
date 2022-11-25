@@ -20,5 +20,5 @@ $tags = $_POST['tags'] ?? '';
 $preguntas = selectPreguntasFiltradas( $titulo, $page,$fechaInicio, $fechaFin, $tags);
 $datos = ["preguntas" => $preguntas, "numPreguntas" => $numPreguntas];
 
-//enviar $preguntas al archivo js pprincipal
+//enviar $preguntas al archivo js paginaPrincipal
 echo json_encode($datos);

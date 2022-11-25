@@ -11,7 +11,7 @@ function nuevaVentana(event) {
     console.log(entrada);
     if(entrada=='nPregunta') {
         
-            window.open("../controladores/nPregunta.php?accion=nuevapregunta", 'Nueva pregunta', 'width=900,height=800');
+            window.open("../controladores/nuevaPregunta.php?accion=nuevapregunta", 'Nueva pregunta', 'width=900,height=800');
             
     }
 }
@@ -104,7 +104,7 @@ function cargarPreguntas(paginaActual) {
 }
 
 function agregarPreguntaFavorita(id) {
-    let url = "/controladores/pprincipal.php?id=" + id;
+    let url = "/controladores/paginaPrincipal.php?id=" + id;
     fetch(url, {
         method: 'GET'
     }).then(function (response) {

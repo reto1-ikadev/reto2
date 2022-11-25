@@ -8,5 +8,5 @@ $guia = selectArchivo($archivo);
 
 $datos = ["archivo" => $guia];
 
-//enviar $preguntas al archivo js pprincipal
+//enviar $preguntas al archivo js paginaPrincipal
 echo json_encode($datos);

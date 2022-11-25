@@ -64,7 +64,7 @@ include_once "../Db/respuesta_db.php";
                 
         </div> 
         <div class="enlaces">
-        <a class='boton' href="pprincipal.php">Inicio</a> &nbsp;<a class='boton' href="miPerfil.php?accion=cargar">Mi Perfil</a>
+        <a class='boton' href="paginaPrincipal.php">Inicio</a> &nbsp;<a class='boton' href="miPerfil.php?accion=cargar">Mi Perfil</a>
         </div>
     </div>
 

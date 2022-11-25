@@ -11,7 +11,7 @@ include_once "../Db/favoritos_db.php";
     if(isset($_GET['idF'])){
         $id = $_GET['idF'];
         $numEmple = $_SESSION["usuario"]["numEmple"];
-            deletePFav($id,$numEmple); 
+            deletePregFav($id,$numEmple); 
             //require_once 'miPerfil.php';
     }
     if(isset($_GET['idR'])){

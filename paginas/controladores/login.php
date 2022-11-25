@@ -14,7 +14,7 @@
                     setcookie("pass", $_POST['pass'], time() + (86400 * 60), "/");
                     $_SESSION["usuario"] = array();
                     $_SESSION["usuario"]["numEmple"] = trim($_POST['usuario']);
-                    require $_SERVER['DOCUMENT_ROOT'] . "/controladores/pprincipal.php";
+                    require $_SERVER['DOCUMENT_ROOT'] . "/controladores/paginaPrincipal.php";
                     die();
                 } else {
                     $response = "Contraseña incorrecta.";
@@ -28,7 +28,7 @@
         if($response == "correcto") {
             $_SESSION["usuario"] = array();
             $_SESSION["usuario"]["numEmple"] = $_COOKIE['user'];
-            require $_SERVER['DOCUMENT_ROOT'] . "/controladores/pprincipal.php";
+            require $_SERVER['DOCUMENT_ROOT'] . "/controladores/paginaPrincipal.php";
             die();
         } else { 
             $response = "";

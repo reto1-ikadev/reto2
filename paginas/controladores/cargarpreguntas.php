@@ -15,5 +15,5 @@ if (isset($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0 && $_
 $preguntas = selectPreguntas($page);
 $datos = ["preguntas" => $preguntas, "numPreguntas" => $numPreguntas];
 
-//enviar $preguntas al archivo js pprincipal
+//enviar $preguntas al archivo js paginaPrincipal
 echo json_encode($datos);
