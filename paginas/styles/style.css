@@ -126,7 +126,7 @@ header {
 .notification .box {
     width: 200px;
     height: 250px;
-    background: grey;
+    background: #6297CC;
     position: absolute;
     border-radius: 20px;
     top: 30px;
@@ -136,6 +136,7 @@ header {
     transition: clip-path 0.4s;
     /*Final*/
     overflow-y: auto; /*Nos aparece una barra para subir y bajar*/
+    padding: 20px;
 }
 
 .notification span.activo ~ .box {
@@ -143,15 +144,20 @@ header {
 }
 
 .notification .heading {
-    background: yellow;
+    background: #3E5F80;
     color: black;
     width: 95%;
     height: 40px;
     margin-top: 0.2em;
-    padding-top: 0.5em;
-    padding-left: 0.5em;
+    margin-left: 0.2em;
+    text-align: center;
+    padding-top: 1em;
     border-radius: 18px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.432);
+}
+
+.notification #botonLimpiar {
+    margin-top: 1em;
 }
 
 .msg {
