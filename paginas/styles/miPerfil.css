@@ -238,6 +238,9 @@ div[class='linea']:hover{
 #formelegir > input{
     padding: 0.5em;
 }
+.ver{
+    text-decoration:none;
+}
 @media screen and (max-width: 590px) {
     #aside{
         visibility: collapse;
