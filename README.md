@@ -29,6 +29,10 @@ Una vez se completa el formulario de registro podremos volver atras al login dan
 
 Una vez estamos adentro de la página principal podremos postear preguntas o respuestas a los demás usuarios, al igual que tendremos la opción de poder personalizar el entorno a nuestro gusto.
 
+> Base de datos
+
+Para acceder a la base de datos con phpMyAdmin tenemos que indicar en la url que queremos acceder al localhost pero con el puerto 8000. Es decir así : http://localhost:8000 
+
 ## Requisitos
 
 Para poder hacer funcionar la aplicación web son necesario los siguientes componentes:
