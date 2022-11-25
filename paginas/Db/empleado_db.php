@@ -1,5 +1,6 @@
 <?php 
 require_once "db.php";
+
 function validateLogin($user, $pass) { // esta funcion le devolvera a una variable creada anteriormente llamada 
     // response el resultado de la validación
 
@@ -10,8 +11,8 @@ function validateLogin($user, $pass) { // esta funcion le devolvera a una variab
         // para que así tanto como haya sido escrito por el usuario en la base de 
         // datos como este lo haya escrito en el login sean iguales.
         //$find = $dbConnection->prepare("SELECT numEmple, LOWER(Nombre) FROM empleado WHERE nombre = ?");
-        $dbConnection = connect();
-        $find = $dbConnection->prepare("SELECT numEmple FROM empleado WHERE numEmple = ?");
+        $dbh = connect();
+        $find = $dbh->prepare("SELECT numEmple FROM empleado WHERE numEmple = ?");
         $find->execute([$user]);
         $data = $find->fetch(PDO::FETCH_ASSOC);
         if($data == false) {
@@ -19,7 +20,7 @@ function validateLogin($user, $pass) { // esta funcion le devolvera a una variab
         }
         $userFind = $data['numEmple'];
 
-        $find = $dbConnection->prepare("SELECT pass FROM empleado WHERE numEmple = ?");
+        $find = $dbh->prepare("SELECT pass FROM empleado WHERE numEmple = ?");
         
         $find->execute([$user]);
         $data = $find->fetch(PDO::FETCH_ASSOC);
@@ -30,6 +31,7 @@ function validateLogin($user, $pass) { // esta funcion le devolvera a una variab
         
         //if($userFind == strtolower($user)){
         if($userFind == $user) {
+            
             return password_verify($pass, $passFind);
         } 
     } catch(PDOException $e) {
@@ -53,6 +55,7 @@ function registerUser($name, $surname, $email, $numEmp, $pass, $depar) {
             }
             $stmt = $dbh->prepare("INSERT into empleado (numEmple, nombre, apellidos, pass, correo, departamento) values (:numEmp, :name, :surname, :pass, :email, :depar)");
             $stmt->execute(['numEmp' => $numEmp, 'name' => $name, 'surname' => $surname, 'pass' => password_hash($pass, PASSWORD_DEFAULT), 'email' => $email, 'depar' => $depar]);
+            
             return "Registrado correctamente.";
         }
         catch(PDOException $e){
@@ -70,6 +73,7 @@ function selectUsuarioById($numEmple){
         "numEmple" => $numEmple
     );
     $stmt->execute($data);
+    
     return $stmt->fetchObject();
 }
 
@@ -82,6 +86,7 @@ function selectNombreEmpleadoById($empleado){
         "numEmple" => $empleado
     );
     $stmt->execute($data);
+    
     return $stmt->fetchObject();
 }
 
@@ -93,6 +98,7 @@ function updateUsuario($correo,$numEmple){
       "correo"=>$correo,
       "numEmple"=>$numEmple
     );
+    
     return $stmt->execute($data); 
   }
     
@@ -113,6 +119,7 @@ function updateUsuario($correo,$numEmple){
       $usuarioDevuelto = $row['numEmple'];
       //array_push($usuarios, $usuarioDevuelto);
     }}
+    
     if(isset($usuarioDevuelto)){
       return $usuarioDevuelto;
     }else{
@@ -120,3 +127,21 @@ function updateUsuario($correo,$numEmple){
     }
     
   }
+
+  function recoverPass($dbh, $numEmple, $newPass) {
+    try{
+        if(!is_numeric($numEmple)) {
+            return "El numero de empleado solo puede contener numeros.";
+        }
+
+        $find = $dbh->prepare("UPDATE empleado SET pass = ? WHERE numEmple = ?");
+        $result = $find->execute([password_hash($newPass, PASSWORD_DEFAULT), $numEmple]);
+        if($result) {
+            return "Contraseña cambiada correctamente.";
+        }
+        return "Contraseña no cambiada.";
+    }
+    catch(PDOException $e){
+        echo $e->getMessage();
+    }   
+}

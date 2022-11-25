@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,7 @@
             <div id="titulo">
                    <h3> REGISTRO </h3> <span class="material-symbols-outlined"> how_to_reg </span>
             </div>
-            <form id="formulario">
+            <form id="formulario" method="POST" action="#">
                 <div id="nombreDiv">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre">
@@ -35,11 +35,11 @@
                 </div>
                 <div id="passDiv">
                     <label for="pass">Contraseña</label>
-                    <input type="password" id="pass"name="pass">
+                    <input type="password" id="pass" name="pass">
                 </div>
                 <div id="deptDiv">
                     <label for="depart">Departamento</label>
-                    <select id="dept">
+                    <select name="depar" id="dept">
                         <option name="1" value="1">1</option>
                         <option name="2" value="2">2</option>
                         <option name="3" value="3">3</option>
@@ -48,18 +48,26 @@
                     </select>
                 </div>
                 <div id="bot">
-                    <input type="submit" id="aceptar" class="boton" value="Aceptar">
+                    <input type="submit" id="aceptar" class="boton" name="aceptar" value="Aceptar">
                     <input type="button" id="borrar" class="boton" value="Borrar">
+                    <?php
+
+                        if($response != "nothing") {
+                            echo $response;
+                        }
+
+                    ?>
                 </div>
                 
             </form>
                 <div id="volv">
-                    <form action="../controladores/login.php">
+                    <form action="../controladores/login.php" method="POST">
                         <button class="boton" id="volver">Volver <span class="material-symbols-outlined"> keyboard_return </span> </button>
                     </form>
                 </div>
         </div>
     </body>
-    <script src="../js/registro.js"></script>
+    <!--<script src="../js/registro.js"></script>-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/cambioPreferencias.js"></script>
 </html>

@@ -1,8 +1,6 @@
 <?php
 //Con estas líneas se muestran los errores de php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 session_start();//Para poder utilizar la sesion
 include_once "../Db/empleado_db.php";
@@ -10,16 +8,26 @@ include_once "../Db/pregunta_db.php";
 include_once "../Db/respuesta_db.php";
 include_once "../Db/favoritos_db.php";
 
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
+    if(isset($_GET['idF'])){
+        $id = $_GET['idF'];
         $numEmple = $_SESSION["usuario"]["numEmple"];
-            deleteFav($id,$numEmple); 
-            require_once 'miPerfil.php';
+            deletePregFav($id,$numEmple); 
+            //require_once 'miPerfil.php';
     }
-
+    if(isset($_GET['idR'])){
+        $id = $_GET['idR'];
+        $numEmple = $_SESSION["usuario"]["numEmple"];
+            deleteRespFav($id,$numEmple); 
+            //require_once 'miPerfil.php';
+    }
+    if(isset($_GET['idB'])){
+        $id = $_GET['idB'];
+        deletePregunta($id); 
+        //require_once 'miPerfil.php';
+    }
     
     //Si recibimos accion. SIEMPRE VAMOS A RECIBIRLA, PORQUE ESTÁ EN LA RUTA
-    if(isset($_GET["accion"]) && $_GET["accion"] == 'cargar'){
+    
         if(!isset($_SESSION['usuario']['nombre'])){
         
             
@@ -34,11 +42,10 @@ include_once "../Db/favoritos_db.php";
 
         $misPreguntas = selectPreguntasUsuario($numEmple);
         
-    }
+    
     if(isset($_GET['accion2'])&& $_GET['accion2']!=''){
         $id = $_GET['id'];
     }
-
     //AÑADIR MIS PREGUNTAS.
     /**
      * Funcion que añade a session los datos del usuario
@@ -47,6 +54,12 @@ include_once "../Db/favoritos_db.php";
         foreach ($datos as $key => $value) {
             $_SESSION[$key] = $value;
         }
+
+        $misPreguntas = selectPreguntasUsuario($numEmple);
+        
+    }
+    if(isset($_GET['accion2'])&& $_GET['accion2']!=''){
+        $id = $_GET['id'];
     }
     /**
      * Funcion que nos devuelve los datos del usuario 
@@ -70,26 +83,43 @@ include_once "../Db/favoritos_db.php";
         return $numEmple;
     }
 
-    function mostrarFavoritos($numEmple){
+    function mostrarPreguntasFavoritos($numEmple){
         $preguntas = preguntaFavEmp($numEmple);
         $respuesta ="";
         foreach($preguntas as $pregunta){
             $titulos = selectPreguntaId($pregunta['pregunta_id']);   
             foreach($titulos as $titulo){    
                 $respuesta .= "<div id={$pregunta['pregunta_id']} class=favorito>";
-                $respuesta .= "<p> <h4>{$titulo->titulo}</h4>";
-                $respuesta .= "<div><span id={$pregunta['pregunta_id']} class='material-symbols-outlined fav'>star_rate</span></div>";
-                $respuesta .= "</p>";
+                $respuesta .= "<div class='pregunta'><h4>{$titulo->titulo}</h4>";
+                $respuesta .= "</div><div><a class='ver' href='respuestas.php?id={$pregunta['pregunta_id']}'><span class='material-symbols-outlined'>visibility</span></a>&nbsp;<span id={$pregunta['pregunta_id']} name='favP' class='material-symbols-outlined fav'>delete</span>";
                 $respuesta .= "</div>";
-                $respuesta .= "<br>";
+                $respuesta .= "</div>";
             }
            
         }
         echo $respuesta;
     }
-     
+
+    function mostrarRespuestasFavoritas($numEmple){
+        $respuestas = respuestasFavEmp($numEmple);
+        $salida ="";
+        foreach($respuestas as $respuesta){
+            $contenidos = selectRespuestaIdRespuesta($respuesta['id_respuesta']);   
+            foreach($contenidos as $contenido){    
+                $salida .= "<div id={$respuesta['id_respuesta']} class=favorito>";
+                $salida .= "<div class='pregunta'><h4>{$contenido->contenido}</h4>";
+                $salida .= "</div><div><a class='ver' href='respuestas.php?id={$contenido->pregunta_id}'><span class='material-symbols-outlined'>visibility</span></a>&nbsp;<span id={$respuesta['id_respuesta']} name='favR' class='material-symbols-outlined fav'>delete</span>";
+                $salida .= "</div>";
+                $salida .= "</div>";
+            }
+           
+        }
+        echo $salida;
+    }
+
+    
 
     require_once "../views/miPerfil.view.php";
-?>
+    ?>
 
 

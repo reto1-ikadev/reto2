@@ -11,32 +11,32 @@ $css = [
 <div id="contenedor">
 
     <div id="main">
-        <h4>Mis datos:</h4>
+        <h2>Mis datos:</h2>
         <div class="division">
             <form id="formulario">
                 <!-- Al cargar la pagina se envia el $get accion cargar. Se piden los datos a la bd y se cargan en el value del input -->
                 <div class="lineaF">
                     <label for="nombre">Nº empleado</label>
-                    <input type="text" name="numEmple" value="<?= $_SESSION['numEmple'] ?>" readonly>
+                    <input class='deshabilitado' type="text" name="numEmple" value="<?= $_SESSION['numEmple'] ?>" readonly>
                 </div>
                 <div class="lineaF">
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" value="<?= $_SESSION['nombre'] ?>" readonly>
+                    <input class='deshabilitado' type="text" name="nombre" value="<?= $_SESSION['nombre'] ?>" readonly>
                 </div>
 
                 <div class="lineaF">
                     <label for="apellido">Apellido</label>
-                    <input type="text" name="apellido" value="<?= $_SESSION['apellidos'] ?>" readonly>
+                    <input class='deshabilitado' type="text" name="apellido" value="<?= $_SESSION['apellidos'] ?>" readonly>
                 </div>
 
                 <div class="lineaF">
-                    <label for="correo">eMail</label>
+                    <label for="correo">Email</label>
                     <input type="text" name="correo" value="<?= $_SESSION['correo'] ?>">
                 </div>
 
                 <div class="lineaF">
                     <label for="dept">Departamento</label>
-                    <input type="text" name="dept" value="<?= $_SESSION['departamento'] ?>" readonly>
+                    <input class='deshabilitado' type="text" name="dept" value="<?= $_SESSION['departamento'] ?>" readonly>
                 </div>
 
                 <div id="botones">
@@ -47,15 +47,17 @@ $css = [
             </form>
         </div>
 
-        <h4>Mis preguntas:</h4>
+        <h2>Mis preguntas:</h2>
         <div class="division">
             <?php
             if (isset($misPreguntas)) {
                 foreach ($misPreguntas as $pregunta => $value) { ?>
-                    <div class="pregunta">
-                        <h4><a href="miPerfil.php?accion=cargar&accion2=abrirPregunta&id=<?= $pregunta ?>"><?= $value['titulo']; ?></a></h4>
-                        <div><span class="material-symbols-outlined">delete</span><span class="material-symbols-outlined">edit</span></div>
-                    </div>
+                    <div class="iconos">
+                    <div class="pregunta" onclick="window.location='miPerfil.php?accion2=abrirPregunta&id=<?= $pregunta ?>'">
+                        <h4><?= $value['titulo']; ?></h4>
+                        </div>
+                        <div><span class="material-symbols-outlined"  onclick="window.location='miPerfil.php?idB=<?= $pregunta ?>'">delete</span>
+                    <span id=<?= $pregunta ?> name='edit'  class="material-symbols-outlined">edit</span></div></div>
                     <?php
             if (isset($id) && $id == $pregunta) {
                 foreach ($misPreguntas as $pregunta => $value) { 
@@ -69,6 +71,7 @@ $css = [
                         </div>
                         <div class = 'botonesRespuesta'>
                             <a class="boton" href="respuestas.php?titulo=<?= $value['titulo'] ?>&id=<?= $pregunta ?>">Ver respuestas</a>
+                            <a class="boton" href="miPerfil.php">Cerrar</a>
                             
                         </div>
                     </div>
@@ -84,17 +87,28 @@ $css = [
             ?>
         </div>
 
-        <h4>Mis favoritos:</h4>
-        <div class="division">
-        <?= mostrarFavoritos($_SESSION["numEmple"]) ?>
+        <h2>Mis favoritos:</h2>
+        <div class="division" id="divfavoritos">
+            <form action="" method="post" id="formelegir">
+                 <input type="submit" class="boton" name="someAction" value="Preguntas" /> <input type="submit" class="boton" name="someAction2" value="Respuestas" />
+            </form>
+            <?php
+            if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['someAction']) || isset($_POST['someAction2']))
+            {
+              if(isset($_POST['someAction'])=="Preguntas")
+              {
+                mostrarPreguntasFavoritos($_SESSION['usuario']['numEmple']);
+              }
+              else if(isset($_POST['someAction2'])=="Respuestas")
+              {
+                mostrarRespuestasFavoritas($_SESSION['usuario']['numEmple']);
+              }
+            }?>
         </div>
         <div>
             
     </div>
-        <button class='boton' value='preferencias'>Mostrar preferencias</button>
-        <div class="division" id="pref">
-            
-        </div>
+        
     </div>
 
     <div id="aside">
@@ -103,23 +117,19 @@ $css = [
             <!-- FOTO DE PERFIL -->
             <img src="/img/avatar.png" alt="avatar" class="avatar">
         </div>
-    
-        
-        <!--NOTIFICACIONES -->
-        <div class="division">
-            <div class="notificaciones">
-                <h4>Aquí se generan las notificaciones</h4>
-            </div>
-
+            <h4>Preferencias</h4>
+        <div class="division" id="pref">
+            
         </div>
-
+        
+        
     </div>
 
-    <footer></footer>
 </div>
-<?php require_once 'parcial/footer.php'; ?>
+<?php require 'parcial/footer.php'; ?>
 </body>
 <script src="/js/miPerfil.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </html>

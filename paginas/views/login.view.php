@@ -28,6 +28,11 @@
                 <div id="bot">
                     <input type="submit" name="aceptar" id="aceptar" class="boton" value="ACEPTAR">
                     <input type="button" id="borrar" class="boton" value="BORRAR">
+                    <?php
+                        if($response != "nothing") {
+                            echo $response;
+                        }                    
+                    ?>
                 </div>
                 
             </form>

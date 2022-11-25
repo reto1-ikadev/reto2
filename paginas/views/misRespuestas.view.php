@@ -5,31 +5,50 @@ $css = [
 
 ?>
 <?php require_once 'parcial/header.php';
+include_once "../Db/respuesta_db.php";
+
 ?>
 
 <body>
     <div id="main">
         <div class=pregunta>
             <!--AQUI SE GENERA EL TITULO DE LA PREGUNTA-->
-            <h3><?= $titulo ?></h3>
-            <div class = 'cont'><p><?= $pregunta[$id]['contenido']?></p> </div>
+            <h3><?= $pregunta[0]->titulo ?></h3>
+            <div class = 'cont'><p><?= $pregunta[0]->contenido ?></p> </div>
+            <button class='boton'>Responder</button>
+            <intput type = 'hidden' class = 'oculto' id = <?= $_GET['id'] ?>>
+            
             <!-- Aqui se carga contenido de la pregunta -->
             
-
         </div>
+
         <div class="division">
 
             <p></p>
-            <h4>Respuestas:</h4>
+            <h2>Respuestas:</h2>
 
                 <?php
                     if($respuesta != null){
                         foreach ($respuesta as $id => $value) {?>
                             <div class='interior'>
                                 <div class = 'numEmple'>
-                                    <?="nº empleado " . $value['empleado']. " Nombre: ". $value['nombreEmpleado'] ." ".$value['apellido']?>
+                                   <h3 class ='tituloR'> <?="Nº empleado " . $value['empleado']?></h3><h3><?= "  Nombre: ". $value['nombreEmpleado'] ." ".$value['apellido']?></h3>
+                                   <span name='fav' id='star<?= $value["idRespuesta"] ?>' class='material-symbols-outlined' onclick='agregarRespuestaFavorita("<?= $value["idRespuesta"] ?>")'>star</span>
                                 </div>
-                                <?=  $value['contenido'] ?>
+                                <?=  $value['contenido'] ?> <br>
+                                <?php if(respuestaContieneArchivo($value['idRespuesta'])){
+                                    $idRespuesta = $value['idRespuesta'];
+                                    $idArchivo = buscaridArchivo($idRespuesta);
+                                    $archivo = recojerArchivo($idArchivo);
+                                    $ruta = $archivo[0]->ruta;
+                                    $nombre = $archivo[0]->nombre;
+                                    
+                                    ?><a class="archivos" href="<?= $ruta ?>" download="<?= $nombre ?>">Archivo Adjunto</a>
+                                  <?php  
+                                }
+                                    
+                                    ?>
+
                             </div>  
                     <?php
                     }?>
@@ -43,10 +62,14 @@ $css = [
                 ?>
                 
                 
+        </div> 
+        <div class="enlaces">
+        <a class='boton' href="paginaPrincipal.php">Inicio</a> &nbsp;<a class='boton' href="miPerfil.php?accion=cargar">Mi Perfil</a>
         </div>
-        <a class='boton' href="miPerfil.php?accion=cargar">Volver</a>
-
     </div>
 
     <?php require_once 'parcial/footer.php'; ?>
+    <script src="../js/cambioPreferencias.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/misRespuestas.js"></script>
 </body>

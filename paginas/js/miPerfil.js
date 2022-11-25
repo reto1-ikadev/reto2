@@ -2,21 +2,52 @@
 
 console.log("fichero miPerfil.js");
 var cookPref;
-var fav = document.getElementsByName("fav");
+var fav = document.getElementsByName("favP");
 for (var i = 0; i < fav.length; i++) {
   fav[i].addEventListener("click", function () {
     var id = this.id;
-    alert(id);
     var datos = id;
-    var accion = "cargar";
-    enviarId(datos, accion);
+    enviarPId(datos);
   });
 }
-
-function enviarId(datos, accion) {
-  window.location.href =
-    "/controladores/miPerfil.php?accion=" + accion + "&id=" + datos;
+var fav = document.getElementsByName("favR");
+for (var i = 0; i < fav.length; i++) {
+  fav[i].addEventListener("click", function () {
+    var id = this.id;
+    var datos = id;
+    console.log(datos);
+    enviarRId(datos);
+  });
 }
+//Necesito el id de la pregunta y el listener del lapiz
+var lapiz = document.getElementsByTagName('span');
+var editar;
+for(var i=0; i<lapiz.length;i++){
+  //console.log(lapiz[i].textContent);
+  if(lapiz[i].textContent=='edit'){
+    editar = lapiz[i];
+    editar.addEventListener('click', abrirVentanaPregunta);
+  }
+}
+
+
+function abrirVentanaPregunta(event){
+  var idPregunta = event.target.id;
+  console.log(idPregunta);
+  //Ya tengo el id de la pregunta
+  window.open("../controladores/updatePregunta.php?accion=editar&id="+idPregunta, 'Nueva pregunta', 'width=900,height=800');
+  
+}
+
+function enviarPId(datos) {
+  window.location.href =
+    "/controladores/miPerfil.php?idF=" + datos;
+}
+function enviarRId(datos) {
+  window.location.href =
+    "/controladores/miPerfil.php?idR=" + datos;
+}
+
 
 //Guardo el elemento formulario en una variable
 var formulario = document.getElementById("formulario");
@@ -36,7 +67,7 @@ var botones = document.getElementsByClassName("boton");
 
 function comprobarSiExiteLaDivPreferencias(){
     var comprobacion = document.getElementById('formulario2');
-    console.log(comprobacion);
+    //console.log(comprobacion);
 }
 
 /**
@@ -48,43 +79,54 @@ function generarPreferencias(preferencias) {
   //no puede tener return
   console.log("funcion generar preferencias");
   let pref = document.getElementById("pref");
-  let division = document.createElement("div");
-  division.setAttribute("class", "preferencias");
+  let division = document.createElement("form");
+  division.setAttribute("class", "formulario2");
+  division.setAttribute("id", "formulario2");
   division.innerHTML =
-    "<form id='formulario2'>" +
-    "<div>" +
-    "<p>Tipo de fuente:</p>" +
-    "<div>" +
-    "<input type='radio' name='fuente' id='courier' value = 'courier'>" +
-    "<label for='courier'>Maquina de escribir</label>" +
-    "</div>" +
-    "<div>" +
-    "<input type='radio' name='fuente' id='arial' value = 'arial'>" +
-    "<label for='arial'>Clasica</label>" +
-    "</div>" +
-    "<div>" +
-    "<input type='radio' name='fuente' id='cursiva' value = 'cursiva'>" +
-    "<label for='cursiva'>Cursiva</label>" +
-    "</div>" +
-    "<div>" +
-    "<input type='radio' name='fuente' id='roboto' value = 'roboto' checked>" +
-    "<label for='roboto'>Por defecto</label>" +
-    "</div>" +
-    "<div>" +
-    "<p>Color de la fuente:</p>" +
-    "<input type='color' name='color' id='color' value='"+preferencias[1]+"'>" +
-    "</div>" +
-    "<div>" +
-    "<p>Tamaño de la letra:</p>" +
-    "<input type='range' name = 'size' id= 'size' min ='10' max = '20' value='"+preferencias[2]+"'>" +
-    "</div>" +
-    "<div>" +
-    "<button class='boton' id='enviarPref' type='submit'>Enviar</button>" +
-    "</div>" +
-    "</form>";
+    
+        "<h4>Tipo de fuente:</h4>" +
+
+        "<div class='linea'>" +
+          "<label for='courier'>Maquina de escribir</label>" +
+          "<input type='radio' name='fuente' id='courier' value = 'courier'>" +
+          
+        "</div>" +
+
+        "<div class='linea'>" +
+            "<label for='arial'>Clasica</label>" +
+            "<input type='radio' name='fuente' id='arial' value = 'arial'>" +
+            
+        "</div>" +
+
+        "<div class='linea'>" +
+          "<label for='cursiva'>Cursiva</label>" +
+            "<input type='radio' name='fuente' id='cursiva' value = 'cursiva'>" +
+            
+        "</div>" +
+        "<div class='linea'>" +
+          "<label for='roboto'>Por defecto</label>" +
+            "<input type='radio' name='fuente' id='roboto' value = 'roboto' checked>" +
+            
+        "</div>" +
+        "<div class='lineaA'>" +
+            "<h4>Color de la fuente:</h4>" +
+            "<input type='color' name='color' id='color' value='"+preferencias[1]+"'>" +
+        "</div>" +
+        "<div class= 'lineaA' >" +
+            "<h4>Tamaño de la letra:</h4>" +
+            "<input type='range' name = 'size' id= 'size' min ='10' max = '20' value='"+preferencias[2]+"'>" +
+        "</div>" +
+        "<div class='botones'>" +
+          "<button class='boton' id='enviarPref' type='submit'>Enviar</button>";
   pref.appendChild(division);
   var botonEnviar = document.getElementById("enviarPref");
-  console.log(botonEnviar);
+  //console.log(botonEnviar);
+  var tipoLetra = preferencias[0];
+  //console.log(tipoLetra + 'TIPO LETRA');
+  var prueba = document.getElementById(preferencias[0]);
+  //console.log(prueba);
+  prueba.checked = true;
+  
   enviarPreferencias(botonEnviar);
   
 }
@@ -99,7 +141,7 @@ function enviarPreferencias(botonEnviar) {
     var prueba = cookPref.split("=");
     var guardarPreferecias = prueba[1];
     var preferencias = guardarPreferecias.split(",");
-    console.log(preferencias);
+    //console.log(preferencias);
     cambiarPreferencias(preferencias);
   });
 }
@@ -114,49 +156,49 @@ function guardarPreferencias() {
   //Obtengo todos los inputs del formulario
   var formulario = document.getElementById("formulario2");
   var inputsFormulario = formulario.querySelectorAll("input");
-  console.log(inputsFormulario);
+  //console.log(inputsFormulario);
   //Consigo un array con los radios
   radios = obtenerRadios(inputsFormulario);
-  console.log(radios);
+  //console.log(radios);
   //Obtengo el valor del radio seleccionado
   var fuente = obtenerValorFuente(radios);
-  console.log(fuente);
+  //console.log(fuente);
   //obtenerColor
   var color = obtenerColor(inputsFormulario);
-  console.log(color);
+ // console.log(color);
   //obtener tamaño
   var fontSize = obtenerSize(inputsFormulario);
-  console.log(fontSize);
+  //console.log(fontSize);
 
   /*Creo una cadena con los datos que ha seleccionado el usuario para crear una cookie */
   var cadenaPreferencias = '' + fuente + "," + color + "," + fontSize + '';
-  console.log(cadenaPreferencias);
+  //console.log(cadenaPreferencias);
 
   document.cookie =
     "preferencias = " + cadenaPreferencias + "; max-age=360000;path=/";
   var cooks = document.cookie;
-  console.log(cooks);
+  //console.log(cooks);
   let arrayCookies = cooks.split(";");
-  console.log(arrayCookies);
+  //console.log(arrayCookies);
   var expRegPref = new RegExp("preferencias");
   for (var cook of arrayCookies) {
     if (expRegPref.test(cook)) {
       var cookPref = cook;
-      console.log(cook);
+    //  console.log(cook);
     }
   }
   return cookPref;
 }
 function obtenerCookie() {
   var cooks = document.cookie;
-  console.log(cooks);
+  //console.log(cooks);
   let arrayCookies = cooks.split(";");
-  console.log(arrayCookies);
+ // console.log(arrayCookies);
   var expRegPref = new RegExp("preferencias");
   for (var cook of arrayCookies) {
     if (expRegPref.test(cook)) {
       var cookPref = cook;
-      console.log(cook);
+   //   console.log(cook);
     }
   }
     var prueba = cookPref.split("=");
@@ -189,7 +231,7 @@ function obtenerColor(inputsFormulario) {
  */
 function obtenerValorFuente(radios) {
   let i = 0;
-  console.log(radios.length);
+  //console.log(radios.length);
   for (i; i < radios.length && !radios[i].checked; i++) {}
   if (i < radios.length) {
     var fuenteElegida = radios[i].value;
@@ -210,32 +252,34 @@ function obtenerRadios(inputsFormulario) {
   return radios;
 }
 
+/**Cambia el css para modificar las preferencias elegidas por el usuario */
 function cambiarPreferencias(preferencias) {
-  console.log(preferencias[0]);
+ // console.log(preferencias[0]);
   document.querySelector("body").style.fontFamily = preferencias[0];
   document.querySelector("body").style.color = preferencias[1];
-  document.querySelector("body").style.fontSize = parseInt(preferencias[2]);
+  document.querySelector("body").style.fontSize = (parseInt(preferencias[2])/16)+"em";
+
 }
 
 /**Esta funcion valida los datos. Retorna false si hay algun dato incorrecto*/
 function validar(datos) {
   try {
     var accion = datos.get("accion");
-    console.log(accion);
+   // console.log(accion);
 
     var datosOk = true;
     var campoIncorrecto = "";
 
     var correo = datos.get("correo");
-    console.log(correo);
+   // console.log(correo);
     var expRegCorreo = new RegExp(
       /[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}/
     );
 
-    if (correo == "" || !expRegCorreo.test(correo)) {
-      datosOk = false;
-      campoIncorrecto += " correo";
-    }
+        if(correo == "" || !expRegCorreo.test(correo) ){
+            datosOk = false;
+            campoIncorrecto += " correo";
+        }
     if (!datosOk) {
       throw "El/los campo(s) " + campoIncorrecto + " no es correcto";
     }
@@ -245,9 +289,9 @@ function validar(datos) {
   }
 }
 
-//Esta funcion envia los datos a main.php y recibe una respuesta
+//Esta funcion envia los datos del formulario con los datos del usuario a main.php y recibe una respuesta
 async function enviarDatos(datos) {
-  let response = await fetch("/controladores/main.php", {
+  let response = await fetch("/controladores/actualizarUsuario.php", {
     method: "POST",
     body: datos,
   });
