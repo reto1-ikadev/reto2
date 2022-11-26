@@ -1,4 +1,5 @@
 "use strict";
+
 var idPregunta = document.getElementById('idPregunta').value;
 console.log(idPregunta)
 
@@ -25,8 +26,6 @@ recibirDatos(idPregunta).then(function(data){
             radio[x].checked = true;
         }
     }
-
-
 });
 }
 cargarDatos();
