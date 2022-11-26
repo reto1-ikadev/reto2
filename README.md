@@ -17,6 +17,8 @@ Ya existe un usuario de prueba que se puede usar para ver como sería la aplicac
 Este es su numero de empleado : 12345
 Y esta es su contraseña: Jm12345
 
+> En caso de querer usarla como un nuevo usuario siga estas otras instrucciones.
+
 Para poder usar la aplicación web es necesario crearse un usuario empleado.
 
 > Para crear un usuario empleado hay que registrarse en el login donde encontraremos el botón "Registrarme"
@@ -26,6 +28,10 @@ Una vez se completa el formulario de registro podremos volver atras al login dan
 > Una vez se inicia sesión nos preguntará si podremos almacenar cookies en el navegador, en caso de que se rechace esta operación el reconocimiento de auto inicio de sesión no estará disponible.
 
 Una vez estamos adentro de la página principal podremos postear preguntas o respuestas a los demás usuarios, al igual que tendremos la opción de poder personalizar el entorno a nuestro gusto.
+
+> Base de datos
+
+Para acceder a la base de datos con phpMyAdmin tenemos que indicar en la url que queremos acceder al localhost pero con el puerto 8000. Es decir así : http://localhost:8000 
 
 ## Requisitos
 
